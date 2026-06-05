@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixer Coin | وب‌سایت رسمی فیکسر کوین</title>
+    <title>FIXER118 | وب‌سایت رسمی فیکسر ۱۱۸</title>
     <style>
         :root {
             --bg-color: #080b11;
@@ -154,3 +154,333 @@
         .btn-copy:hover {
             background: var(--primary);
             color: var(--bg-color);
+        }
+
+        /* Presale Card */
+        .presale-card {
+            flex: 1;
+            min-width: 340px;
+            max-width: 460px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            position: relative;
+        }
+
+        .presale-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--secondary), transparent, var(--primary));
+            border-radius: 24px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .presale-card h3 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            text-align: left;
+            direction: ltr;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+        }
+
+        /* Info Section */
+        .info-section {
+            padding: 100px 8%;
+            background: #0d121c;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            position: relative;
+            background: linear-gradient(to left, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.03);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 204, 0.2);
+        }
+
+        .feature-card h4 {
+            font-size: 20px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Roadmap */
+        .roadmap-section {
+            padding: 100px 8%;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--primary);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -9px; right: auto; border-color: var(--secondary); }
+
+        .timeline-content {
+            padding: 25px;
+            background: var(--card-bg);
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .timeline-content h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .right .timeline-content h4 {
+            color: var(--secondary);
+        }
+
+        .timeline-content p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Responsive Layout */
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 45px; padding-right: 0px; }
+            .timeline-item::after { left: 11px; right: auto; }
+            .right { left: 0; }
+            .hero-container { padding-top: 120px; justify-content: center; text-align: center; }
+            .contract-box { justify-content: center; flex-direction: column; gap: 10px; }
+            .btn-copy { margin-right: 0; width: 100%; }
+            header { padding: 15px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">FIXER118</div>
+        <nav>
+            <a href="#about">مشخصات</a>
+            <a href="#roadmap">نقشه راه</a>
+            <a href="#presale">پیش‌فروش</a>
+        </nav>
+        <button class="btn-connect" onclick="connectWallet()">اتصال کیف پول</button>
+    </header>
+
+    <main>
+        <section class="hero-container" id="presale">
+            <div class="hero-text">
+                <h1>اکوسیستم هوشمند و مالی <br><span>فیکسر ۱۱۸ (FIXER118)</span></h1>
+                <p>پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.</p>
+                
+                <div class="contract-box">
+                    <span class="contract-address" id="contract">0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F</span>
+                    <button class="btn-copy" onclick="copyContract()">کپی آدرس قرارداد</button>
+                </div>
+            </div>
+
+            <div class="presale-card">
+                <h3>پنل خرید پیش‌فروش عمومی</h3>
+                <div class="input-group">
+                    <label>پرداخت بر حسب (USDC)</label>
+                    <input type="number" id="usdcInput" placeholder="0.0" oninput="calculateTokens()">
+                </div>
+                <div class="input-group">
+                    <label>توکن دریافتی (FIXER118)</label>
+                    <input type="text" id="fixerOutput" placeholder="0.0" disabled>
+                </div>
+                <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; margin-top: 10px;">خرید توکن فیکسر</button>
+            </div>
+        </section>
+
+        <section class="info-section" id="about">
+            <h2 class="section-title">ویژگی‌های بنیادی وایت پیپر فیکسر</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>🔒 مکانیزم ضدِ نوسان (Anti-Dump)</h4>
+                    <p>اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>📊 کارمزد پله‌ای بهینه</h4>
+                    <p>سیستم کسر کارمزد کاملاً خودکار و منعطف متصل به صرافی‌های غیرمتمرکز که نقدینگی استخر و پاداش استیکینگ را تامین می‌کند.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>🔵 بستر شبکه بیس (Base)</h4>
+                    <p>بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز و سرعت تراکنش بی‌نظیر شبکه بیس.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="roadmap-section" id="roadmap">
+            <h2 class="section-title">نقشه راه پله‌ای و اهداف قیمت</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4>مرحله ۱: استقرار قرارداد هوشمند</h4>
+                        <p>توسعه، بررسی امنیتی و دیپلوی قرارداد توکن ۱۰ میلیارد عددی در شبکه بیس.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4>مرحله ۲: راه‌اندازی پیش‌فروش پله‌ای</h4>
+                        <p>آغاز جذب سرمایه خرد بر اساس ۱۰ مرحله قیمتی تعیین شده در ساختار توکنومیک.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h4>مرحله ۳: تزریق نقدینگی و فعالسازی کارمزدها</h4>
+                        <p>ساخت جفت‌های معاملاتی (Pairs)، قفل نقدینگی و به کار افتادن سیستم کارمزد در معاملات صرافی.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h4>مرحله ۴: توسعه پلتفرم استیکینگ</h4>
+                        <p>فعالسازی قرارداد پاداش‌دهی و استیکینگ فیکسر برای هولدرهای وفادار پروژه.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 فیکسر ۱۱۸. تمامی حقوق محفوظ است.</p>
+    </footer>
+
+    <script>
+        function copyContract() {
+            var copyText = document.getElementById("contract").innerText;
+            navigator.clipboard.writeText(copyText);
+            alert("آدرس قرارداد FIXER118 کپی شد!");
+        }
+
+        function calculateTokens() {
+            var usdc = document.getElementById("usdcInput").value;
+            var rate = 100; 
+            if(usdc > 0) {
+                document.getElementById("fixerOutput").value = (usdc * rate).toLocaleString() + " FIXER";
+            } else {
+                document.getElementById("fixerOutput").value = "0.0";
+            }
+        }
+
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert("کیف پول با موفقیت متصل شد:\n" + accounts[0]);
+                } catch (error) {
+                    alert("اتصال به کیف پول لغو شد.");
+                }
+            } else {
+                alert("کیف پول هوشمندی (مانند MetaMask) روی مرورگر شما یافت نشد.");
+            }
+        }
+    </script>
+</body>
+</html>
