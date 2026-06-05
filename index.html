@@ -223,10 +223,7 @@
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
         }
 
-        .presale-card h3 {
-            text-align: center;
-            font-size: 22px;
-        }
+        .presale-card h3 { text-align: center; font-size: 22px; }
 
         .presale-info-tag {
             text-align: center;
@@ -240,7 +237,6 @@
         }
 
         .input-group { margin-bottom: 20px; }
-
         .input-group label {
             display: block;
             margin-bottom: 8px;
@@ -291,11 +287,7 @@
             margin-bottom: 4px;
         }
 
-        .db-item b {
-            font-size: 15px;
-            color: var(--primary);
-            font-family: monospace;
-        }
+        .db-item b { font-size: 15px; color: var(--primary); font-family: monospace; }
 
         .ref-input-wrapper {
             display: flex;
@@ -365,12 +357,7 @@
         html[dir="rtl"] .guide-list li { text-align: right; }
         html[dir="ltr"] .guide-list li { text-align: left; }
 
-        .guide-list li::before {
-            content: "⚡";
-            position: absolute;
-            top: 0;
-        }
-
+        .guide-list li::before { content: "⚡"; position: absolute; top: 0; }
         html[dir="rtl"] .guide-list li::before { right: 0; }
         html[dir="ltr"] .guide-list li::before { left: 0; }
 
@@ -429,7 +416,7 @@
         .feature-card h4 { font-size: 20px; color: var(--primary); margin-bottom: 15px; }
         .feature-card p { color: var(--text-muted); font-size: 15px; }
 
-        /* Document Section Styling */
+        /* Documents Card Grid UI */
         .docs-section {
             padding: 60px 8% 100px 8%;
             background: #0b0f19;
@@ -485,48 +472,113 @@
             box-shadow: 0 0 20px var(--primary);
         }
 
-        .doc-card h4 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
+        .doc-card h4 { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 12px; }
+        .doc-card p { font-size: 14px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
 
-        .doc-card p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .btn-download {
+        .btn-read {
             width: 100%;
             background: transparent;
-            border: 1px solid var(--secondary);
-            color: #ffffff;
+            border: 1px solid var(--primary);
+            color: var(--primary);
             padding: 12px 20px;
             border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: 0.3s;
-            text-decoration: none;
             font-size: 15px;
-            display: inline-block;
             text-align: center;
         }
 
-        .btn-download:hover {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
+        .btn-read:hover {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: var(--bg-color);
             border-color: transparent;
-            box-shadow: 0 5px 15px rgba(0, 119, 255, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.3);
         }
+
+        /* LIGHTBOX MEGA-MODAL SYSTEM */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 7, 13, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+        .modal-window {
+            background: #121826;
+            border: 1px solid rgba(255,255,255,0.08);
+            width: 90%;
+            max-width: 850px;
+            max-height: 80vh;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+            transform: scale(0.9);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active .modal-window { transform: scale(1); }
+
+        .modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 { font-size: 24px; font-weight: 800; color: var(--primary); }
+
+        .btn-close-modal {
+            background: rgba(255,255,255,0.05);
+            border: none;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .btn-close-modal:hover { background: #ef4444; color: #fff; }
+
+        .modal-body {
+            padding: 30px;
+            overflow-y: auto;
+            font-size: 16px;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        /* Inside Modal Text Formatting */
+        .modal-body h4 { color: #fff; font-size: 19px; margin-top: 25px; margin-bottom: 10px; border-bottom: 1px dashed rgba(0,255,204,0.1); padding-bottom: 5px;}
+        .modal-body p { margin-bottom: 15px; text-align: justify; }
+        .modal-body ul, .modal-body ol { margin-left: 20px; margin-right: 20px; margin-bottom: 20px; }
+        .modal-body li { margin-bottom: 8px; }
 
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text-muted); }
 
         @media screen and (max-width: 768px) {
             .hero-container { padding-top: 120px; justify-content: center; }
             header { padding: 15px 5%; }
+            .modal-window { width: 95%; max-height: 85vh; }
         }
     </style>
 </head>
@@ -580,7 +632,6 @@
 
                 <div class="presale-card dashboard-box">
                     <h3 id="db-title">📊 Your Account Dashboard</h3>
-                    
                     <div class="db-grid">
                         <div class="db-item">
                             <span id="db-purchased-lbl">Purchased FIXER</span>
@@ -595,7 +646,6 @@
                             <b id="db-bonus">0.0 FIXER</b>
                         </div>
                     </div>
-
                     <h4 style="color: var(--primary); font-size: 15px; margin-top: 15px; text-align: center;" id="ref-title">🔗 Invite & Earn 5% Bonus</h4>
                     <div class="ref-input-wrapper">
                         <div class="ref-link-text" id="ref-link-display">Please connect your wallet first...</div>
@@ -643,7 +693,7 @@
                         <h4 id="doc1-title">Ecosystem Whitepaper</h4>
                         <p id="doc1-desc">Complete project manual detailing the financial philosophy, dynamic system, and decentralized media infrastructure.</p>
                     </div>
-                    <a href="وایت پیپر فیکسر کوین.docx" download class="btn-download" id="doc1-btn">Download Whitepaper</a>
+                    <button class="btn-read" onclick="openModal('whitepaper')" id="doc1-btn">Read Whitepaper</button>
                 </div>
 
                 <div class="doc-card">
@@ -652,7 +702,7 @@
                         <h4 id="doc2-title">Technical Specification</h4>
                         <p id="doc2-desc">Deep architecture breakdown including the 51-tier reversibility tax protocol, accounting limits, and smart protections.</p>
                     </div>
-                    <a href="شناسنامه فنی و توکنومیکس فیکسر.docx" download class="btn-download" id="doc2-btn">Download Tech Spec</a>
+                    <button class="btn-read" onclick="openModal('tech')" id="doc2-btn">Read Tech Spec</button>
                 </div>
 
                 <div class="doc-card">
@@ -661,18 +711,179 @@
                         <h4 id="doc3-title">Strategic Roadmap</h4>
                         <p id="doc3-desc">Strategic timeline from initial deployment and token burns to CEX listings and international merchant trade utility.</p>
                     </div>
-                    <a href="نقشه راه استراتژیک پروژه فیکسر کوین.docx" download class="btn-download" id="doc3-btn">Download Roadmap</a>
+                    <button class="btn-read" onclick="openModal('roadmap')" id="doc3-btn">Read Roadmap</button>
                 </div>
 
             </div>
         </section>
     </main>
 
+    <div class="modal-overlay" id="doc-modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h3 id="modal-window-title">Document Title</h3>
+                <button class="btn-close-modal" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modal-window-body">
+                </div>
+        </div>
+    </div>
+
     <footer>
         <p id="footer-text">© 2026 Fixer Coin. All Rights Reserved.</p>
     </footer>
 
     <script>
+        // FULL ARCHIVE DATABASE INJECTED FOR DYNAMIC MULTILINGUAL DISPLAY
+        const docDatabase = {
+            fa: {
+                whitepaper: {
+                    title: "وایت پیپر رسمی فیکسر کوین (FIXER)",
+                    body: `<h4>خلاصه مدیریتی (Abstract)</h4>
+                    <p>در فضای به شدت در حال تغییر امور مالی غیرمتمرکز (DeFi)، نوسانات شدید بازار، تخلیه ناگهانی توکن‌ها توسط ربات‌های معامله‌گر و نگاه‌های کوتاه‌مدت نوسان‌گیران، همواره تهدیدهایی حیاتی برای توکن‌های تازه‌راه‌اندازی شده به شمار می‌روند. فیکسر کوین (FIXER) با معرفی یک مکانیزم هوشمند، تغییر بزرگی در قوانین توکنومیکس ایجاد کرده است: سیستم کارمزد پله‌ای پویای مبتنی بر قرارداد هوشمند غیرقابل‌تغییر.</p>
+                    <p>فیکسر کوین که روی شبکه لایه دو فوق‌سریع و ارزان اتریوم (شبکه بیس - Base Chain)، پیاده‌سازی شده، به طور هماهنگ نفوذ رسانه‌ای بومی (بر بستر رسانه فیکسر نیوز) را با یک ساختار مالیاتی کاهشی ۵۰ پله‌ای پیوند می‌زند. این زیرساخت در مراحل اولیه پروژه از نقدینگی استخر محافظت کرده و با رسیدن به بلوغ قیمتی، به یک دارایی کاملاً بدون کارمزد تبدیل می‌شود تا بستری قابل اعتماد برای هولدرها، معامله‌گران و مأموریت‌های تجاری در دنیای واقعی ایجاد کند.</p>
+                    <h4>۱. مقدمه و فلسفه بازار</h4>
+                    <p>مدل‌های سنتی عرضه توکن به شدت در برابر حملات سیستماتیک آسیب‌پذیر هستند. استخرهای نقدینگی اولیه بارها توسط اسکریپت‌های معاملاتی سفته‌بازانه پیشرفته (مانند ربات‌های ساندویچی MEV) و نوسان‌گیران کوتاه‌مدت تخلیه می‌شوند که این امر منجر به ریزش‌های ساختگی قیمت و متعاقباً وحشت و فروش دارایی‌ها توسط سرمایه‌گذاران خرد می‌گردد. فیکسر کوین به صورت بنیادی این نقص ساختاری را از طریق مهار نوسانات و همسو کردن منافع مادی هولدرها حل می‌کند.</p>
+                    <h4>۲. یکپارچه‌سازی رسانه‌ای و پلتفرم فیکسر نیوز</h4>
+                    <p>برخلاف توکن‌های بدون پشتوانه، ارزش فیکسر کوین ریشه در یک موتور تولید توجه و رسانه بومی دارد. رسانه «فیکسر نیوز» به عنوان ارگان رسمی اطلاع‌رسانی اکوسیستم، با بهره‌گیری از ربات‌های خودکار ردیابی قیمت و شفافیت آن‌چین، اخبار اقتصادی منطقه و روند رشد پروژه را پوشش می‌دهد و تقاضای واقعی برای توکن را تضمین می‌کند.</p>
+                    <h4>۳. سیستم کارمزد پله‌ای معکوس</h4>
+                    <p>معماری مالیاتی فیکسر کوین شامل ۵۱ پله قیمتی ریاضی است. در زمان لانچ پروژه و در کف قیمتی مشخص شده، کارمزد فروش بر روی ۵۰٪ تنظیم گردیده است. با هر پله رشد قیمت توکن، این کارمزد به صورت خطی کاهش می‌یابد. این فرمول منحصربه‌فرد، سودآوری نوسان‌گیری با اسکریپت‌ها را کاملاً غیرممکن ساخته و سرمایه‌گذاران را به نگهداری بلندمدت ترغیب می‌کند.</p>
+                    <h4>۴. سلب مسئولیت</h4>
+                    <p>سرمایه‌گذاری در بازار ارزهای دیجیتال شامل ریسک‌های بالایی است. این مستندات به هیچ عنوان توصیه مالی، حقوقی یا سرمایه‌گذاری نبوده و کاربران باید قبل از مشارکت، تحقیقات مستقل و کامل خود را انجام دهند.`
+                },
+                tech: {
+                    title: "شناسنامه فنی و توکنومیکس فیکسر",
+                    body: `<h4>۱. هویت و مشخصات فنی (Token Identity)</h4>
+                    <ul>
+                        <li><b>نام ارز:</b> فیکسر (Fixer)</li>
+                        <li><b>نماد اختصاری:</b> FIXER</li>
+                        <li><b>عرضه کل (Total Supply):</b> ۱۰,۰۰۰,۰۰۰,۰۰۰ (۱۰ میلیارد توکن ثابت، بدون قابلیتِ تولید مجدد یا Mint).</li>
+                        <li><b>شبکه میزبان:</b> بلاک‌چین لایه دو بیس (Base Chain).</li>
+                        <li><b>استاندارد پیاده‌سازی:</b> ERC-20 (توسعه‌یافته بر اساس استانداردهای امنیتی OpenZeppelin).</li>
+                    </ul>
+                    <h4>۲. ساختار توزیع توکن‌ها (Tokenomics)</h4>
+                    <p>عرضه ۱۰ میلیارد توکن پروژه به ۳ بخش استراتژیک تقسیم شده است:</p>
+                    <ul>
+                        <li><b>کیف‌پول شماره ۱ (مالک):</b> ذخایرِ تزریق پویا و توسعه اکوسیستم.</li>
+                        <li><b>کیف‌پول شماره ۲:</b> تخصیص کامل بخش نقدینگی و پنل پیش‌فروش عمومی.</li>
+                        <li><b>کیف‌پول شماره ۳:</b> صندوق خودکار انباشت و تبدیل کارمزدها (AutoSwap).</li>
+                    </ul>
+                    <h4>۳. مکانیزم کارمزد فروش پله‌ای (Dynamic Step-Tax System)</h4>
+                    <p><b>منطق کارمزد:</b> با رشد قیمت از کف قیمتی مشخص‌شده ($0.00000125) به سمت سقف قیمتی هدف ($0.00128000)، کارمزد فروش از ۵۰٪ به صورت کاملاً خطی کاهش یافته و در نهایت به ۰٪ می‌رسد.</p>
+                    <p><b>سیستم بازگشت‌پذیری پویا:</b> این فرمول کاملاً دوطرفه است؛ در صورتی که تحت شرایط بازار قیمت دارایی افت کند، قرارداد هوشمند فوراً کارمزد متناسب با پله قیمتی جدید را مجدداً اعمال می‌کند تا از استخر نقدینگی در برابر ریزش‌های آبشاری محافظت کند.</p>
+                    <h4>۴. مکانیزم حسابداری غیرمتمرکز (Threshold-Based Logic)</h4>
+                    <p>به منظور بهینه‌سازی مصرف گس‌فی (Gas Efficiency) و حفظ پایداری شبکه، کارمزدهای حاصل از معاملات به شکل زیر مدیریت می‌شوند:</p>
+                    <ul>
+                        <li><b>فاز انباشت:</b> کارمزدهای کسر شده، ابتدا به صورت توکن در صندوق امنِ خودِ قرارداد هوشمند جمع‌آوری می‌شوند.</li>
+                        <li><b>اجرای حد نصاب:</b> به محض اینکه موجودی توکن‌های داخل قرارداد به مرز <b>۲,۰۰۰,۰۰۰ توکن (2M FIXER)</b> برسد، در اولین تراکنش فروش بعدی، سیستم عملیات تفکیک خودکار (Auto-Swap & Split) را اجرا می‌کند:</li>
+                        <li><b>۳۵٪ سهم نقدینگی و مارکتینگ:</b> به صورت خودکار به ارز پایه (ETH) تبدیل شده و به کیف‌پول شماره ۳ واریز می‌شود.</li>
+                        <li><b>۶۵٪ سهم اکوسیستم:</b> مستقیم و بدون واسطه به کیف‌پول شماره ۱ منتقل می‌شود تا فشار فروش کاملاً از استخر نقدینگی حذف شود.</li>
+                    </ul>
+                    <h4>۵. ابزارهای مدیریتی و لایه‌های حفاظتی (Smart Security)</h4>
+                    <ul>
+                        <li><b>مکانیزم ضد نهنگ (Anti-Whale):</b> اعمال محدودیت هوشمند برای حداقل معاملات (۱۰ میلیون توکن) و حداکثر حجم تراکنش (۲۰۰ میلیون توکن) جهت مسدودسازی دستکاری قیمت.</li>
+                        <li><b>لیست سیاه دفاعی (Blacklist):</b> قابلیت مسدودسازی آدرس ربات‌های ساندویچی مخرب و مهاجم (MEV Bots) بدون ایجاد اختلال در تراکنش کاربران عادی.</li>
+                    </ul>`
+                },
+                roadmap: {
+                    title: "نقشه راه استراتژیک پروژه فیکسر کوین",
+                    body: `<h4>🔹 فاز ۱: فونداسیون، امنیت مطلق و راه‌اندازی</h4>
+                    <p><b>دیپلوی و قفل قرارداد:</b> انتشار کد نهایی فیکسر کوین روی بلاک‌چین بیس (Base) مجهز به لایه امنیتی ضد هک و فرمول ۵۰ پله‌ای کارمزد معکوس.</p>
+                    <p><b>تأمین مالی اولیه (Presale):</b> عرضه ۲ میلیارد توکن جهت جذب سرمایه‌گذاران اولیه و شکل‌گیری جامعه هولدرها.</p>
+                    <p><b>تزریق نقدینگی به آیرودروم (Aerodrome):</b> انتقال ۱ میلیارد توکن به همراه نقدینگی بیس به صرافی غیرمتمرکز آیرودروم و قفل کردن ابدی توکن‌های استخر (LP Tokens).</p>
+                    <p><b>راه‌اندازی رسانه فیکسر نیوز:</b> استارت رسمی کانال اطلاع‌رسانی پروژه و متصل کردن ربات‌های اتوماتیکِ نمایش لحظه‌ای قیمت.</p>
+                    
+                    <h4>🔹 فاز ۲: تثبیت مارکت و فعال‌سازی موتورهای مالی</h4>
+                    <p><b>ثبت در پلتفرم‌های مرجع:</b> ایجاد پروفایل رسمی و لیست شدن در وب‌سایت‌های مرجع CoinMarketCap و CoinGecko جهت رهگیری استاندارد داده‌ها.</p>
+                    <p><b>فعال‌سازی اتوماسیون مالی:</b> کلید خوردن حد نصاب ۲ میلیون توکنی قرارداد جهت اجرای خودکار تفکیک کارمزدها (واریز ۳۵٪ به ولت شماره ۳ و ۶۵٪ به ولت شماره ۱).</p>
+                    <p><b>راه‌اندازی پلتفرم پاداش (Staking):</b> فعال‌سازی بخش استیکینگ در سایت جهت پرداخت پاداش‌های جذاب به هولدرهای وفادار.</p>
+                    
+                    <h4>🔹 فاز ۳: سلطه رسانه‌ای و توکن‌سوزی‌های ۱۰ پله‌ای</h4>
+                    <p><b>کمپین‌های تبلیغاتی ویرال:</b> آغاز مارکتینگ گسترده و هدفمند در پلتفرم‌های اینستاگرام و تلگرام جهت گسترش هولدرها.</p>
+                    <p><b>اجرای توکن‌سوزی‌های دستی (Manual Burn):</b> آغاز عملیات‌های بزرگ سوزاندن توکن از محل سهم کارمزدها (ذخیره شده در ولت ۱) جهت ایجاد شوک صعودی قدرتمند در نمودار قیمت.</p>
+                    <p><b>جذب سرمایه‌گذاران کلان:</b> با عبور قیمت از پله‌های میانی و کاهش چشمگیر کارمزد فروش، فضا برای ورود خریداران حقوقی و بزرگ باز می‌شود.</p>
+                    
+                    <h4>🔹 فاز ۴: کارمزد صفر، نقدشوندگی مطلق و توسعه بین‌المللی</h4>
+                    <p><b>فتح سقف قیمتی ($0.00128000):</b> لمس نقطه هدف نهایی، صفر شدن کامل، ابدی و برگشت‌ناپذیر کارمزد معاملات و آزادسازی مطلق توکن در بازار آزاد.</p>
+                    <p><b>لیست شدن در صرافی‌های متمرکز (CEX Listing):</b> هدایت فیکسر کوین به صرافی‌های متمرکز رتبه اول بین‌المللی (Tier-1) به عنوان یک دارایی پرحجم و بدون کارمزد.</p>
+                    <p><b>کاربرد تجاری در دنیای واقعی:</b> ادغام کامل توکن فیکسر به عنوان یک ابزار مالی معتبر برای حواله‌های بین‌المللی، لجستیک مرزی و تسویه‌های تجاری در سطح منطقه.</p>`
+                }
+            },
+            en: {
+                whitepaper: {
+                    title: "Official Fixer Coin Whitepaper (FIXER)",
+                    body: `<h4>Executive Summary (Abstract)</h4>
+                    <p>In the rapidly shifting landscape of Decentralized Finance (DeFi), extreme market volatility, sudden token dumps by algorithmic trading bots, and short-sighted speculation pose existential threats to newly launched projects. FixerCoin (FIXER) introduces a paradigm shift in tokenomics through an innovative mechanism: an immutable, smart contract-driven dynamic tiered fee system.</p>
+                    <p>Deployed on Ethereum’s ultra-fast and low-cost Layer-2 network (Base Chain), FixerCoin seamlessly bridges native localized media influence (powered by the Fixer News platform) with a 50-step diminishing tax infrastructure. This architecture shields pool liquidity during the project's nascent stages and transitions into a completely zero-fee asset upon reaching price maturity.</p>
+                    <h4>1. Introduction and Market Philosophy</h4>
+                    <p>Traditional token launch models are highly vulnerable to systematic exploits. Initial liquidity pools are frequently front-run and drained by sophisticated speculative scripts (such as MEV sandwich bots), leading to artificial price crashes. FixerCoin addresses this structural flaw by curbing short-term volatility and aligning long-term incentives for all holders.</p>
+                    <h4>2. Media Integration & Fixer News</h4>
+                    <p>Unlike purely speculative assets, FixerCoin's utility is backed by a native media attention engine. Fixer News acts as the official ecosystem medium, integrating automated on-chain tracking bots to guarantee public transparency while fueling organic local and international market demand.</p>
+                    <h4>3. Reverse Step-Tax System</h4>
+                    <p>The core tax architecture features 51 rigorous mathematical price tiers. At launch floor price, the sell tax is locked at 50%, decreasing linearly with each successful upward milestone. This formula negates automated bot profitability and protects long-term ecosystem supporters.</p>
+                    <h4>4. Disclaimer</h4>
+                    <p>Cryptocurrency investments carry high market risk. This document does not constitute financial, investment, or legal advice. Perform thorough independent research before participating.</`
+                },
+                tech: {
+                    title: "Technical Specification & Tokenomics",
+                    body: `<h4>1. Technical Identity</h4>
+                    <ul>
+                        <li><b>Token Name:</b> Fixer</li>
+                        <li><b>Ticker Symbol:</b> FIXER</li>
+                        <li><b>Total Supply:</b> 10,000,000,000 (10 Billion tokens, fixed supply, non-mintable).</li>
+                        <li><b>Blockchain:</b> Base Network (L2).</li>
+                        <li><b>Standard:</b> ERC-20 (Built using OpenZeppelin security frameworks).</li>
+                    </ul>
+                    <h4>2. Token Allocation (Tokenomics)</h4>
+                    <p>The 10 billion fixed supply is distributed across three strategic operational modules:</p>
+                    <ul>
+                        <li><b>Wallet #1 (Owner):</b> Dynamic Injection & Ecosystem Development Reserves.</li>
+                        <li><b>Wallet #2:</b> Dedicated Presale Allocation and Pool Liquidity provision.</li>
+                        <li><b>Wallet #3:</b> AutoSwap Fee Accumulation and Conversion Vault.</li>
+                    </ul>
+                    <h4>3. Dynamic Step-Tax System</h4>
+                    <p><b>Fee Logic:</b> Starting from a baseline floor price of $0.00000125 up to the ultimate target ceiling of $0.00128000, the sell tax decreases linearly from 50% to exactly 0%.</p>
+                    <p><b>Dynamic Reversibility:</b> The formula is fully bidirectional; if market conditions trigger a price drop, the smart contract automatically re-applies the matching higher tax tier to prevent catastrophic liquidity drains.</p>
+                    <h4>4. Decentralized Accounting (Threshold-Based Logic)</h4>
+                    <p>To maximize network gas efficiency and ensure pool safety, all transaction taxes are routed automatically:</p>
+                    <ul>
+                        <li><b>Accumulation Phase:</b> Fees are initially gathered as native tokens inside the smart contract's secure vault.</li>
+                        <li><b>Execution Threshold:</b> Once the vault hits a threshold of <b>2,000,000 FIXER tokens</b>, the next sell transaction auto-triggers the splitting algorithm:</li>
+                        <li><b>35% Liquidity & Marketing Share:</b> Automatically converted into ETH and routed to Wallet #3.</li>
+                        <li><b>65% Ecosystem Share:</b> Transferred directly to Wallet #1 as raw tokens to eradicate external pool sell pressure.</li>
+                    </ul>
+                    <h4>5. Smart Security & Access Controls</h4>
+                    <ul>
+                        <li><b>Anti-Whale Protections:</b> Strict limits restricting minimum transaction amounts (10M tokens) and maximum sizes (200M tokens) to block malicious price manipulation.</li>
+                        <li><b>Blacklist Defense:</b> Direct ability to quarantine identified predatory MEV sandwich bots without affecting authentic public retail traders.</li>
+                    </ul>`
+                },
+                roadmap: {
+                    title: "Fixer Coin Strategic Roadmap",
+                    body: `<h4>🔹 Phase 1: Foundation, Absolute Security, and Launch</h4>
+                    <p><b>Contract Deployment & Lock:</b> Deployment of the official Fixer Coin contract code on the Base blockchain, backed by anti-exploit layers and the 50-tier reverse-tax script.</p>
+                    <p><b>Public Presale:</b> Commencing the distribution of 2 Billion tokens to onboard the foundational global community of early holders.</p>
+                    <p><b>Liquidity Injection:</b> Supplying 1 Billion tokens alongside Base liquidity onto Aerodrome DEX, followed by a permanent, immutable burn/lock of the LP tokens.</p>
+                    <p><b>Fixer News Launch:</b> Ignition of the official communication network integrated with automated automated price-tracking bots.</p>
+                    
+                    <h4>🔹 Phase 2: Market Stabilization and Financial Engine Activation</h4>
+                    <p><b>Reference Listings:</b> Securing verified profiles on CoinMarketCap and CoinGecko for institutional-grade market metric tracking.</p>
+                    <p><b>Financial Automation:</b> Launching the 2-Million token accumulation script within the contract vault to automatically handle fee-splitting (35% to Wallet #3 / 65% to Wallet #1).</p>
+                    <p><b>Staking Platform:</b> Deploying the official on-site staking interface to reward dedicated long-term holders with attractive yields.</p>
+                    
+                    <h4>🔹 Phase 3: Media Dominance and 10-Tier Token Burns</h4>
+                    <p><b>Viral Campaigns:</b> Activating aggressive marketing operations across Instagram and Telegram networks to maximize brand exposure.</p>
+                    <p><b>Manual Token Burns:</b> Performing strategic, high-profile burning events using accumulated tokens from Wallet #1 to generate continuous upward chart pressure.</p>
+                    <p><b>Whale Attraction:</b> As transaction taxes recede significantly past middle price milestones, high-net-worth investors gain an optimal entry point.</p>
+                    
+                    <h4>🔹 Phase 4: Zero Tax, Absolute Liquidity, and Global Development</h4>
+                    <p><b>Price Ceiling Achievement ($0.00128000):</b> Hitting the absolute target peak, unlocking permanent 0% transaction taxes across all decentralized pairings.</p>
+                    <p><b>Tier-1 CEX Listings:</b> Transitioning Fixer Coin onto major global centralized exchanges as a premier high-volume, zero-friction digital asset.</p>
+                    <p><b>Real-World Utility:</b> Integrating FIXER as an elite settlement currency for international logistics clearing, cross-border commerce invoices, and physical cross-border merchant trades.</p>`
+                }
+            }
+        };
+
         const translations = {
             fa: {
                 dir: "rtl",
@@ -712,13 +923,13 @@
                 docsSectionTitle: "مستندات رسمی و کلیدی توکن",
                 doc1Title: "وایت‌پیپر اکوسیستم",
                 doc1Desc: "دفترچه راهنمای کامل پروژه شامل جزییات فلسفه مالی، سیستم‌های پویا و زیرساخت رسانه‌ای غیرمتمرکز.",
-                doc1Btn: "دانلود وایت‌پیپر",
+                doc1Btn: "مطالعه وایت‌پیپر",
                 doc2Title: "شناسنامه فنی و توکنومیکس",
                 doc2Desc: "تحلیل دقیق معماری پله‌های کارمزد بازگشت‌پذیر، حد نصاب‌های حسابداری و لایه‌های مدیریتی قرارداد.",
-                doc2Btn: "دانلود سند فنی",
+                doc2Btn: "مطالعه سند فنی",
                 doc3Title: "نقشه راه استراتژیک",
                 doc3Desc: "برنامه زمانی توسعه پروژه از دیپلوی و توکن‌سوزی‌ها تا لیست صرافی‌ها و کاربرد تجاری در دنیای واقعی.",
-                doc3Btn: "دانلود نقشه راه",
+                doc3Btn: "مطالعه نقشه راه",
                 footerText: "© 2026 فیکسر کوین. تمامی حقوق محفوظ است.",
                 alertCopy: "آدرس قرارداد فیکسر کوین کپی شد!",
                 alertRefCopy: "لینک معرف شما کپی شد!",
@@ -764,13 +975,13 @@
                 docsSectionTitle: "Official Token Documentation",
                 doc1Title: "Ecosystem Whitepaper",
                 doc1Desc: "Complete project manual detailing the financial philosophy, dynamic system, and decentralized media infrastructure.",
-                doc1Btn: "Download Whitepaper",
+                doc1Btn: "Read Whitepaper",
                 doc2Title: "Technical Specification",
                 doc2Desc: "Deep architecture breakdown including the 51-tier reversibility tax protocol, accounting limits, and smart protections.",
-                doc2Btn: "Download Tech Spec",
+                doc2Btn: "Read Tech Spec",
                 doc3Title: "Strategic Roadmap",
                 doc3Desc: "Strategic timeline from initial deployment and token burns to CEX listings and international merchant trade utility.",
-                doc3Btn: "Download Roadmap",
+                doc3Btn: "Read Roadmap",
                 footerText: "© 2026 Fixer Coin. All Rights Reserved.",
                 alertCopy: "Fixer Coin contract address copied!",
                 alertRefCopy: "Your referral link copied!",
@@ -831,7 +1042,6 @@
             document.getElementById("f3-title").innerText = langData.f3Title;
             document.getElementById("f3-desc").innerText = langData.f3Desc;
 
-            // Documentation Translation
             document.getElementById("docs-section-title").innerText = langData.docsSectionTitle;
             document.getElementById("doc1-title").innerText = langData.doc1Title;
             document.getElementById("doc1-desc").innerText = langData.doc1Desc;
@@ -845,6 +1055,29 @@
             
             document.getElementById("footer-text").innerText = langData.footerText;
             calculateTokens();
+        }
+
+        // INTERACTIVE MODAL ACTIONS
+        function openModal(docKey) {
+            const data = docDatabase[currentLang][docKey];
+            document.getElementById("modal-window-title").innerText = data.title;
+            document.getElementById("modal-window-body").innerHTML = data.body;
+            
+            const overlay = document.getElementById("doc-modal-overlay");
+            overlay.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById("doc-modal-overlay");
+            overlay.classList.remove("active");
+            document.body.style.overflow = "auto";
+        }
+
+        function closeModalOnOverlay(event) {
+            if (event.target === document.getElementById("doc-modal-overlay")) {
+                closeModal();
+            }
         }
 
         function copyContract() {
@@ -869,18 +1102,14 @@
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
                     walletAddress = accounts[0];
-                    
                     let shortAddress = walletAddress.substring(0, 6) + "..." + walletAddress.substring(walletAddress.length - 4);
                     document.getElementById("wallet-btn").innerText = shortAddress;
-                    
                     let currentUrl = window.location.href.split('?')[0];
                     let refLink = currentUrl + "?ref=" + walletAddress;
                     document.getElementById("ref-link-display").innerText = refLink;
-
                     document.getElementById("db-purchased").innerText = "0.0 FIXER";
                     document.getElementById("db-refs").innerText = "0";
                     document.getElementById("db-bonus").innerText = "0.0 FIXER";
-
                     alert(translations[currentLang].alertWalletSuccess + walletAddress);
                 } catch (error) {
                     alert(translations[currentLang].alertWalletCancel);
