@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" id="html-tag">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fixer Coin | وب‌سایت رسمی فیکسر کوین</title>
+    <title id="site-title">Fixer Coin | وب‌سایت رسمی فیکسر کوین</title>
     <style>
+        /* بارگذاری فونت بی نازنین */
+        @font-face {
+            font-family: 'B Nazanin';
+            src: local('B Nazanin'), local('BNazanin');
+        }
+
         :root {
             --bg-color: #0b0f19;
             --card-bg: #121826;
@@ -19,15 +25,22 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* اعمال فونت بی نازنین برای زبان فارسی و فونت مدرن برای انگلیسی */
         body {
             background-color: var(--bg-color);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            text-align: right;
+        }
+        
+        html[dir="rtl"] * {
+            font-family: 'B Nazanin', Tahoma, sans-serif;
+        }
+        
+        html[dir="ltr"] * {
+            font-family: 'Segoe UI', Inter, sans-serif;
         }
 
         /* Header */
@@ -58,13 +71,35 @@
             color: var(--text);
             text-decoration: none;
             margin: 0 15px;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 500;
             transition: 0.3s;
         }
 
         nav a:hover {
             color: var(--primary);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-lang {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-lang:hover {
+            background: var(--primary);
+            color: var(--bg-color);
         }
 
         .btn-connect {
@@ -100,11 +135,14 @@
             min-width: 320px;
         }
 
+        html[dir="rtl"] .hero-text { text-align: right; }
+        html[dir="ltr"] .hero-text { text-align: left; }
+
         .hero-text h1 {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 800;
             margin-bottom: 20px;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .hero-text h1 span {
@@ -131,7 +169,7 @@
         }
 
         .contract-address {
-            font-family: monospace;
+            font-family: monospace !important;
             color: var(--primary);
             font-size: 13px;
             word-break: break-all;
@@ -148,8 +186,10 @@
             font-size: 13px;
             transition: 0.3s;
             white-space: nowrap;
-            margin-right: 10px;
         }
+        
+        html[dir="rtl"] .btn-copy { margin-right: 10px; }
+        html[dir="ltr"] .btn-copy { margin-left: 10px; }
 
         .btn-copy:hover {
             background: var(--primary);
@@ -186,6 +226,9 @@
             color: var(--text-muted);
             font-size: 14px;
         }
+        
+        html[dir="rtl"] .input-group label { text-align: right; }
+        html[dir="ltr"] .input-group label { text-align: left; }
 
         .input-group input {
             width: 100%;
@@ -212,7 +255,7 @@
         }
 
         .section-title {
-            font-size: 36px;
+            font-size: 34px;
             font-weight: 800;
             margin-bottom: 60px;
             position: relative;
@@ -243,10 +286,12 @@
             border: 1px solid var(--border);
             transition: 0.3s;
         }
+        
+        html[dir="rtl"] .feature-card { text-align: right; }
+        html[dir="ltr"] .feature-card { text-align: left; }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(0, 255, 204, 0.3);
+        .feature-card :is(h4, p) {
+            font-family: inherit;
         }
 
         .feature-card h4 {
@@ -291,7 +336,6 @@
             position: absolute;
             width: 16px;
             height: 16px;
-            right: -8px;
             background-color: var(--bg-color);
             border: 4px solid var(--primary);
             top: 30px;
@@ -299,9 +343,16 @@
             z-index: 1;
         }
 
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -8px; right: auto; border-color: var(--secondary); }
+        /* تنظیمات واکنش‌گرای تایم‌لاین بر اساس راست‌چین و چپ‌چین */
+        html[dir="rtl"] .timeline-item.left { left: 0; }
+        html[dir="rtl"] .timeline-item.left::after { right: -8px; }
+        html[dir="rtl"] .timeline-item.right { left: 50%; }
+        html[dir="rtl"] .timeline-item.right::after { left: -8px; border-color: var(--secondary); }
+
+        html[dir="ltr"] .timeline-item.left { left: 50%; }
+        html[dir="ltr"] .timeline-item.left::after { left: -8px; }
+        html[dir="ltr"] .timeline-item.right { left: 0; }
+        html[dir="ltr"] .timeline-item.right::after { right: -8px; border-color: var(--secondary); }
 
         .timeline-content {
             padding: 25px;
@@ -309,6 +360,9 @@
             border-radius: 14px;
             border: 1px solid var(--border);
         }
+        
+        html[dir="rtl"] .timeline-content { text-align: right; }
+        html[dir="ltr"] .timeline-content { text-align: left; }
 
         .timeline-content h4 {
             font-size: 18px;
@@ -316,9 +370,8 @@
             margin-bottom: 8px;
         }
 
-        .right .timeline-content h4 {
-            color: var(--secondary);
-        }
+        html[dir="rtl"] .right .timeline-content h4 { color: var(--secondary); }
+        html[dir="ltr"] .left .timeline-content h4 { color: var(--secondary); }
 
         .timeline-content p {
             color: var(--text-muted);
@@ -330,18 +383,19 @@
             padding: 40px;
             border-top: 1px solid var(--border);
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 15px;
         }
 
         @media screen and (max-width: 768px) {
             .timeline::after { left: 20px; }
-            .timeline-item { width: 100%; padding-left: 45px; padding-right: 0px; }
-            .timeline-item::after { left: 12px; right: auto; }
-            .right { left: 0; }
-            .hero-container { padding-top: 120px; justify-content: center; text-align: center; }
+            .timeline-item { width: 100% !important; padding-left: 45px !important; padding-right: 0px !important; left: 0 !important; }
+            .timeline-item::after { left: 12px !important; right: auto !important; }
+            .hero-container { padding-top: 120px; justify-content: center; text-align: center !important; }
+            .hero-text { text-align: center !important; }
             .contract-box { justify-content: center; flex-direction: column; gap: 10px; }
-            .btn-copy { margin-right: 0; width: 100%; }
+            .btn-copy { margin: 0 !important; width: 100%; }
             header { padding: 15px 5%; }
+            html[dir="ltr"] header { flex-direction: row; }
         }
     </style>
 </head>
@@ -350,82 +404,85 @@
     <header>
         <div class="logo">FIXER COIN</div>
         <nav>
-            <a href="#about">مشخصات</a>
-            <a href="#roadmap">نقشه راه</a>
-            <a href="#presale">پیش‌فروش</a>
+            <a href="#about" id="nav-about">مشخصات</a>
+            <a href="#roadmap" id="nav-roadmap">نقشه راه</a>
+            <a href="#presale" id="nav-presale">پیش‌فروش</a>
         </nav>
-        <button class="btn-connect" onclick="connectWallet()">اتصال کیف پول</button>
+        <div class="header-actions">
+            <button class="btn-lang" onclick="toggleLanguage()" id="lang-btn">English</button>
+            <button class="btn-connect" onclick="connectWallet()" id="wallet-btn">اتصال کیف پول</button>
+        </div>
     </header>
 
     <main>
         <section class="hero-container" id="presale">
             <div class="hero-text">
-                <h1>اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span></h1>
-                <p>پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.</p>
+                <h1 id="hero-title">اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span></h1>
+                <p id="hero-desc">پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.</p>
                 
                 <div class="contract-box">
                     <span class="contract-address" id="contract">0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F</span>
-                    <button class="btn-copy" onclick="copyContract()">کپی آدرس قرارداد</button>
+                    <button class="btn-copy" onclick="copyContract()" id="copy-btn">کپی آدرس قرارداد</button>
                 </div>
             </div>
 
             <div class="presale-card">
-                <h3>پنل خرید پیش‌فروش عمومی</h3>
+                <h3 id="panel-title">پنل خرید پیش‌فروش عمومی</h3>
                 <div class="input-group">
-                    <label>پرداخت بر حسب (USDC)</label>
+                    <label id="label-pay">پرداخت بر حسب (USDC)</label>
                     <input type="number" id="usdcInput" placeholder="0.0" oninput="calculateTokens()">
                 </div>
                 <div class="input-group">
-                    <label>توکن دریافتی (FIXER)</label>
+                    <label id="label-received">توکن دریافتی (FIXER)</label>
                     <input type="text" id="fixerOutput" placeholder="0.0" disabled>
                 </div>
-                <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; margin-top: 10px;">خرید توکن فیکسر</button>
+                <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; margin-top: 10px;" id="buy-btn">خرید توکن فیکسر</button>
             </div>
         </section>
 
         <section class="info-section" id="about">
-            <h2 class="section-title">ویژگی‌های بنیادی وایت پیپر فیکسر</h2>
+            <h2 class="section-title" id="features-title">ویژگی‌های بنیادی وایت پیپر فیکسر</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h4>🔒 مکانیزم ضدِ نوسان (Anti-Dump)</h4>
-                    <p>اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.</p>
+                    <h4 id="f1-title">🔒 مکانیزم ضدِ نوسان (Anti-Dump)</h4>
+                    <p id="f1-desc">اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>📊 کارمزد پله‌ای بهینه</h4>
-                    <p>سیستم کسر کارمزد کاملاً خودکار و منعطف متصل به صرافی‌های غیرمتمرکز که نقدینگی استخر و پاداش استیکینگ را تامین می‌کند.</p>
+                    <h4 id="f2-title">📊 کارمزد پله‌ای بهینه</h4>
+                    <p id="f2-desc">سیستم کسر کارمزد کاملاً خودکار و منعطف متصل به صرافی‌های غیرمتمرکز که نقدینگی استخر و پاداش استیکینگ را تامین می‌کند.</p>
                 </div>
                 <div class="feature-card">
-                    <h4>🔵 بستر شبکه بیس (Base)</h4>
-                    <p>بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز و سرعت تراکنش بی‌نظیر شبکه بیس.</p>
+                    <h4 id="f3-title">🔵 بستر شبکه بیس (Base)</h4>
+                    <p id="f3-desc">بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز و سرعت تراکنش بی‌نظیر شبکه بیس.</p>
                 </div>
             </div>
         </section>
 
         <section class="roadmap-section" id="roadmap">
-            <h2 class="section-title">نقشه راه پله‌ای و اهداف پروژه</h2>
+            <h2 class="section-title" id="roadmap-title">نقشه راه پله‌ای و اهداف پروژه</h2>
             <div class="timeline">
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h4>مرحله ۱: استقرار قرارداد هوشمند</h4>
-                        <p>توسعه، بررسی امنیتی و دیپلوی قرارداد توکن ۱۰ میلیارد عددی در شبکه بیس.</p>
+                        <h4 id="r1-title">مرحله ۱: استقرار قرارداد هوشمند</h4>
+                        <p id="r1-desc">توسعه، بررسی امنیتی و دیپلوی قرارداد توکن ۱۰ میلیارد عددی در شبکه بیس.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h4>مرحله ۲: راه‌اندازی پیش‌فروش پله‌ای</h4>
-                        <p>آغاز جذب سرمایه خرد بر اساس ۱۰ مرحله قیمتی تعیین شده در ساختار توکنومیک.</p>
+                        <h4 id="r2-title">مرحله ۲: راه‌اندازی پیش‌فروش پله‌ای</h4>
+                        <p id="r2-desc">آغاز جذب سرمایه خرد بر اساس ۱۰ مرحله قیمتی تعیین شده در ساختار توکنومیک.</p>
                     </div>
                 </div>
                 <div class="timeline-item left">
                     <div class="timeline-content">
-                        <h4>مرحله ۳: تزریق نقدینگی و فعالسازی کارمزدها</h4>
-                        <p>ساخت جفت‌های معاملاتی (Pairs)، قفل نقدینگی و به کار افتادن سیستم کارمزد در معاملات صرافی.</p>
+                        <h4 id="r3-title">مرحله ۳: تزریق نقدینگی و فعالسازی کارمزدها</h4>
+                        <p id="r3-desc">ساخت جفت‌های معاملاتی (Pairs)، قفل نقدینگی و به کار افتادن سیستم کارمزد در معاملات صرافی.</p>
                     </div>
                 </div>
                 <div class="timeline-item right">
                     <div class="timeline-content">
-                        <h4>مرحله ۴: توسعه پلتفرم استیکینگ</h4>
-                        <p>فعالسازی قرارداد پاداش‌دهی و استیکینگ فیکسر کوین برای هولدرهای وفادار پروژه.</p>
+                        <h4 id="r4-title">مرحله ۴: توسعه پلتفرم استیکینگ</h4>
+                        <p id="r4-desc">فعالسازی قرارداد پاداش‌دهی و استیکینگ فیکسر کوین برای هولدرهای وفادار پروژه.</p>
                     </div>
                 </div>
             </div>
@@ -433,14 +490,141 @@
     </main>
 
     <footer>
-        <p>© 2026 فیکسر کوین. تمامی حقوق محفوظ است.</p>
+        <p id="footer-text">© 2026 فیکسر کوین. تمامی حقوق محفوظ است.</p>
     </footer>
 
     <script>
+        // دیتابیس ترجمه متن‌ها
+        const translations = {
+            fa: {
+                dir: "rtl",
+                title: "Fixer Coin | وب‌سایت رسمی فیکسر کوین",
+                navAbout: "مشخصات",
+                navRoadmap: "نقشه راه",
+                navPresale: "پیش‌فروش",
+                langBtn: "English",
+                walletBtn: "اتصال کیف پول",
+                heroTitle: "اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span>",
+                heroDesc: "پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.",
+                copyBtn: "کپی آدرس قرارداد",
+                panelTitle: "پنل خرید پیش‌فروش عمومی",
+                labelPay: "پرداخت بر حسب (USDC)",
+                labelReceived: "توکن دریافتی (FIXER)",
+                buyBtn: "خرید توکن فیکسر",
+                featuresTitle: "ویژگی‌های بنیادی وایت پیپر فیکسر",
+                f1Title: "🔒 مکانیزم ضدِ نوسان (Anti-Dump)",
+                f1Desc: "اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.",
+                f2Title: "📊 کارمزد پله‌ای بهینه",
+                f2Desc: "سیستم کسر کارمزد کاملاً خودکار و منعطف متصل به صرافی‌های غیرمتمرکز که نقدینگی استخر و پاداش استیکینگ را تامین می‌کند.",
+                f3Title: "🔵 بستر شبکه بیس (Base)",
+                f3Desc: "بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز و سرعت تراکنش بی‌نظیر شبکه بیس.",
+                roadmapTitle: "نقشه راه پله‌ای و اهداف پروژه",
+                r1Title: "مرحله ۱: استقرار قرارداد هوشمند",
+                r1Desc: "توسعه، بررسی امنیتی و دیپلوی قرارداد توکن ۱۰ میلیارد عددی در شبکه بیس.",
+                r2Title: "مرحله ۲: راه‌اندازی پیش‌فروش پله‌ای",
+                r2Desc: "آغاز جذب سرمایه خرد بر اساس ۱۰ مرحله قیمتی تعیین شده در ساختار توکنومیک.",
+                r3Title: "مرحله ۳: تزریق نقدینگی و فعالسازی کارمزدها",
+                r3Desc: "ساخت جفت‌های معاملاتی (Pairs)، قفل نقدینگی و به کار افتادن سیستم کارمزد در معاملات صرافی.",
+                r4Title: "مرحله ۴: توسعه پلتفرم استیکینگ",
+                r4Desc: "فعالسازی قرارداد پاداش‌دهی و استیکینگ فیکسر کوین برای هولدرهای وفادار پروژه.",
+                footerText: "© 2026 فیکسر کوین. تمامی حقوق محفوظ است.",
+                alertCopy: "آدرس قرارداد فیکسر کوین کپی شد!",
+                alertWalletSuccess: "کیف پول با موفقیت متصل شد:\n",
+                alertWalletCancel: "اتصال به کیف پول لغو شد.",
+                alertNoWallet: "کیف پول هوشمندی (مانند MetaMask) روی مرورگر شما یافت نشد."
+            },
+            en: {
+                dir: "ltr",
+                title: "Fixer Coin | Official Website",
+                navAbout: "Features",
+                navRoadmap: "Roadmap",
+                navPresale: "Presale",
+                langBtn: "فارسی",
+                walletBtn: "Connect Wallet",
+                heroTitle: "Smart & Financial Ecosystem <br><span>Fixer Coin (FIXER)</span>",
+                heroDesc: "An innovative project built on the secure and fast Base network with an Anti-Dump tokenomics structure and optimized progressive transaction fees.",
+                copyBtn: "Copy Contract Address",
+                panelTitle: "Public Presale Panel",
+                labelPay: "Pay with (USDC)",
+                labelReceived: "Receive Token (FIXER)",
+                buyBtn: "Buy Fixer Token",
+                featuresTitle: "Core Whitepaper Features",
+                f1Title: "🔒 Anti-Dump Mechanism",
+                f1Desc: "Imposing smart trading limits on exchanges (Min 10M and Max 200M tokens) to prevent price manipulation by whales.",
+                f2Title: "📊 Optimized Tiered Fees",
+                f2Desc: "Fully automated and flexible fee deduction system connected to decentralized exchanges that funds the liquidity pool and staking rewards.",
+                f3Title: "🔵 Base Network Framework",
+                f3Desc: "Benefiting from the superior security of Ethereum Layer 1 combined with the extremely low transaction fees and unparalleled speed of the Base network.",
+                roadmapTitle: "Project Step Roadmap & Goals",
+                r1Title: "Phase 1: Smart Contract Deployment",
+                r1Desc: "Development, security audit, and deployment of the 10 billion token contract on the Base network.",
+                r2Title: "Phase 2: Tiered Presale Launch",
+                r2Desc: "Initiating micro-investment funding based on 10 pricing stages specified in the tokenomics structure.",
+                r3Title: "Phase 3: Liquidity Injection & Fee Activation",
+                r3Desc: "Creating trading pairs, locking liquidity, and activating the dynamic trading fee system on DEX.",
+                r4Title: "Phase 4: Staking Platform Development",
+                r4Desc: "Activating the reward and staking contracts for loyal Fixer Coin long-term holders.",
+                footerText: "© 2026 Fixer Coin. All Rights Reserved.",
+                alertCopy: "Fixer Coin contract address copied!",
+                alertWalletSuccess: "Wallet connected successfully:\n",
+                alertWalletCancel: "Wallet connection canceled.",
+                alertNoWallet: "No smart wallet (like MetaMask) found on your browser."
+            }
+        };
+
+        let currentLang = 'fa';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'fa' ? 'en' : 'fa';
+            const langData = translations[currentLang];
+            
+            // اعمال جهت و عنوان صفحه
+            document.getElementById("html-tag").setAttribute("dir", langData.dir);
+            document.getElementById("html-tag").setAttribute("lang", currentLang);
+            document.getElementById("site-title").innerText = langData.title;
+            
+            // جایگذاری متن‌های ترجمه شده
+            document.getElementById("nav-about").innerText = langData.navAbout;
+            document.getElementById("nav-roadmap").innerText = langData.navRoadmap;
+            document.getElementById("nav-presale").innerText = langData.navPresale;
+            document.getElementById("lang-btn").innerText = langData.langBtn;
+            document.getElementById("wallet-btn").innerText = langData.walletBtn;
+            document.getElementById("hero-title").innerHTML = langData.heroTitle;
+            document.getElementById("hero-desc").innerText = langData.heroDesc;
+            document.getElementById("copy-btn").innerText = langData.copyBtn;
+            document.getElementById("panel-title").innerText = langData.panelTitle;
+            document.getElementById("label-pay").innerText = langData.labelPay;
+            document.getElementById("label-received").innerText = langData.labelReceived;
+            document.getElementById("buy-btn").innerText = langData.buyBtn;
+            document.getElementById("features-title").innerText = langData.featuresTitle;
+            
+            document.getElementById("f1-title").innerText = langData.f1Title;
+            document.getElementById("f1-desc").innerText = langData.f1Desc;
+            document.getElementById("f2-title").innerText = langData.f2Title;
+            document.getElementById("f2-desc").innerText = langData.f2Desc;
+            document.getElementById("f3-title").innerText = langData.f3Title;
+            document.getElementById("f3-desc").innerText = langData.f3Desc;
+            
+            document.getElementById("roadmap-title").innerText = langData.roadmapTitle;
+            document.getElementById("r1-title").innerText = langData.r1Title;
+            document.getElementById("r1-desc").innerText = langData.r1Desc;
+            document.getElementById("r2-title").innerText = langData.r2Title;
+            document.getElementById("r2-desc").innerText = langData.r2Desc;
+            document.getElementById("r3-title").innerText = langData.r3Title;
+            document.getElementById("r3-desc").innerText = langData.r3Desc;
+            document.getElementById("r4-title").innerText = langData.r4Title;
+            document.getElementById("r4-desc").innerText = langData.r4Desc;
+            
+            document.getElementById("footer-text").innerText = langData.footerText;
+            
+            // رفرش ماشین حساب
+            calculateTokens();
+        }
+
         function copyContract() {
             var copyText = document.getElementById("contract").innerText;
             navigator.clipboard.writeText(copyText);
-            alert("آدرس قرارداد فیکسر کوین کپی شد!");
+            alert(translations[currentLang].alertCopy);
         }
 
         function calculateTokens() {
@@ -457,12 +641,12 @@
             if (window.ethereum) {
                 try {
                     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert("کیف پول با موفقیت متصل شد:\n" + accounts[0]);
+                    alert(translations[currentLang].alertWalletSuccess + accounts[0]);
                 } catch (error) {
-                    alert("اتصال به کیف پول لغو شد.");
+                    alert(translations[currentLang].alertWalletCancel);
                 }
             } else {
-                alert("کیف پول هوشمندی (مانند MetaMask) روی مرورگر شما یافت نشد.");
+                alert(translations[currentLang].alertNoWallet);
             }
         }
     </script>
