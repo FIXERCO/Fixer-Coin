@@ -1,3 +1,9 @@
+
+File metadata and controls
+
+Code
+
+Blame
 <!DOCTYPE html>
 <html lang="en" dir="ltr" id="html-tag">
 <head>
@@ -991,6 +997,15 @@
             }
         };
 
+        // آدرس‌های حیاتی پروژه فیکسر کوین (تنظیم شده بر اساس کانترکت‌های جدید شما)
+        const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
+        const PRESALE_ADDRESS = "0x217e6b606dd60a136776965554f0cbdc618ff3d3";
+        const USDT_BASE_ADDRESS = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"; // USDT رسمی روی شبکه بیس
+
+        const TOKEN_PRICE = 0.0000015; // قیمت ثبت شده در سایت شما
+        let userWalletAddress = null;
+        let web3Provider = null;
+
         let currentLang = 'en';
         let walletAddress = "";
 
@@ -998,136 +1013,3 @@
             currentLang = currentLang === 'en' ? 'fa' : 'en';
             const langData = translations[currentLang];
             
-            document.getElementById("html-tag").setAttribute("dir", langData.dir);
-            document.getElementById("html-tag").setAttribute("lang", currentLang);
-            document.getElementById("site-title").innerText = langData.title;
-            
-            document.getElementById("nav-about").innerText = langData.navAbout;
-            document.getElementById("nav-docs").innerText = langData.navDocs;
-            document.getElementById("nav-presale").innerText = langData.navPresale;
-            document.getElementById("lang-btn").innerText = langData.langBtn;
-            document.getElementById("wallet-btn").innerText = langData.walletBtn;
-            document.getElementById("hero-title").innerHTML = langData.heroTitle;
-            document.getElementById("hero-desc").innerText = langData.heroDesc;
-            document.getElementById("copy-btn").innerText = langData.copyBtn;
-            document.getElementById("panel-title").innerText = langData.panelTitle;
-            document.getElementById("presale-tag").innerText = langData.presaleTag;
-            document.getElementById("label-pay").innerText = langData.labelPay;
-            document.getElementById("label-received").innerText = langData.labelReceived;
-            document.getElementById("buy-btn").innerText = langData.buyBtn;
-            
-            document.getElementById("db-title").innerText = langData.dbTitle;
-            document.getElementById("db-purchased-lbl").innerText = langData.dbPurchasedLbl;
-            document.getElementById("db-refs-lbl").innerText = langData.dbRefsLbl;
-            document.getElementById("db-bonus-lbl").innerText = langData.dbBonusLbl;
-            
-            document.getElementById("ref-title").innerText = langData.refTitle;
-            document.getElementById("ref-copy-btn").innerText = langData.refCopyBtn;
-            
-            document.getElementById("guide-title").innerText = langData.guideTitle;
-            document.getElementById("guide-li1").innerHTML = langData.guideLi1;
-            document.getElementById("guide-li2").innerHTML = langData.guideLi2;
-            document.getElementById("guide-li3").innerHTML = langData.guideLi3;
-            document.getElementById("guide-li4").innerHTML = langData.guideLi4;
-
-            if(!walletAddress) {
-                document.getElementById("ref-link-display").innerText = langData.refNoWallet;
-            }
-            
-            document.getElementById("features-title").innerText = langData.featuresTitle;
-            document.getElementById("f1-title").innerText = langData.f1Title;
-            document.getElementById("f1-desc").innerText = langData.f1Desc;
-            document.getElementById("f2-title").innerText = langData.f2Title;
-            document.getElementById("f2-desc").innerText = langData.f2Desc;
-            document.getElementById("f3-title").innerText = langData.f3Title;
-            document.getElementById("f3-desc").innerText = langData.f3Desc;
-
-            document.getElementById("docs-section-title").innerText = langData.docsSectionTitle;
-            document.getElementById("doc1-title").innerText = langData.doc1Title;
-            document.getElementById("doc1-desc").innerText = langData.doc1Desc;
-            document.getElementById("doc1-btn").innerText = langData.doc1Btn;
-            document.getElementById("doc2-title").innerText = langData.doc2Title;
-            document.getElementById("doc2-desc").innerText = langData.doc2Desc;
-            document.getElementById("doc2-btn").innerText = langData.doc2Btn;
-            document.getElementById("doc3-title").innerText = langData.doc3Title;
-            document.getElementById("doc3-desc").innerText = langData.doc3Desc;
-            document.getElementById("doc3-btn").innerText = langData.doc3Btn;
-            
-            document.getElementById("footer-text").innerText = langData.footerText;
-            calculateTokens();
-        }
-
-        // INTERACTIVE MODAL ACTIONS
-        function openModal(docKey) {
-            const data = docDatabase[currentLang][docKey];
-            document.getElementById("modal-window-title").innerText = data.title;
-            document.getElementById("modal-window-body").innerHTML = data.body;
-            
-            const overlay = document.getElementById("doc-modal-overlay");
-            overlay.classList.add("active");
-            document.body.style.overflow = "hidden"; // Prevent background scrolling
-        }
-
-        function closeModal() {
-            const overlay = document.getElementById("doc-modal-overlay");
-            overlay.classList.remove("active");
-            document.body.style.overflow = "auto";
-        }
-
-        function closeModalOnOverlay(event) {
-            if (event.target === document.getElementById("doc-modal-overlay")) {
-                closeModal();
-            }
-        }
-
-        function copyContract() {
-            var copyText = document.getElementById("contract").innerText;
-            navigator.clipboard.writeText(copyText);
-            alert(translations[currentLang].alertCopy);
-        }
-
-        function calculateTokens() {
-            var usdt = document.getElementById("usdtInput").value;
-            var pricePerToken = 0.0000015;
-            if(usdt > 0) {
-                var calculated = usdt / pricePerToken;
-                document.getElementById("fixerOutput").value = Math.floor(calculated).toLocaleString() + " FIXER";
-            } else {
-                document.getElementById("fixerOutput").value = "0.0";
-            }
-        }
-
-        async function connectWallet() {
-            if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    walletAddress = accounts[0];
-                    let shortAddress = walletAddress.substring(0, 6) + "..." + walletAddress.substring(walletAddress.length - 4);
-                    document.getElementById("wallet-btn").innerText = shortAddress;
-                    let currentUrl = window.location.href.split('?')[0];
-                    let refLink = currentUrl + "?ref=" + walletAddress;
-                    document.getElementById("ref-link-display").innerText = refLink;
-                    document.getElementById("db-purchased").innerText = "0.0 FIXER";
-                    document.getElementById("db-refs").innerText = "0";
-                    document.getElementById("db-bonus").innerText = "0.0 FIXER";
-                    alert(translations[currentLang].alertWalletSuccess + walletAddress);
-                } catch (error) {
-                    alert(translations[currentLang].alertWalletCancel);
-                }
-            } else {
-                alert(translations[currentLang].alertNoWallet);
-            }
-        }
-
-        function copyReferralLink() {
-            if(!walletAddress) {
-                alert(translations[currentLang].alertNoWallet);
-                return;
-            }
-            var copyText = document.getElementById("ref-link-display").innerText;
-            navigator.clipboard.writeText(copyText);
-            alert(translations[currentLang].alertRefCopy);
-        }
-    </script>
-</body>
-</html>
