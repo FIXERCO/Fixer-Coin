@@ -1,62 +1,568 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+# کدهای جاوا اسکریپت و ساختار کامل HTML را به همراه تمام متون وایت پیپر ۵۱ پله‌ای، شناسنامه و نقشه راه دو زبانه درون یک فایل متنی با پسوند .txt ذخیره می‌کنیم تا کاربر به راحتی بتواند آن را دانلود کند.
+
+html_code = """<!DOCTYPE html>
+<html lang="fa" dir="rtl" id="html-tag">
 <head>
     <meta charset="UTF-8">
-    <title>Fixer Coin - Official</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="site-title">Fixer Coin - Official Presale</title>
     <style>
-        body { background: #050a14; color: #ccd6f6; font-family: sans-serif; margin: 0; padding: 0; }
-        header { background: #0a192f; padding: 20px; display: flex; justify-content: space-between; border-bottom: 2px solid #112240; }
-        .menu a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .section { padding: 80px 20px; text-align: center; }
-        .floating-logo { width: 150px; height: 150px; background: #0052ff; border-radius: 50%; margin: auto; animation: float 3s infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
-        .presale-box { background: #112240; padding: 40px; border-radius: 20px; max-width: 500px; margin: auto; border: 2px solid #00c853; }
-        input { width: 80%; padding: 15px; margin: 10px 0; border-radius: 10px; border: none; }
-        button { background: #00c853; color: white; padding: 15px 30px; border: none; border-radius: 10px; cursor: pointer; }
+        :root {
+            --bg-dark: #0d1b2a;
+            --panel-dark: #1b263b;
+            --border-color: #415a77;
+            --text-main: #e0e1dd;
+            --text-muted: #a3b19b;
+            --primary: #0052ff;
+            --primary-hover: #0045d8;
+            --success: #00c853;
+            --accent-glow: rgba(0, 82, 255, 0.4);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 15px;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--panel-dark);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 20px var(--accent-glow);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .fixer-logo-animated {
+            width: 55px;
+            height: 55px;
+            background: radial-gradient(circle, #0052ff 0%, #0d1b2a 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            color: #fff;
+            box-shadow: 0 0 15px var(--primary);
+            animation: floatLogo 3s ease-in-out infinite;
+        }
+        @keyframes floatLogo {
+            0% { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 15px var(--primary); }
+            50% { transform: translateY(-10px) rotate(5deg); box-shadow: 0 0 25px #00c853; }
+            100% { transform: translateY(0px) rotate(0deg); box-shadow: 0 0 15px var(--primary); }
+        }
+        .logo-area h1 {
+            font-size: 24px;
+            color: #fff;
+        }
+        .logo-area span {
+            color: var(--primary);
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 10px;
+            justify-content: center;
+        }
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            background: var(--primary-hover);
+            transform: scale(1.02);
+        }
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hero-section p {
+            color: var(--text-muted);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .contract-box {
+            background: rgba(0,0,0,0.3);
+            border: 2px dashed var(--border-color);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .contract-box code {
+            font-family: monospace;
+            color: #00c853;
+            font-weight: bold;
+        }
+        .presale-panel {
+            background: rgba(0,0,0,0.3);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 26px;
+            margin-bottom: 35px;
+        }
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .tag {
+            background: rgba(0, 200, 83, 0.2);
+            color: var(--success);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .input-group {
+            margin-bottom: 20px;
+        }
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .input-wrapper input {
+            width: 100%;
+            background: #0d1b2a;
+            border: 2px solid var(--border-color);
+            padding: 14px;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            outline: none;
+        }
+        .input-wrapper input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+        .input-wrapper .token-badge {
+            position: absolute;
+            left: 14px;
+            font-weight: bold;
+            color: #fff;
+            background: var(--border-color);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+        html[dir="rtl"] .input-wrapper .token-badge {
+            left: auto;
+            right: 14px;
+        }
+        html[dir="rtl"] .input-wrapper input {
+            text-align: right;
+            padding-right: 14px;
+            padding-left: 80px;
+        }
+        html[dir="ltr"] .input-wrapper input {
+            padding-left: 14px;
+            padding-right: 80px;
+        }
+        .buy-button {
+            width: 100%;
+            padding: 16px;
+            font-size: 18px;
+            background: linear-gradient(90deg, var(--primary) 0%, #00c853 100%);
+        }
+        .content-section {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 30px;
+        }
+        .content-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            border-left: 4px solid var(--primary);
+            padding-left: 10px;
+        }
+        html[dir="rtl"] .content-section h2 {
+            border-left: none;
+            border-right: 4px solid var(--primary);
+            padding-left: 0;
+            padding-right: 10px;
+        }
+        .table-container {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+        }
+        th {
+            background: var(--border-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+        }
+        tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+        .dashboard {
+            border-top: 2px solid var(--border-color);
+            padding-top: 25px;
+            margin-top: 30px;
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .db-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .db-card span {
+            display: block;
+            font-size: 13px;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .db-card strong {
+            font-size: 22px;
+            color: #00c853;
+        }
+        .referral-box {
+            margin-top: 20px;
+            background: rgba(0, 200, 83, 0.05);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            padding: 16px;
+            border-radius: 10px;
+        }
+        .referral-box h4 {
+            font-size: 15px;
+            color: var(--success);
+            margin-bottom: 10px;
+        }
+        .ref-link-area {
+            display: flex;
+            gap: 10px;
+            background: #0d1b2a;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 14px;
+            align-items: center;
+            justify-content: space-between;
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <div style="font-weight:bold; font-size:24px;">FIXER COIN</div>
-    <div class="menu">
-        <a href="#home">خانه</a>
-        <a href="#identity">شناسنامه</a>
-        <a href="#roadmap">نقشه راه</a>
-        <a href="#whitepaper">وایت پیپر</a>
-        <a href="#presale" style="color:#00c853;">پیش‌فروش</a>
+<div class="container">
+    <header>
+        <div class="logo-area">
+            <div class="fixer-logo-animated">F</div>
+            <h1 id="site-title">Fixer Coin <span>Presale</span></h1>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn btn-secondary" id="lang-btn" onclick="toggleLanguage()">English</button>
+            <button class="btn" id="wallet-btn" onclick="connectWallet()">اتصال کیف‌پول</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#identity-sec" id="nav-ident">شناسنامه فیکسر</a>
+        <a href="#roadmap-sec" id="nav-road">نقشه راه فیکسر</a>
+        <a href="#whitepaper-sec" id="nav-white">وایت پیپر</a>
+    </nav>
+
+    <section class="hero-section">
+        <h2 id="hero-title">پیش‌فروش رسمی توکن فیکسر</h2>
+        <p id="hero-desc">به اکوسیستم بین‌المللی تجارت دیجیتال فیکسر کوین بپیوندید.</p>
+    </section>
+
+    <div class="contract-box">
+        <code id="contract">0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F</code>
+        <button class="btn btn-secondary" id="copy-btn" style="padding: 6px 12px; font-size: 13px;" onclick="copyContract()">کپی آدرس</button>
     </div>
-</header>
 
-<section id="home" class="section">
-    <div class="floating-logo"></div>
-    <h1>به اکوسیستم فیکسر خوش آمدید</h1>
-    <p>هوشمندترین مکانیزم کارمزد در شبکه بیس</p>
-</section>
+    <div class="presale-panel">
+        <div class="panel-header">
+            <span id="panel-title" style="font-weight: bold; font-size: 16px;">خرید توکن FIXER</span>
+            <span class="tag" id="presale-tag">قیمت: $0.0000015</span>
+        </div>
 
-<section id="identity" class="section">
-    <h2>شناسنامه فیکسر</h2>
-    <p>عرضه ۱۰ میلیارد توکن ثابت - شبکه بیس - استاندارد ERC20</p>
-</section>
+        <div class="input-group">
+            <label id="label-pay">پرداخت می‌کنید (USDT - شبکه Base):</label>
+            <div class="input-wrapper">
+                <input type="number" id="usdtInput" placeholder="0.0" oninput="calculateTokens()">
+                <span class="token-badge">USDT</span>
+            </div>
+        </div>
 
-<section id="roadmap" class="section">
-    <h2>نقشه راه</h2>
-    <p>فاز ۱: قفل نقدینگی | فاز ۲: لیستینگ | فاز ۳: مارکتینگ | فاز ۴: بلوغ</p>
-</section>
+        <div class="input-group">
+            <label id="label-received">دریافت می‌کنید (FIXER):</label>
+            <div class="input-wrapper">
+                <input type="text" id="fixerOutput" placeholder="0.0" readonly>
+                <span class="token-badge">FIXER</span>
+            </div>
+        </div>
 
-<section id="whitepaper" class="section">
-    <h2>وایت پیپر</h2>
-    <p>سیستم کارمزد ۵۱ پله‌ای هوشمند برای جلوگیری از دامپ</p>
-</section>
-
-<section id="presale" class="section">
-    <div class="presale-box">
-        <h2>پیش‌فروش</h2>
-        <input type="text" placeholder="مقدار USDT">
-        <br>
-        <button>خرید توکن</button>
+        <button class="btn buy-button" id="buy-btn">خرید توکن</button>
     </div>
-</section>
 
+    <div class="dashboard">
+        <h3 id="db-title" style="font-size: 17px; margin-bottom: 12px;">داشبورد شما</h3>
+        <div class="dashboard-grid">
+            <div class="db-card">
+                <span id="db-purchased-lbl">توکن‌های خریداری شده</span>
+                <strong id="db-purchased">0.0</strong>
+            </div>
+            <div class="db-card">
+                <span id="db-refs-lbl">تعداد زیرمجموعه‌ها</span>
+                <strong id="db-refs">0</strong>
+            </div>
+        </div>
+
+        <div class="referral-box">
+            <h4 id="ref-title">لینک زیرمجموعه‌گیری شما (۵٪ پاداش)</h4>
+            <div class="ref-link-area">
+                <span id="ref-link-display" style="color: #fff;">کیف‌پول خود را متصل کنید...</span>
+                <button class="btn" id="ref-copy-btn" style="padding: 6px 12px; font-size: 13px; background: var(--success);" onclick="copyReferralLink()">کپی لینک</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-section" id="identity-sec">
+        <h2 id="title-ident">۱. مشخصات عمومی و هویت فنی (Token Identity)</h2>
+        <div id="text-ident">
+            <p><strong>نام ارز:</strong> فیکسر (Fixer)</p>
+            <p><strong>نماد اختصاری:</strong> FIXER</p>
+            <p><strong>عرضه کل:</strong> ۱۰,۰۰۰,۰۰۰,۰۰۰ (۱۰ میلیارد توکن ثابت، بدون قابلیت تولید مجدد یا Mint)</p>
+            <p><strong>شبکه میزبان:</strong> بلاک‌چین لایه دو بیس (Base Chain)</p>
+            <p><strong>استاندارد پیاده‌سازی:</strong> ERC-20 توسعه‌یافته بر اساس OpenZeppelin</p>
+        </div>
+    </div>
+
+    <div class="content-section" id="roadmap-sec">
+        <h2 id="title-road">۲. نقشه راه استراتژیک پروژه فیکسر کوین (Fixer Coin Roadmap)</h2>
+        <div id="text-road">
+            <p><strong>فاز ۱: بنیان‌گذاری و امنیت</strong><br>دیپلوی کد نهایی، تأمین نقدینگی در Aerodrome و قفل ابدی استخر نقدینگی، استارت رسانه فیکسر نیوز.</p><br>
+            <p><strong>فاز ۲: تثبیت و اتوماسیون</strong><br>لیستینگ در مراجع جهانی (CoinMarketCap & CoinGecko)، فعال‌سازی حد نصاب ۲ میلیون توکن و شروع استیکینگ.</p><br>
+            <p><strong>فاز ۳: انفجار قیمت</strong><br>کمپین‌های تبلیغاتی ویرال، اجرای توکن‌سوزی‌های دستی از محل سهم کارمزدها جهت ایجاد شوک مثبت.</p><br>
+            <p><strong>فاز ۴: بلوغ اکوسیستم</strong><br>صفر شدن کامل کارمزد در سقف قیمتی ($0.00128000)، ورود به صرافی‌های متمرکز بزرگ (CEX) و استفاده لجستیک بین‌المللی.</p>
+        </div>
+    </div>
+
+    <div class="content-section" id="whitepaper-sec">
+        <h2 id="title-white">۳. وایت پیپر رسمی فیکسر کوین (Whitepaper)</h2>
+        <div id="text-white">
+            <p><strong>خلاصه مدیریتی:</strong> فیکسر کوین (FIXER) با معرفی سیستم کارمزد پله‌ای پویای مبتنی بر قرارداد هوشمند غیرقابل‌تغییر در شبکه بیس، نفوذ رسانه‌ای بومی (فیکسر نیوز) را با ساختار مالیاتی کاهشی ۵۰ پله‌ای پیوند می‌زند.</p>
+            <br>
+            <h3>جدول محاسباتی پله‌های کارمزد و قیمت:</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>پله</th>
+                            <th>قیمت دلاری توکن</th>
+                            <th>درصد کارمزد معاملات</th>
+                            <th>وضعیت حمایت از پروتکل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                        </tbody>
+                </table>
+            </div>
+            <br>
+            <p><strong>حسابداری غیرمتمرکز (حد نصاب ۲ میلیون توکن):</strong> به محض رسیدن توکن‌های داخل قرارداد به مرز ۲ میلیون فیکسر، ۳۵٪ به ارز بیس (ETH) تبدیل شده و به ولت ۳ واریز می‌شود و ۶۵٪ سهم اکوسیستم مستقیم به ولت ۱ منتقل می‌گردد.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+const TOKEN_PRICE = 0.0000015; 
+let userWalletAddress = null;
+let currentLang = 'fa';
+
+const translations = {
+    fa: {
+        dir: 'rtl', title: 'Fixer Coin - پیش‌فروش رسمی',
+        navIdent: 'شناسنامه فیکسر', navRoad: 'نقشه راه فیکسر', navWhite: 'وایت پیپر',
+        walletBtn: 'اتصال کیف‌پول', heroTitle: 'پیش‌فروش رسمی توکن فیکسر', heroDesc: 'به اکوسیستم بین‌المللی تجارت دیجیتال فیکسر کوین بپیوندید.',
+        copyBtn: 'کپی آدرس', panelTitle: 'خرید توکن FIXER', labelPay: 'پرداخت می‌کنید (USDT - شبکه Base):',
+        labelReceived: 'دریافت می‌کنید (FIXER):', buyBtn: 'خرید توکن', dbTitle: 'داشبورد شما',
+        dbPurchasedLbl: 'توکن‌های خریداری شده', dbRefsLbl: 'تعداد زیرمجموعه‌ها', refTitle: 'لینک زیرمجموعه‌گیری شما (۵٪ پاداش)',
+        refCopyBtn: 'کپی لینک', refNoWallet: 'کیف‌پول خود را متصل کنید...', langBtn: 'English'
+    },
+    en: {
+        dir: 'ltr', title: 'Fixer Coin - Official Presale',
+        navIdent: 'Fixer Identity', navRoad: 'Fixer Roadmap', navWhite: 'Whitepaper',
+        walletBtn: 'Connect Wallet', heroTitle: 'Official Fixer Presale', heroDesc: 'Join the international digital commerce ecosystem of Fixer Coin.',
+        copyBtn: 'Copy Address', panelTitle: 'Buy FIXER Tokens', labelPay: 'You Pay (USDT - Base Network):',
+        labelReceived: 'You Receive (FIXER):', buyBtn: 'Buy Tokens', dbTitle: 'Your Dashboard',
+        dbPurchasedLbl: 'Purchased Tokens', dbRefsLbl: 'Referrals Count', refTitle: 'Your Referral Link (5% Bonus)',
+        refCopyBtn: 'Copy Link', refNoWallet: 'Connect your wallet first...', langBtn: 'فارسی'
+    }
+};
+
+// تولید ۵۱ پله کارمزد در جدول
+const tableBody = document.getElementById('table-body');
+const stepData = [
+    { s: 1, p: "0.00000125", t: "50%", d: "حداکثر حمایت و قفل نقدینگی" },
+    { s: 2, p: "0.00002680", t: "49%", d: "کنترل شدید نوسانات اولیه" },
+    { s: 3, p: "0.00005235", t: "48%", d: "کنترل شدید نوسانات اولیه" },
+    { s: 10, p: "0.00023120", t: "41%", d: "ورود به فاز دوم مارکتینگ" },
+    { s: 26, p: "0.00064000", t: "25%", d: "تعادل کامل میان درآمد و انگیزه معامله‌گران" },
+    { s: 51, p: "0.00128000", t: "0%", d: "آزادسازی کامل (کارمزد صفر مطلق)" }
+];
+
+function renderTable() {
+    tableBody.innerHTML = "";
+    stepData.forEach(item => {
+        tableBody.innerHTML += `<tr>
+            <td>${item.s}</td>
+            <td>$${item.p}</td>
+            <td>${item.t}</td>
+            <td>${item.d}</td>
+        </tr>`;
+    });
+}
+
+async function connectWallet() {
+    if (window.ethereum) {
+        try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            userWalletAddress = accounts[0];
+            document.getElementById('wallet-btn').innerText = userWalletAddress.substring(0, 6) + "..." + userWalletAddress.substring(38);
+            document.getElementById('ref-link-display').innerText = window.location.origin + "?ref=" + userWalletAddress;
+        } catch (e) { alert("اتصال لغو شد."); }
+    } else {
+        // باز کردن هوشمند متامسک در گوشی (Deep Linking)
+        window.open("https://metamask.app.link/dapp/" + window.location.host + window.location.pathname);
+    }
+}
+
+function calculateTokens() {
+    const usdt = parseFloat(document.getElementById('usdtInput').value);
+    document.getElementById('fixerOutput').value = !isNaN(usdt) ? (usdt / TOKEN_PRICE).toLocaleString() : "0.0";
+}
+
+function copyContract() {
+    navigator.clipboard.writeText(document.getElementById('contract').innerText);
+    alert("آدرس کپی شد!");
+}
+
+function copyReferralLink() {
+    if(userWalletAddress) {
+        navigator.clipboard.writeText(document.getElementById('ref-link-display').innerText);
+        alert("لینک رفرال کپی شد!");
+    } else { alert("ابتدا ولت را متصل کنید."); }
+}
+
+function toggleLanguage() {
+    currentLang = currentLang === 'en' ? 'fa' : 'en';
+    const data = translations[currentLang];
+    document.getElementById('html-tag').setAttribute('dir', data.dir);
+    document.getElementById('site-title').innerText = data.title;
+    document.getElementById('nav-ident').innerText = data.navIdent;
+    document.getElementById('nav-road').innerText = data.navRoad;
+    document.getElementById('nav-white').innerText = data.navWhite;
+    document.getElementById('lang-btn').innerText = data.langBtn;
+    if(!userWalletAddress) document.getElementById('wallet-btn').innerText = data.walletBtn;
+    document.getElementById('hero-title').innerText = data.heroTitle;
+    document.getElementById('hero-desc').innerText = data.heroDesc;
+    document.getElementById('copy-btn').innerText = data.copyBtn;
+    document.getElementById('panel-title').innerText = data.panelTitle;
+    document.getElementById('label-pay').innerText = data.labelPay;
+    document.getElementById('label-received').innerText = data.labelReceived;
+    document.getElementById('buy-btn').innerText = data.buyBtn;
+    document.getElementById('db-title').innerText = data.dbTitle;
+    document.getElementById('db-purchased-lbl').innerText = data.dbPurchasedLbl;
+    document.getElementById('db-refs-lbl').innerText = data.dbRefsLbl;
+    document.getElementById('ref-title').innerText = data.refTitle;
+    document.getElementById('ref-copy-btn').innerText = data.refCopyBtn;
+}
+
+renderTable();
+</script>
 </body>
 </html>
+"""
+
+with open("fixer_coin_code.txt", "w", encoding="utf-8") as f:
+    f.write(html_code)
+
+print("SUCCESS")
