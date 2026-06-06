@@ -2982,6 +2982,21 @@ Blame
                 return;
             }
 
+            // محاسبه تعداد توکن‌ها
+            const tokensToReceive = parseFloat(usdtAmount) / TOKEN_PRICE;
+            const minTokens = 10000000; // 10 میلیون توکن
+            const maxTokens = 200000000; // 200 میلیون توکن
+
+            if (tokensToReceive < minTokens) {
+                alert(`حداقل مشارکت در پیش فروش برای هر کیف پول 10 میلیون توکن فیکسر کوین است (${(minTokens * TOKEN_PRICE).toFixed(2)} USDT)`);
+                return;
+            }
+
+            if (tokensToReceive > maxTokens) {
+                alert(`حداکثر مشارکت در پیش فروش برای هر کیف پول 200 میلیون توکن فیکسر کوین است (${(maxTokens * TOKEN_PRICE).toFixed(2)} USDT)`);
+                return;
+            }
+
             const referrerAddress = document.getElementById('referrerInput').value || "0x0000000000000000000000000000000000000000";
 
             try {
