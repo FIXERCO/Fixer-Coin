@@ -12,7 +12,10 @@ const presaleAbi = [
         "type": "constructor"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {"internalType": "uint256", "name": "_usdtAmount", "type": "uint256"},
+            {"internalType": "address", "name": "_referrer", "type": "address"}
+        ],
         "name": "buyTokens",
         "outputs": [],
         "stateMutability": "nonpayable",
