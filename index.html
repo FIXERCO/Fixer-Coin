@@ -10,6 +10,7 @@ Blame
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="site-title">Fixer Coin | Official Website</title>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
     <style>
         @font-face {
             font-family: 'B Nazanin';
@@ -131,10 +132,11 @@ Blame
             background: rgba(255, 255, 255, 0.05);
             color: var(--primary);
             border: 1px solid rgba(0, 255, 204, 0.3);
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 16px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 13px;
             transition: 0.3s;
         }
  
@@ -607,6 +609,196 @@ Blame
         .modal-body ul, .modal-body ol { margin-left: 20px; margin-right: 20px; margin-bottom: 20px; }
         .modal-body li { margin-bottom: 8px; }
 
+        /* Balance Display */
+        .balance-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .balance-display span {
+            color: var(--text-muted);
+        }
+
+        .balance-display b {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-approve:hover {
+            background: linear-gradient(135deg, #ff9500, #ff7700);
+            transform: translateY(-2px);
+        }
+
+        .btn-claim:hover {
+            background: linear-gradient(135deg, #0055cc, #003399);
+            transform: translateY(-2px);
+        }
+
+        /* Network Status */
+        .network-status {
+            transition: all 0.3s ease;
+        }
+
+        .network-status.connected {
+            background: rgba(0, 255, 204, 0.1);
+            border-color: rgba(0, 255, 204, 0.3);
+            color: var(--primary);
+        }
+
+        .network-status.wrong-network {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .logo-container {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .logo-text {
+                font-size: 18px;
+            }
+
+            nav {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            nav a {
+                margin: 0;
+                padding: 10px;
+                text-align: center;
+                font-size: 14px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .btn-lang {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+
+            .btn-connect {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .hero-container {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .hero-logo-large {
+                width: 200px;
+                height: 200px;
+            }
+
+            .hero-text h1 {
+                font-size: 24px;
+            }
+
+            .hero-text p {
+                font-size: 14px;
+            }
+
+            .contract-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .presale-wrapper {
+                padding: 0 20px;
+            }
+
+            .schematic-container {
+                padding: 20px;
+            }
+
+            .token-identity-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tokenomics-diagram {
+                flex-direction: column;
+            }
+
+            .wallet-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .tax-ladder {
+                flex-direction: column;
+            }
+
+            .threshold-flow {
+                flex-direction: column;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .philosophy-diagram {
+                flex-direction: column;
+            }
+
+            .tax-tiers {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .threshold-diagram {
+                flex-direction: column;
+            }
+
+            .security-layers {
+                flex-direction: column;
+            }
+        }
+
         /* Schematic Diagrams */
         .schematic-container {
             background: rgba(18, 24, 38, 0.6);
@@ -1039,10 +1231,10 @@ Blame
         </div>
         <nav>
             <a href="#home" id="nav-home">Home</a>
-            <a href="#identity" id="nav-identity">شناسنامه</a>
-            <a href="#roadmap" id="nav-roadmap">نقشه راه</a>
-            <a href="#whitepaper" id="nav-whitepaper">وایت‌پیپر</a>
-            <a href="#presale" id="nav-presale">پیش‌فروش</a>
+            <a href="#identity" id="nav-identity">Identity</a>
+            <a href="#roadmap" id="nav-roadmap">Roadmap</a>
+            <a href="#whitepaper" id="nav-whitepaper">Whitepaper</a>
+            <a href="#presale" id="nav-presale">Presale</a>
         </nav>
         <div class="header-actions">
             <button class="btn-lang" onclick="toggleLanguage()" id="lang-btn">فارسی</button>
@@ -1117,61 +1309,61 @@ Blame
         </section>
 
         <section class="info-section" id="identity">
-            <h2 class="section-title" id="identity-title">شناسنامه فنی فیکسر کوین</h2>
+            <h2 class="section-title" id="identity-title">Fixer Coin Technical Identity</h2>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="id-spec-title">مشخصات عمومی و هویت فنی</h3>
+                <h3 class="schematic-title" id="id-spec-title">General Specifications & Technical Identity</h3>
                 <div class="token-identity-grid">
                     <div class="identity-box">
-                        <h5 id="id-name-label">نام ارز</h5>
-                        <p id="id-name-value">فیکسر (Fixer)</p>
+                        <h5 id="id-name-label">Token Name</h5>
+                        <p id="id-name-value">Fixer (FIXER)</p>
                     </div>
                     <div class="identity-box">
-                        <h5 id="id-symbol-label">نماد</h5>
+                        <h5 id="id-symbol-label">Symbol</h5>
                         <p id="id-symbol-value">FIXER</p>
                     </div>
                     <div class="identity-box">
-                        <h5 id="id-supply-label">عرضه کل</h5>
-                        <p id="id-supply-value">10B توکن</p>
+                        <h5 id="id-supply-label">Total Supply</h5>
+                        <p id="id-supply-value">10B Tokens</p>
                     </div>
                     <div class="identity-box">
-                        <h5 id="id-network-label">شبکه</h5>
+                        <h5 id="id-network-label">Network</h5>
                         <p id="id-network-value">Base Chain</p>
                     </div>
                     <div class="identity-box">
-                        <h5 id="id-standard-label">استاندارد</h5>
+                        <h5 id="id-standard-label">Standard</h5>
                         <p id="id-standard-value">ERC-20</p>
                     </div>
                     <div class="identity-box">
-                        <h5 id="id-decimals-label">اعشار</h5>
-                        <p id="id-decimals-value">8 رقم</p>
+                        <h5 id="id-decimals-label">Decimals</h5>
+                        <p id="id-decimals-value">8 digits</p>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="id-dist-title">ساختار توزیع توکن‌ها</h3>
+                <h3 class="schematic-title" id="id-dist-title">Token Distribution Structure</h3>
                 <div class="tokenomics-diagram">
                     <div class="wallet-circle wallet-1">
-                        <span id="id-wallet1-label">ولت ۱ (مالک)</span>
-                        <strong id="id-wallet1-value">7B توکن</strong>
+                        <span id="id-wallet1-label">Wallet 1 (Owner)</span>
+                        <strong id="id-wallet1-value">7B Tokens</strong>
                         <small id="id-wallet1-percent">70%</small>
                     </div>
                     <div class="wallet-circle wallet-2">
-                        <span id="id-wallet2-label">ولت ۲ (پیش‌فروش)</span>
-                        <strong id="id-wallet2-value">3B توکن</strong>
+                        <span id="id-wallet2-label">Wallet 2 (Presale)</span>
+                        <strong id="id-wallet2-value">3B Tokens</strong>
                         <small id="id-wallet2-percent">30%</small>
                     </div>
                     <div class="wallet-circle wallet-3">
-                        <span id="id-wallet3-label">ولت ۳ (AutoSwap)</span>
-                        <strong id="id-wallet3-value">کارمزدها</strong>
+                        <span id="id-wallet3-label">Wallet 3 (AutoSwap)</span>
+                        <strong id="id-wallet3-value">Fees</strong>
                         <small id="id-wallet3-percent">35%</small>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="id-tax-title">مکانیزم کارمزد پله‌ای</h3>
+                <h3 class="schematic-title" id="id-tax-title">Tiered Tax Mechanism</h3>
                 <div class="tax-ladder">
                     <div class="ladder-step">
                         <div class="ladder-bar ladder-50" id="id-tax-50">50% - $0.00000125</div>
@@ -1195,184 +1387,184 @@ Blame
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="id-threshold-title">مکانیزم حسابداری غیرمتمرکز</h3>
+                <h3 class="schematic-title" id="id-threshold-title">Decentralized Accounting Mechanism</h3>
                 <div class="threshold-flow">
                     <div class="flow-step">
                         <div class="flow-icon">📊</div>
                         <div class="flow-content">
-                            <h6 id="id-th1-title">فاز انباشت</h6>
-                            <p id="id-th1-desc">کارمزدها در قرارداد جمع می‌شوند تا به 2M توکن برسند</p>
+                            <h6 id="id-th1-title">Accumulation Phase</h6>
+                            <p id="id-th1-desc">Fees collected in contract until reaching 2M tokens</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">⚡</div>
                         <div class="flow-content">
-                            <h6 id="id-th2-title">اجرای حد نصاب</h6>
-                            <p id="id-th2-desc">در اولین فروش بعدی، تفکیک خودکار اجرا می‌شود</p>
+                            <h6 id="id-th2-title">Threshold Execution</h6>
+                            <p id="id-th2-desc">On next sale, automatic split is executed</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">💰</div>
                         <div class="flow-content">
-                            <h6 id="id-th3-title">35% نقدینگی</h6>
-                            <p id="id-th3-desc">تبدیل به ETH و واریز به ولت ۳</p>
+                            <h6 id="id-th3-title">35% Liquidity</h6>
+                            <p id="id-th3-desc">Converted to ETH and sent to Wallet 3</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🔒</div>
                         <div class="flow-content">
-                            <h6 id="id-th4-title">65% اکوسیستم</h6>
-                            <p id="id-th4-desc">انتقال توکن به ولت ۱ بدون فشار فروش</p>
+                            <h6 id="id-th4-title">65% Ecosystem</h6>
+                            <p id="id-th4-desc">Tokens transferred to Wallet 1 without sell pressure</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="id-security-title">ابزارهای مدیریتی و لایه‌های حفاظتی</h3>
+                <h3 class="schematic-title" id="id-security-title">Management Tools & Security Layers</h3>
                 <div class="security-grid">
                     <div class="security-item">
                         <div class="icon">⚙️</div>
                         <h6 id="id-sec1-title">setTier</h6>
-                        <p id="id-sec1-desc">مدیریت پله قیمتی</p>
+                        <p id="id-sec1-desc">Price tier management</p>
                     </div>
                     <div class="security-item">
                         <div class="icon">🐋</div>
                         <h6 id="id-sec2-title">setMin/MaxTx</h6>
-                        <p id="id-sec2-desc">کنترل ضد نهنگ</p>
+                        <p id="id-sec2-desc">Anti-whale control</p>
                     </div>
                     <div class="security-item">
                         <div class="icon">🚨</div>
                         <h6 id="id-sec3-title">emergencyWithdraw</h6>
-                        <p id="id-sec3-desc">برداشت اضطراری</p>
+                        <p id="id-sec3-desc">Emergency withdrawal</p>
                     </div>
                     <div class="security-item">
                         <div class="icon">🚫</div>
                         <h6 id="id-sec4-title">isBlacklisted</h6>
-                        <p id="id-sec4-desc">لیست سیاه ربات‌ها</p>
+                        <p id="id-sec4-desc">Bot blacklist</p>
                     </div>
                     <div class="security-item">
                         <div class="icon">✅</div>
                         <h6 id="id-sec5-title">isExcluded</h6>
-                        <p id="id-sec5-desc">معافیت رسمی</p>
+                        <p id="id-sec5-desc">Official exemption</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="info-section" id="roadmap">
-            <h2 class="section-title" id="roadmap-title">نقشه راه استراتژیک</h2>
+            <h2 class="section-title" id="roadmap-title">Strategic Roadmap</h2>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="rm-phase1-title">فاز ۱: پونداسیون، امنیت مطلق و راه‌اندازی</h3>
+                <h3 class="schematic-title" id="rm-phase1-title">Phase 1: Foundation, Absolute Security, and Launch</h3>
                 <div class="threshold-flow">
                     <div class="flow-step">
                         <div class="flow-icon">🚀</div>
                         <div class="flow-content">
-                            <h6 id="rm1-step1-title">دیپلوی قرارداد</h6>
-                            <p id="rm1-step1-desc">انتشار کد نهایی روی شبکه بیس با لایه امنیتی ضد هک</p>
+                            <h6 id="rm1-step1-title">Contract Deployment</h6>
+                            <p id="rm1-step1-desc">Deploy final code on Base with anti-hack security layer</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">💰</div>
                         <div class="flow-content">
-                            <h6 id="rm1-step2-title">تأمین مالی اولیه</h6>
-                            <p id="rm1-step2-desc">عرضه 2 میلیارد توکن برای جذب سرمایه‌گذاران اولیه</p>
+                            <h6 id="rm1-step2-title">Initial Funding</h6>
+                            <p id="rm1-step2-desc">Offer 2B tokens to attract early investors</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🔒</div>
                         <div class="flow-content">
-                            <h6 id="rm1-step3-title">قفل نقدینگی</h6>
-                            <p id="rm1-step3-desc">تزریق 1B توکن به آیرودروم و قفل ابدی LP</p>
+                            <h6 id="rm1-step3-title">Liquidity Lock</h6>
+                            <p id="rm1-step3-desc">Inject 1B tokens to Aerodrome and lock LP permanently</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">📢</div>
                         <div class="flow-content">
-                            <h6 id="rm1-step4-title">راه‌اندازی فیکسر نیوز</h6>
-                            <p id="rm1-step4-desc">استارت کانال رسانه‌ای و ربات‌های نمایش قیمت</p>
+                            <h6 id="rm1-step4-title">Fixer News Launch</h6>
+                            <p id="rm1-step4-desc">Start media channel and price tracking bots</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="rm-phase2-title">فاز ۲: تثبیت مارکت و فعال‌سازی موتورهای مالی</h3>
+                <h3 class="schematic-title" id="rm-phase2-title">Phase 2: Market Stabilization and Financial Engine Activation</h3>
                 <div class="threshold-flow">
                     <div class="flow-step">
                         <div class="flow-icon">📊</div>
                         <div class="flow-content">
-                            <h6 id="rm2-step1-title">ثبت در مراجع جهانی</h6>
-                            <p id="rm2-step1-desc">لیست در CoinMarketCap و CoinGecko</p>
+                            <h6 id="rm2-step1-title">Global Reference Listings</h6>
+                            <p id="rm2-step1-desc">List on CoinMarketCap and CoinGecko</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">⚙️</div>
                         <div class="flow-content">
-                            <h6 id="rm2-step2-title">موتور درآمد خودکار</h6>
-                            <p id="rm2-step2-desc">فعال‌سازی حد نصاب 2M توکن و تفکیک درآمدها</p>
+                            <h6 id="rm2-step2-title">Auto Revenue Engine</h6>
+                            <p id="rm2-step2-desc">Activate 2M token threshold and fee splitting</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🎁</div>
                         <div class="flow-content">
-                            <h6 id="rm2-step3-title">پلتفرم استیکینگ</h6>
-                            <p id="rm2-step3-desc">پاداش به هولدرهای وفادار با سهم 15%</p>
+                            <h6 id="rm2-step3-title">Staking Platform</h6>
+                            <p id="rm2-step3-desc">Reward loyal holders with 15% share</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="rm-phase3-title">فاز ۳: سلطه رسانه‌ای و توکن‌سوزی‌های برنامه‌ریزی‌شده</h3>
+                <h3 class="schematic-title" id="rm-phase3-title">Phase 3: Media Dominance and Planned Token Burns</h3>
                 <div class="threshold-flow">
                     <div class="flow-step">
                         <div class="flow-icon">📱</div>
                         <div class="flow-content">
-                            <h6 id="rm3-step1-title">مارکتینگ ویرال</h6>
-                            <p id="rm3-step1-desc">کمپین‌های تبلیغاتی در اینستاگرام و تلگرام</p>
+                            <h6 id="rm3-step1-title">Viral Marketing</h6>
+                            <p id="rm3-step1-desc">Ad campaigns on Instagram and Telegram</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🔥</div>
                         <div class="flow-content">
-                            <h6 id="rm3-step2-title">توکن‌سوزی دستی</h6>
-                            <p id="rm3-step2-desc">اجرای رویدادهای بزرگ سوزاندن از ولت ۱</p>
+                            <h6 id="rm3-step2-title">Manual Token Burns</h6>
+                            <p id="rm3-step2-desc">Execute large burn events from Wallet 1</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🐋</div>
                         <div class="flow-content">
-                            <h6 id="rm3-step3-title">جذب نهنگ‌ها</h6>
-                            <p id="rm3-step3-desc">عبور از پله‌های میانی و کاهش کارمزد</p>
+                            <h6 id="rm3-step3-title">Whale Attraction</h6>
+                            <p id="rm3-step3-desc">Cross middle tiers and reduce tax</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="schematic-container">
-                <h3 class="schematic-title" id="rm-phase4-title">فاز ۴: کارمزد صفر، آزادی مطلق و توسعه بین‌المللی</h3>
+                <h3 class="schematic-title" id="rm-phase4-title">Phase 4: Zero Tax, Absolute Freedom, and Global Development</h3>
                 <div class="threshold-flow">
                     <div class="flow-step">
                         <div class="flow-icon">🎯</div>
                         <div class="flow-content">
-                            <h6 id="rm4-step1-title">فتح سقف قیمتی</h6>
-                            <p id="rm4-step1-desc">لمس $0.00128000 و صفر شدن کامل کارمزد</p>
+                            <h6 id="rm4-step1-title">Price Ceiling Achievement</h6>
+                            <p id="rm4-step1-desc">Touch $0.00128000 and zero tax completely</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🏦</div>
                         <div class="flow-content">
-                            <h6 id="rm4-step2-title">لیست در CEX</h6>
-                            <p id="rm4-step2-desc">ورود به صرافی‌های متمرکز بزرگ</p>
+                            <h6 id="rm4-step2-title">CEX Listing</h6>
+                            <p id="rm4-step2-desc">Enter major centralized exchanges</p>
                         </div>
                     </div>
                     <div class="flow-step">
                         <div class="flow-icon">🌍</div>
                         <div class="flow-content">
-                            <h6 id="rm4-step3-title">کاربرد تجاری</h6>
-                            <p id="rm4-step3-desc">ادغام در حواله‌های مالی و لجستیک بین‌المللی</p>
+                            <h6 id="rm4-step3-title">Commercial Utility</h6>
+                            <p id="rm4-step3-desc">Integration in international finance and logistics</p>
                         </div>
                     </div>
                 </div>
@@ -1380,47 +1572,47 @@ Blame
         </section>
 
         <section class="info-section" id="whitepaper">
-            <h2 class="section-title" id="whitepaper-title">وایت‌پیپر فیکسر کوین</h2>
+            <h2 class="section-title" id="whitepaper-title">Fixer Coin Whitepaper</h2>
 
             <div class="whitepaper-schematic">
-                <h3 class="wp-section-title" id="wp-phil-title">فلسفه بازار</h3>
+                <h3 class="wp-section-title" id="wp-phil-title">Market Philosophy</h3>
                 <div class="philosophy-diagram">
                     <div class="philosophy-pillar">
                         <div class="icon">📢</div>
-                        <h6 id="wp-phil1-title">کشش ارگانیک رسانه‌ای</h6>
-                        <p id="wp-phil1-desc">پشتیبانی فیکسر نیوز برای ایجاد پایگاه ارتباطی بومی و رو به رشد</p>
+                        <h6 id="wp-phil1-title">Organic Media Traction</h6>
+                        <p id="wp-phil1-desc">Fixer News support for native communication base</p>
                     </div>
                     <div class="philosophy-pillar">
                         <div class="icon">🛡️</div>
-                        <h6 id="wp-phil2-title">حفاظت الگوریتمی</h6>
-                        <p id="wp-phil2-desc">مدل ریاضی با رابطه معکوس بین قیمت و کارمزد فروش</p>
+                        <h6 id="wp-phil2-title">Algorithmic Protection</h6>
+                        <p id="wp-phil2-desc">Mathematical model with inverse price-tax relationship</p>
                     </div>
                 </div>
             </div>
 
             <div class="whitepaper-schematic">
-                <h3 class="wp-section-title" id="wp-dist-title">ساختار توزیع توکن‌ها</h3>
+                <h3 class="wp-section-title" id="wp-dist-title">Token Distribution Structure</h3>
                 <div class="tokenomics-pie">
                     <div class="pie-chart"></div>
                     <div class="pie-legend">
                         <div class="legend-item">
                             <div class="legend-color legend-color-1"></div>
-                            <div class="legend-text" id="wp-legend1">پیش‌فروش و نقدینگی (30% - 3B)</div>
+                            <div class="legend-text" id="wp-legend1">Presale & Liquidity (30% - 3B)</div>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color legend-color-2"></div>
-                            <div class="legend-text" id="wp-legend2">پشتیبان تزریق نقدینگی (50% - 5B)</div>
+                            <div class="legend-text" id="wp-legend2">Liquidity Injection Support (50% - 5B)</div>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color legend-color-3"></div>
-                            <div class="legend-text" id="wp-legend3">ذخیره استراتژیک (20% - 2B)</div>
+                            <div class="legend-text" id="wp-legend3">Strategic Reserve (20% - 2B)</div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="whitepaper-schematic">
-                <h3 class="wp-section-title" id="wp-tax-title">مکانیزم کارمزد 51 پله‌ای</h3>
+                <h3 class="wp-section-title" id="wp-tax-title">51-Tier Tax Mechanism</h3>
                 <div class="tax-tiers">
                     <div class="tier-box high">
                         <strong id="wp-tax50">50%</strong>
@@ -1454,51 +1646,51 @@ Blame
             </div>
 
             <div class="whitepaper-schematic">
-                <h3 class="wp-section-title" id="wp-threshold-title">مکانیزم حسابداری غیرمتمرکز</h3>
+                <h3 class="wp-section-title" id="wp-threshold-title">Decentralized Accounting Mechanism</h3>
                 <div class="threshold-diagram">
                     <div class="threshold-stage">
-                        <h6 id="wp-th1-title">فاز انباشت</h6>
-                        <p id="wp-th1-desc">کارمزدهای فروش کسر شده در قرارداد جمع می‌شوند</p>
+                        <h6 id="wp-th1-title">Accumulation Phase</h6>
+                        <p id="wp-th1-desc">Sell fees collected in contract</p>
                     </div>
                     <div class="threshold-stage">
-                        <h6 id="wp-th2-title">اجرای حد آستانه</h6>
-                        <p id="wp-th2-desc">به محض رسیدن به 2M توکن، تفکیک خودکار اجرا می‌شود</p>
+                        <h6 id="wp-th2-title">Threshold Execution</h6>
+                        <p id="wp-th2-desc">Auto-split executed upon reaching 2M tokens</p>
                     </div>
                     <div class="threshold-stage">
-                        <h6 id="wp-th3-title">35% نقدینگی</h6>
-                        <p id="wp-th3-desc">تبدیل به ETH و واریز به ولت ۳</p>
+                        <h6 id="wp-th3-title">35% Liquidity</h6>
+                        <p id="wp-th3-desc">Converted to ETH and sent to Wallet 3</p>
                     </div>
                     <div class="threshold-stage">
-                        <h6 id="wp-th4-title">65% اکوسیستم</h6>
-                        <p id="wp-th4-desc">انتقال توکن به ولت ۱ بدون فشار فروش</p>
+                        <h6 id="wp-th4-title">65% Ecosystem</h6>
+                        <p id="wp-th4-desc">Tokens transferred to Wallet 1 without sell pressure</p>
                     </div>
                 </div>
             </div>
 
             <div class="whitepaper-schematic">
-                <h3 class="wp-section-title" id="wp-security-title">امنیت لایه‌ای و کنترل دسترسی</h3>
+                <h3 class="wp-section-title" id="wp-security-title">Layered Security & Access Control</h3>
                 <div class="security-layers">
                     <div class="security-layer">
                         <div class="layer-icon">✅</div>
-                        <h6 id="wp-sec1-title">لیست سفید</h6>
-                        <p id="wp-sec1-desc">معافیت کیف‌پول‌های رسمی از کارمزد</p>
+                        <h6 id="wp-sec1-title">Whitelist</h6>
+                        <p id="wp-sec1-desc">Official wallets exempt from fees</p>
                     </div>
                     <div class="security-layer">
                         <div class="layer-icon">🔒</div>
                         <h6 id="wp-sec2-title">lockTheSwap</h6>
-                        <p id="wp-sec2-desc">محافظت در برابر حملات Reentrancy</p>
+                        <p id="wp-sec2-desc">Protection against Reentrancy attacks</p>
                     </div>
                     <div class="security-layer">
                         <div class="layer-icon">🚫</div>
-                        <h6 id="wp-sec3-title">لیست سیاه</h6>
-                        <p id="wp-sec3-desc">مسدودسازی ربات‌های مخرب MEV</p>
+                        <h6 id="wp-sec3-title">Blacklist</h6>
+                        <p id="wp-sec3-desc">Block malicious MEV bots</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section class="info-section" id="presale-section">
-            <h2 class="section-title" id="presale-section-title">پیش‌فروش عمومی</h2>
+            <h2 class="section-title" id="presale-section-title">Public Presale</h2>
             <div class="presale-wrapper" style="max-width: 600px; margin: 0 auto;">
                 <div class="presale-card">
                     <div class="panel-header-with-logo">
@@ -1514,7 +1706,26 @@ Blame
                         <label id="label-received">Receive Token (FIXER)</label>
                         <input type="text" id="fixerOutput" placeholder="0.0" disabled>
                     </div>
-                    <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px;" id="buy-btn">Buy Fixer Token</button>
+                    <div class="input-group">
+                        <label id="label-referrer">Referrer Address (Optional)</label>
+                        <input type="text" id="referrerInput" placeholder="0x...">
+                    </div>
+                    <div class="balance-display">
+                        <span id="label-usdt-balance">Your USDT Balance:</span>
+                        <b id="usdt-balance">0.0 USDT</b>
+                    </div>
+                    <div class="balance-display">
+                        <span id="label-reserved-balance">Reserved FIXER:</span>
+                        <b id="reserved-balance">0.0 FIXER</b>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-approve" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #ffb703, #ff9500); border: none; color: #000; margin-bottom: 10px; cursor: pointer;" id="approve-btn">Approve USDT</button>
+                        <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #00ffcc, #00ccaa); border: none; color: #000; margin-bottom: 10px; cursor: pointer;" id="buy-btn">Buy Fixer Token</button>
+                        <button class="btn-claim" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #0077ff, #0055cc); border: none; color: #fff; cursor: pointer;" id="claim-btn">Claim Tokens</button>
+                    </div>
+                    <div class="network-status" id="network-status" style="margin-top: 15px; padding: 10px; border-radius: 8px; text-align: center; font-size: 14px; background: rgba(255, 183, 3, 0.1); border: 1px solid rgba(255, 183, 3, 0.3); color: #ffb703;">
+                        ⚠️ Please connect your wallet and switch to Base Network
+                    </div>
                 </div>
 
                 <div class="presale-card dashboard-box">
@@ -1956,7 +2167,15 @@ Blame
                 wpSec2Title: "lockTheSwap",
                 wpSec2Desc: "محافظت در برابر حملات Reentrancy",
                 wpSec3Title: "لیست سیاه",
-                wpSec3Desc: "مسدودسازی ربات‌های مخرب MEV"
+                wpSec3Desc: "مسدودسازی ربات‌های مخرب MEV",
+                labelReferrer: "آدرس معرف (اختیاری)",
+                labelUsdtBalance: "موجودی تتر شما:",
+                labelReservedBalance: "توکن‌های رزرو شده:",
+                approveBtn: "تایید تتر (Approve)",
+                claimBtn: "برداشت توکن‌ها (Claim)",
+                networkStatus: "⚠️ لطفاً کیف پول خود را متصل کنید و به شبکه Base بروید",
+                networkStatusConnected: "✅ متصل به شبکه Base",
+                networkStatusWrong: "❌ لطفاً به شبکه Base تغییر دهید"
             },
             en: {
                 dir: "ltr",
@@ -2152,10 +2371,23 @@ Blame
                 wpSec2Title: "lockTheSwap",
                 wpSec2Desc: "Protection against Reentrancy attacks",
                 wpSec3Title: "Blacklist",
-                wpSec3Desc: "Block malicious MEV bots"
+                wpSec3Desc: "Block malicious MEV bots",
+                labelReferrer: "Referrer Address (Optional)",
+                labelUsdtBalance: "Your USDT Balance:",
+                labelReservedBalance: "Reserved FIXER:",
+                approveBtn: "Approve USDT",
+                claimBtn: "Claim Tokens",
+                networkStatus: "⚠️ Please connect your wallet and switch to Base Network",
+                networkStatusConnected: "✅ Connected to Base Network",
+                networkStatusWrong: "❌ Please switch to Base Network"
             }
         };
- 
+
+        // Load ABI files
+        const script = document.createElement('script');
+        script.src = 'FixerPresaleABI.js';
+        document.head.appendChild(script);
+
         // آدرس‌های حیاتی پروژه فیکسر کوین (تنظیم شده بر اساس کانترکت‌های جدید شما)
         const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
         const PRESALE_ADDRESS = "0x217e6b606dd60a136776965554f0cbdc618ff3d3";
@@ -2373,6 +2605,149 @@ Blame
                 document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
                 document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
             }
+
+            // New presale elements
+            if (document.getElementById('label-referrer')) {
+                document.getElementById('label-referrer').textContent = langData.labelReferrer;
+                document.getElementById('label-usdt-balance').textContent = langData.labelUsdtBalance;
+                document.getElementById('label-reserved-balance').textContent = langData.labelReservedBalance;
+                document.getElementById('approve-btn').textContent = langData.approveBtn;
+                document.getElementById('claim-btn').textContent = langData.claimBtn;
+                document.getElementById('network-status').textContent = langData.networkStatus;
+            }
+
+            // Schematic elements - Identity
+            if (document.getElementById('id-spec-title')) {
+                document.getElementById('id-spec-title').textContent = langData.idSpecTitle;
+                document.getElementById('id-name-label').textContent = langData.idNameLabel;
+                document.getElementById('id-name-value').textContent = langData.idNameValue;
+                document.getElementById('id-symbol-label').textContent = langData.idSymbolLabel;
+                document.getElementById('id-symbol-value').textContent = langData.idSymbolValue;
+                document.getElementById('id-supply-label').textContent = langData.idSupplyLabel;
+                document.getElementById('id-supply-value').textContent = langData.idSupplyValue;
+                document.getElementById('id-network-label').textContent = langData.idNetworkLabel;
+                document.getElementById('id-network-value').textContent = langData.idNetworkValue;
+                document.getElementById('id-standard-label').textContent = langData.idStandardLabel;
+                document.getElementById('id-standard-value').textContent = langData.idStandardValue;
+                document.getElementById('id-decimals-label').textContent = langData.idDecimalsLabel;
+                document.getElementById('id-decimals-value').textContent = langData.idDecimalsValue;
+            }
+            if (document.getElementById('id-dist-title')) {
+                document.getElementById('id-dist-title').textContent = langData.idDistTitle;
+                document.getElementById('id-wallet1-label').textContent = langData.idWallet1Label;
+                document.getElementById('id-wallet1-value').textContent = langData.idWallet1Value;
+                document.getElementById('id-wallet1-percent').textContent = langData.idWallet1Percent;
+                document.getElementById('id-wallet2-label').textContent = langData.idWallet2Label;
+                document.getElementById('id-wallet2-value').textContent = langData.idWallet2Value;
+                document.getElementById('id-wallet2-percent').textContent = langData.idWallet2Percent;
+                document.getElementById('id-wallet3-label').textContent = langData.idWallet3Label;
+                document.getElementById('id-wallet3-value').textContent = langData.idWallet3Value;
+                document.getElementById('id-wallet3-percent').textContent = langData.idWallet3Percent;
+            }
+            if (document.getElementById('id-tax-title')) {
+                document.getElementById('id-tax-title').textContent = langData.idTaxTitle;
+                document.getElementById('id-tax-50').textContent = langData.idTax50;
+                document.getElementById('id-tax-40').textContent = langData.idTax40;
+                document.getElementById('id-tax-30').textContent = langData.idTax30;
+                document.getElementById('id-tax-20').textContent = langData.idTax20;
+                document.getElementById('id-tax-10').textContent = langData.idTax10;
+                document.getElementById('id-tax-0').textContent = langData.idTax0;
+            }
+            if (document.getElementById('id-threshold-title')) {
+                document.getElementById('id-threshold-title').textContent = langData.idThresholdTitle;
+                document.getElementById('id-th1-title').textContent = langData.idTh1Title;
+                document.getElementById('id-th1-desc').textContent = langData.idTh1Desc;
+                document.getElementById('id-th2-title').textContent = langData.idTh2Title;
+                document.getElementById('id-th2-desc').textContent = langData.idTh2Desc;
+                document.getElementById('id-th3-title').textContent = langData.idTh3Title;
+                document.getElementById('id-th3-desc').textContent = langData.idTh3Desc;
+                document.getElementById('id-th4-title').textContent = langData.idTh4Title;
+                document.getElementById('id-th4-desc').textContent = langData.idTh4Desc;
+            }
+            if (document.getElementById('id-security-title')) {
+                document.getElementById('id-security-title').textContent = langData.idSecurityTitle;
+                document.getElementById('id-sec1-title').textContent = langData.idSec1Title;
+                document.getElementById('id-sec1-desc').textContent = langData.idSec1Desc;
+                document.getElementById('id-sec2-title').textContent = langData.idSec2Title;
+                document.getElementById('id-sec2-desc').textContent = langData.idSec2Desc;
+                document.getElementById('id-sec3-title').textContent = langData.idSec3Title;
+                document.getElementById('id-sec3-desc').textContent = langData.idSec3Desc;
+                document.getElementById('id-sec4-title').textContent = langData.idSec4Title;
+                document.getElementById('id-sec4-desc').textContent = langData.idSec4Desc;
+                document.getElementById('id-sec5-title').textContent = langData.idSec5Title;
+                document.getElementById('id-sec5-desc').textContent = langData.idSec5Desc;
+            }
+
+            // Schematic elements - Roadmap
+            if (document.getElementById('rm-phase1-title')) {
+                document.getElementById('rm-phase1-title').textContent = langData.rmPhase1Title;
+                document.getElementById('rm1-step1-title').textContent = langData.rm1Step1Title;
+                document.getElementById('rm1-step1-desc').textContent = langData.rm1Step1Desc;
+                document.getElementById('rm1-step2-title').textContent = langData.rm1Step2Title;
+                document.getElementById('rm1-step2-desc').textContent = langData.rm1Step2Desc;
+                document.getElementById('rm1-step3-title').textContent = langData.rm1Step3Title;
+                document.getElementById('rm1-step3-desc').textContent = langData.rm1Step3Desc;
+                document.getElementById('rm1-step4-title').textContent = langData.rm1Step4Title;
+                document.getElementById('rm1-step4-desc').textContent = langData.rm1Step4Desc;
+                document.getElementById('rm-phase2-title').textContent = langData.rmPhase2Title;
+                document.getElementById('rm2-step1-title').textContent = langData.rm2Step1Title;
+                document.getElementById('rm2-step1-desc').textContent = langData.rm2Step1Desc;
+                document.getElementById('rm2-step2-title').textContent = langData.rm2Step2Title;
+                document.getElementById('rm2-step2-desc').textContent = langData.rm2Step2Desc;
+                document.getElementById('rm2-step3-title').textContent = langData.rm2Step3Title;
+                document.getElementById('rm2-step3-desc').textContent = langData.rm2Step3Desc;
+                document.getElementById('rm-phase3-title').textContent = langData.rmPhase3Title;
+                document.getElementById('rm3-step1-title').textContent = langData.rm3Step1Title;
+                document.getElementById('rm3-step1-desc').textContent = langData.rm3Step1Desc;
+                document.getElementById('rm3-step2-title').textContent = langData.rm3Step2Title;
+                document.getElementById('rm3-step2-desc').textContent = langData.rm3Step2Desc;
+                document.getElementById('rm3-step3-title').textContent = langData.rm3Step3Title;
+                document.getElementById('rm3-step3-desc').textContent = langData.rm3Step3Desc;
+                document.getElementById('rm-phase4-title').textContent = langData.rmPhase4Title;
+                document.getElementById('rm4-step1-title').textContent = langData.rm4Step1Title;
+                document.getElementById('rm4-step1-desc').textContent = langData.rm4Step1Desc;
+                document.getElementById('rm4-step2-title').textContent = langData.rm4Step2Title;
+                document.getElementById('rm4-step2-desc').textContent = langData.rm4Step2Desc;
+                document.getElementById('rm4-step3-title').textContent = langData.rm4Step3Title;
+                document.getElementById('rm4-step3-desc').textContent = langData.rm4Step3Desc;
+            }
+
+            // Schematic elements - Whitepaper
+            if (document.getElementById('wp-phil-title')) {
+                document.getElementById('wp-phil-title').textContent = langData.wpPhilTitle;
+                document.getElementById('wp-phil1-title').textContent = langData.wpPhil1Title;
+                document.getElementById('wp-phil1-desc').textContent = langData.wpPhil1Desc;
+                document.getElementById('wp-phil2-title').textContent = langData.wpPhil2Title;
+                document.getElementById('wp-phil2-desc').textContent = langData.wpPhil2Desc;
+                document.getElementById('wp-dist-title').textContent = langData.wpDistTitle;
+                document.getElementById('wp-legend1').textContent = langData.wpLegend1;
+                document.getElementById('wp-legend2').textContent = langData.wpLegend2;
+                document.getElementById('wp-legend3').textContent = langData.wpLegend3;
+                document.getElementById('wp-tax-title').textContent = langData.wpTaxTitle;
+                document.getElementById('wp-tax50').textContent = langData.wpTax50;
+                document.getElementById('wp-tax40').textContent = langData.wpTax40;
+                document.getElementById('wp-tax30').textContent = langData.wpTax30;
+                document.getElementById('wp-tax25').textContent = langData.wpTax25;
+                document.getElementById('wp-tax20').textContent = langData.wpTax20;
+                document.getElementById('wp-tax10').textContent = langData.wpTax10;
+                document.getElementById('wp-tax0').textContent = langData.wpTax0;
+                document.getElementById('wp-threshold-title').textContent = langData.wpThresholdTitle;
+                document.getElementById('wp-th1-title').textContent = langData.wpTh1Title;
+                document.getElementById('wp-th1-desc').textContent = langData.wpTh1Desc;
+                document.getElementById('wp-th2-title').textContent = langData.wpTh2Title;
+                document.getElementById('wp-th2-desc').textContent = langData.wpTh2Desc;
+                document.getElementById('wp-th3-title').textContent = langData.wpTh3Title;
+                document.getElementById('wp-th3-desc').textContent = langData.wpTh3Desc;
+                document.getElementById('wp-th4-title').textContent = langData.wpTh4Title;
+                document.getElementById('wp-th4-desc').textContent = langData.wpTh4Desc;
+                document.getElementById('wp-security-title').textContent = langData.wpSecurityTitle;
+                document.getElementById('wp-sec1-title').textContent = langData.wpSec1Title;
+                document.getElementById('wp-sec1-desc').textContent = langData.wpSec1Desc;
+                document.getElementById('wp-sec2-title').textContent = langData.wpSec2Title;
+                document.getElementById('wp-sec2-desc').textContent = langData.wpSec2Desc;
+                document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
+                document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
+            }
             document.getElementById('doc1-btn').textContent = langData.doc1Btn;
             document.getElementById('doc2-title').textContent = langData.doc2Title;
             document.getElementById('doc2-desc').textContent = langData.doc2Desc;
@@ -2500,6 +2875,212 @@ Blame
         function closeModal() {
             document.getElementById('doc-modal-overlay').classList.remove('active');
         }
+
+        // New functions for Presale Contract Integration
+        let signer = null;
+        let provider = null;
+        let usdtContract = null;
+        let presaleContract = null;
+
+        // Check if user is on Base Network
+        async function checkNetwork() {
+            if (!window.ethereum) return false;
+
+            try {
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                const networkStatus = document.getElementById('network-status');
+                const langData = translations[currentLang];
+
+                if (chainId === '0x2105') { // Base Mainnet
+                    networkStatus.textContent = langData.networkStatusConnected;
+                    networkStatus.className = 'network-status connected';
+                    return true;
+                } else {
+                    networkStatus.textContent = langData.networkStatusWrong;
+                    networkStatus.className = 'network-status wrong-network';
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error checking network:', error);
+                return false;
+            }
+        }
+
+        // Update user balances
+        async function updateBalances() {
+            if (!userWalletAddress || !usdtContract || !presaleContract) return;
+
+            try {
+                // Get USDT balance
+                const usdtBalance = await usdtContract.balanceOf(userWalletAddress);
+                document.getElementById('usdt-balance').textContent = ethers.utils.formatUnits(usdtBalance, 6) + ' USDT';
+
+                // Get reserved FIXER balance
+                const reservedBalance = await presaleContract.userBalances(userWalletAddress);
+                document.getElementById('reserved-balance').textContent = ethers.utils.formatUnits(reservedBalance, 18) + ' FIXER';
+            } catch (error) {
+                console.error('Error updating balances:', error);
+            }
+        }
+
+        // Approve USDT for presale contract
+        async function approveUSDT() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            const usdtAmount = document.getElementById('usdtInput').value;
+            if (!usdtAmount || usdtAmount <= 0) {
+                alert("لطفاً مقدار معتبری برای تایید وارد کنید.");
+                return;
+            }
+
+            try {
+                const approveBtn = document.getElementById('approve-btn');
+                approveBtn.textContent = "Processing...";
+                approveBtn.disabled = true;
+
+                const amountInWei = ethers.utils.parseUnits(usdtAmount, 6);
+                const tx = await usdtContract.approve(PRESALE_ADDRESS, amountInWei);
+                await tx.wait();
+
+                alert("تایید تتر با موفقیت انجام شد!");
+                approveBtn.textContent = translations[currentLang].approveBtn;
+                approveBtn.disabled = false;
+            } catch (error) {
+                console.error('Error approving USDT:', error);
+                alert("خطا در تایید تتر: " + error.message);
+                const approveBtn = document.getElementById('approve-btn');
+                approveBtn.textContent = translations[currentLang].approveBtn;
+                approveBtn.disabled = false;
+            }
+        }
+
+        // Buy tokens with approved USDT
+        async function buyTokens() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            const usdtAmount = document.getElementById('usdtInput').value;
+            if (!usdtAmount || usdtAmount <= 0) {
+                alert("لطفاً مقدار معتبری برای خرید وارد کنید.");
+                return;
+            }
+
+            const referrerAddress = document.getElementById('referrerInput').value || "0x0000000000000000000000000000000000000000";
+
+            try {
+                const buyBtn = document.getElementById('buy-btn');
+                buyBtn.textContent = "Processing...";
+                buyBtn.disabled = true;
+
+                const amountInWei = ethers.utils.parseUnits(usdtAmount, 6);
+                const tx = await presaleContract.buyTokens(amountInWei, referrerAddress);
+                await tx.wait();
+
+                alert("خرید با موفقیت انجام شد!");
+                buyBtn.textContent = translations[currentLang].buyBtn;
+                buyBtn.disabled = false;
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error buying tokens:', error);
+                alert("خطا در خرید توکن: " + error.message);
+                const buyBtn = document.getElementById('buy-btn');
+                buyBtn.textContent = translations[currentLang].buyBtn;
+                buyBtn.disabled = false;
+            }
+        }
+
+        // Claim purchased tokens after presale ends
+        async function claimTokens() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            try {
+                const claimBtn = document.getElementById('claim-btn');
+                claimBtn.textContent = "Processing...";
+                claimBtn.disabled = true;
+
+                const tx = await presaleContract.claimTokens();
+                await tx.wait();
+
+                alert("توکن‌ها با موفقیت برداشت شدند!");
+                claimBtn.textContent = translations[currentLang].claimBtn;
+                claimBtn.disabled = false;
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error claiming tokens:', error);
+                alert("خطا در برداشت توکن: " + error.message);
+                const claimBtn = document.getElementById('claim-btn');
+                claimBtn.textContent = translations[currentLang].claimBtn;
+                claimBtn.disabled = false;
+            }
+        }
+
+        // Initialize contracts when wallet is connected
+        async function initializeContracts() {
+            if (!window.ethereum || !userWalletAddress) return;
+
+            try {
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+
+                // Initialize USDT contract
+                usdtContract = new ethers.Contract(USDT_BASE_ADDRESS, usdtAbi, signer);
+
+                // Initialize Presale contract
+                presaleContract = new ethers.Contract(PRESALE_ADDRESS, presaleAbi, signer);
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error initializing contracts:', error);
+            }
+        }
+
+        // Update connectWallet function to initialize contracts
+        const originalConnectWallet = connectWallet;
+        connectWallet = async function() {
+            await originalConnectWallet();
+            if (userWalletAddress) {
+                await checkNetwork();
+                await initializeContracts();
+            }
+        };
+
+        // Add event listeners for new buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('approve-btn').addEventListener('click', approveUSDT);
+            document.getElementById('buy-btn').addEventListener('click', buyTokens);
+            document.getElementById('claim-btn').addEventListener('click', claimTokens);
+        });
 
         function closeModalOnOverlay(event) {
             if (event.target.id === 'doc-modal-overlay') {
