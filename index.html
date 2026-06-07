@@ -18,8 +18,8 @@ Blame
         }
  
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #121826;
+            --bg-color: #0a1f33;
+            --card-bg: #0d2538;
             --primary: #00ffcc;
             --secondary: #0077ff;
             --warning: #ffb703;
@@ -119,9 +119,53 @@ Blame
             font-weight: 500;
             transition: 0.3s;
         }
- 
+
         nav a:hover { color: var(--primary); }
- 
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100%;
+            background: rgba(11, 15, 25, 0.98);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+            padding: 20px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav.active { display: flex; }
+
+        .mobile-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 10px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .mobile-nav a:hover {
+            background: rgba(0, 255, 204, 0.1);
+            color: var(--primary);
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -664,6 +708,69 @@ Blame
             background: rgba(239, 68, 68, 0.1);
             border-color: rgba(239, 68, 68, 0.3);
             color: #ef4444;
+        }
+
+        /* Features Overview Section */
+        .features-overview-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 100%);
+            margin: 40px 0;
+        }
+
+        .features-grid-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card-overview {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card-overview:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 255, 204, 0.1);
+            border-color: rgba(0, 255, 204, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 255, 204, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card-overview h3 {
+            color: #00ffcc;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .feature-card-overview p {
+            color: #cbd5e1;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .feature-link {
+            color: #00ffcc;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .feature-link:hover {
+            color: #fff;
         }
 
         /* Mobile Responsive */
@@ -1214,11 +1321,184 @@ Blame
         }
 
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text-muted); }
- 
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 40px 8%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        .admin-panel.active { display: block; }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .admin-header h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .admin-close {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .admin-close:hover {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .admin-stat-card {
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .admin-stat-card h4 {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .admin-stat-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .admin-stat-card .sub-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
+        .admin-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .admin-section h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .admin-link-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .admin-link-input {
+            flex: 1;
+            padding: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: white;
+            font-family: monospace;
+            font-size: 13px;
+        }
+
+        .admin-copy-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .admin-copy-btn:hover {
+            background: var(--primary);
+        }
+
+        .admin-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .admin-table th,
+        .admin-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .admin-table th {
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .admin-table td {
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .admin-table tr:hover {
+            background: rgba(0, 255, 204, 0.05);
+        }
+
+        .btn-admin-panel {
+            background: linear-gradient(45deg, #9b59b6, #3498db);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-left: 10px;
+        }
+
+        .btn-admin-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(155, 89, 182, 0.3);
+        }
+
         @media screen and (max-width: 768px) {
             .hero-container { padding-top: 120px; justify-content: center; }
             header { padding: 15px 5%; }
             .modal-window { width: 95%; max-height: 85vh; }
+
+            /* Mobile Navigation Styles */
+            nav { display: none; }
+            .mobile-menu-btn { display: block; }
+            .mobile-nav { display: none; }
+            .mobile-nav.active { display: flex; }
         }
     </style>
 </head>
@@ -1236,7 +1516,17 @@ Blame
             <a href="#whitepaper" id="nav-whitepaper">Whitepaper</a>
             <a href="#home" id="nav-presale">Presale</a>
         </nav>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#home" onclick="toggleMobileMenu()">Home</a>
+            <a href="#identity" onclick="toggleMobileMenu()">Identity</a>
+            <a href="#roadmap" onclick="toggleMobileMenu()">Roadmap</a>
+            <a href="#whitepaper" onclick="toggleMobileMenu()">Whitepaper</a>
+            <a href="#home" onclick="toggleMobileMenu()">Presale</a>
+        </div>
         <div class="header-actions">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobile-menu-btn">☰</button>
             <button class="btn-lang" onclick="toggleLanguage()" id="lang-btn">فارسی</button>
             <button class="btn-connect" onclick="connectWallet()" id="wallet-btn">Connect Wallet</button>
         </div>
@@ -1326,6 +1616,99 @@ Blame
                         <li id="guide-li6">**Participation Limits:** Minimum and maximum participation in the presale for each wallet is 10 million to 200 million Fixer Coin tokens (15 USDT to 300 USDT).</li>
                         <li id="guide-li7">**Automatic Calculation:** Enter USDT amount and the system will automatically calculate your Fixer Coin tokens based on the fixed price of 0.0000015 USDT per token.</li>
                     </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Panel -->
+        <div class="admin-panel" id="admin-panel">
+            <div class="admin-header">
+                <h2 id="admin-panel-title">📊 پنل مدیریت رفرال</h2>
+                <button class="admin-close" onclick="toggleAdminPanel()">✕</button>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-stat-card">
+                    <h4 id="admin-stat-referrals">تعداد معرف‌ها</h4>
+                    <div class="value" id="admin-total-referrals">0</div>
+                    <div class="sub-text">کاربران با لینک شما</div>
+                </div>
+                <div class="admin-stat-card">
+                    <h4 id="admin-stat-buyers">تعداد خریداران</h4>
+                    <div class="value" id="admin-total-buyers">0</div>
+                    <div class="sub-text">کاربرانی که خرید کرده‌اند</div>
+                </div>
+                <div class="admin-stat-card">
+                    <h4 id="admin-stat-volume">حجم خرید</h4>
+                    <div class="value" id="admin-total-volume">0</div>
+                    <div class="sub-text">مجموع USDT خریداری شده</div>
+                </div>
+                <div class="admin-stat-card">
+                    <h4 id="admin-stat-bonus">پاداش رفرال</h4>
+                    <div class="value" id="admin-total-bonus">0</div>
+                    <div class="sub-text">مجموع پاداش FIXER</div>
+                </div>
+            </div>
+
+            <div class="admin-section">
+                <h3 id="admin-list-title">📋 لیست تمام خریدها</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th id="admin-th-address">آدرس خریدار</th>
+                            <th id="admin-th-date">تاریخ خرید</th>
+                            <th id="admin-th-purchased">مبلغ خرید (USDT)</th>
+                            <th id="admin-th-bonus">معرف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-referrals-list">
+                        <tr>
+                            <td colspan="4" style="text-align: center; color: var(--text-muted);">هنوز معرفی‌ای ندارید</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Key Features Overview -->
+        <section class="features-overview-section">
+            <h2 class="section-title" id="features-overview-title">Key Features Overview</h2>
+            <div class="features-grid-overview">
+                <div class="feature-card-overview">
+                    <div class="feature-icon">💎</div>
+                    <h3 id="fo-presale-title">Presale</h3>
+                    <p id="fo-presale-desc">Buy FIXER tokens at fixed price with USDT on Base Network</p>
+                    <a href="#home" class="feature-link">Participate Now →</a>
+                </div>
+                <div class="feature-card-overview">
+                    <div class="feature-icon">🔒</div>
+                    <h3 id="fo-security-title">Anti-Dump</h3>
+                    <p id="fo-security-desc">Smart trading limits to prevent price manipulation</p>
+                    <a href="#identity" class="feature-link">Learn More →</a>
+                </div>
+                <div class="feature-card-overview">
+                    <div class="feature-icon">🔵</div>
+                    <h3 id="fo-network-title">Base Network</h3>
+                    <p id="fo-network-desc">Fast, secure, and low-fee Layer 2 solution</p>
+                    <a href="#identity" class="feature-link">Explore →</a>
+                </div>
+                <div class="feature-card-overview">
+                    <div class="feature-icon">📊</div>
+                    <h3 id="fo-tokenomics-title">Tokenomics</h3>
+                    <p id="fo-tokenomics-desc">2B tokens at 0.0000015 USDT with optimized structure</p>
+                    <a href="#identity" class="feature-link">View Details →</a>
+                </div>
+                <div class="feature-card-overview">
+                    <div class="feature-icon">🗺️</div>
+                    <h3 id="fo-roadmap-title">Roadmap</h3>
+                    <p id="fo-roadmap-desc">Strategic development phases and milestones</p>
+                    <a href="#roadmap" class="feature-link">See Roadmap →</a>
+                </div>
+                <div class="feature-card-overview">
+                    <div class="feature-icon">📄</div>
+                    <h3 id="fo-docs-title">Documentation</h3>
+                    <p id="fo-docs-desc">Complete whitepaper and technical specifications</p>
+                    <a href="#whitepaper" class="feature-link">Read Docs →</a>
                 </div>
             </div>
         </section>
@@ -1962,6 +2345,25 @@ Blame
                 guideLi5: "**سیاست برداشت:** فیکسرهای خریداری‌شده و سود حاصل از معرفی، پس از اتمام دوره پیش‌فروش عمومی جهت کلیم و واریز به ولت فعال خواهند شد.",
                 guideLi6: "**محدودیت مشارکت:** حداقل و حداکثر مشارکت در پیش‌فروش برای هر کیف پول 10 میلیون تا 200 میلیون توکن فیکسر کوین است (15 USDT تا 300 USDT).",
                 guideLi7: "**محاسبه خودکار:** با وارد کردن مقدار USDT، سیستم به صورت خودکار تعداد توکن‌های فیکر شما را بر اساس قیمت ثابت 0.0000015 USDT محاسبه می‌کند.",
+                featuresOverviewTitle: "نمای کلی ویژگی‌های کلیدی",
+                foPresaleTitle: "پیش‌فروش",
+                foPresaleDesc: "خرید توکن‌های فیکسر با قیمت ثابت با تتر در شبکه بیس",
+                foPresaleLink: "مشارکت کنید →",
+                foSecurityTitle: "ضد نوسان",
+                foSecurityDesc: "محدودیت‌های معاملاتی هوشمند برای جلوگیری از دستکاری قیمت",
+                foSecurityLink: "بیشتر بدانید →",
+                foNetworkTitle: "شبکه بیس",
+                foNetworkDesc: "راهکار سریع، امن و کم‌کارمزد لایه ۲",
+                foNetworkLink: "کاوش کنید →",
+                foTokenomicsTitle: "توکنومیک",
+                foTokenomicsDesc: "۲ میلیارد توکن با قیمت ۰.۰۰۰۰۰۱۵ تتر و ساختار بهینه",
+                foTokenomicsLink: "مشاهده جزئیات →",
+                foRoadmapTitle: "نقشه راه",
+                foRoadmapDesc: "مراحل توسعه استراتژیک و نقاط عطف",
+                foRoadmapLink: "دیدن نقشه راه →",
+                foDocsTitle: "مستندات",
+                foDocsDesc: "وایت پیپر کامل و مشخصات فنی",
+                foDocsLink: "خواندن مستندات →",
                 featuresTitle: "ویژگی‌های بنیادی وایت پیپر فیکسر",
                 f1Title: "🔒 مکانیزم ضدِ نوسان (Anti-Dump)",
                 f1Desc: "اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.",
@@ -2356,6 +2758,7 @@ Blame
         const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
         const PRESALE_ADDRESS = "0x217e6b606dd60a136776965554f0cbdc618ff3d3";
         const USDT_BASE_ADDRESS = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"; // USDT رسمی روی شبکه بیس
+        const ADMIN_ADDRESS = "0x5d4098869b9e687572365c188ab0aa83f2428967"; // آدرس ادمین برای دسترسی به پنل مدیریت
  
         const TOKEN_PRICE = 0.0000015; // قیمت ثبت شده در سایت شما
         let userWalletAddress = null;
@@ -2771,8 +3174,11 @@ Blame
                     document.getElementById('wallet-btn').innerText =
                         userWalletAddress.substring(0, 6) + "..." + userWalletAddress.substring(38);
 
-                    const refLink = window.location.origin + "?ref=" + userWalletAddress;
+                    const refLink = window.location.href.split('?')[0] + "?ref=" + userWalletAddress;
                     document.getElementById('ref-link-display').innerText = refLink;
+
+                    // Track referral visit
+                    trackVisit();
 
                     updateDashboard();
 
@@ -2830,6 +3236,165 @@ Blame
             const refLink = document.getElementById('ref-link-display').innerText;
             navigator.clipboard.writeText(refLink);
             alert("لینک رفرال کپی شد!");
+        }
+
+        // Admin Panel Functions
+        function toggleAdminPanel() {
+            const panel = document.getElementById('admin-panel');
+            panel.classList.toggle('active');
+            if (panel.classList.contains('active')) {
+                loadAdminData();
+            }
+        }
+
+        function copyAdminRefLink() {
+            const refLink = document.getElementById('admin-ref-link').value;
+            navigator.clipboard.writeText(refLink);
+            alert("لینک اختصاصی کپی شد!");
+        }
+
+        function loadAdminData() {
+            // Load all purchases from localStorage
+            const allPurchases = JSON.parse(localStorage.getItem('fixerAllPurchases') || '[]');
+
+            // Calculate stats
+            const totalBuyers = allPurchases.length;
+            const totalVolume = allPurchases.reduce((sum, p) => sum + p.amount, 0);
+            const totalBonus = totalVolume * 0.05 / 0.0000015; // 5% bonus in FIXER
+
+            // Count unique referrers
+            const uniqueReferrers = [...new Set(allPurchases.map(p => p.referrerAddress))].filter(r => r !== "0x0000000000000000000000000000000000000000");
+
+            // Update stats
+            document.getElementById('admin-total-referrals').textContent = uniqueReferrers.length;
+            document.getElementById('admin-total-buyers').textContent = totalBuyers;
+            document.getElementById('admin-total-volume').textContent = totalVolume.toFixed(2);
+            document.getElementById('admin-total-bonus').textContent = totalBonus.toFixed(2);
+
+            // Update purchases list
+            const tbody = document.getElementById('admin-referrals-list');
+            if (allPurchases.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">هنوز خریدی ثبت نشده است</td></tr>';
+            } else {
+                tbody.innerHTML = allPurchases.map(p => `
+                    <tr>
+                        <td style="font-family: monospace; font-size: 11px;">${p.buyerAddress.substring(0, 8)}...${p.buyerAddress.substring(38)}</td>
+                        <td>${p.date}</td>
+                        <td>${p.amount.toFixed(2)} USDT</td>
+                        <td style="font-family: monospace; font-size: 11px;">${p.referrerAddress === "0x0000000000000000000000000000000000000000" ? 'بدون معرف' : p.referrerAddress.substring(0, 8)}...${p.referrerAddress.substring(38)}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function trackReferral(referrerAddress, buyerAddress, amount) {
+            // Save all purchases globally for admin panel
+            const allPurchases = JSON.parse(localStorage.getItem('fixerAllPurchases') || '[]');
+
+            if (amount) {
+                const purchase = {
+                    buyerAddress: buyerAddress,
+                    referrerAddress: referrerAddress || "0x0000000000000000000000000000000000000000",
+                    amount: amount,
+                    date: new Date().toLocaleDateString('fa-IR'),
+                    timestamp: Date.now()
+                };
+
+                // Check if this purchase already exists
+                const existingPurchase = allPurchases.find(p =>
+                    p.buyerAddress === buyerAddress &&
+                    p.amount === amount &&
+                    Math.abs(p.timestamp - purchase.timestamp) < 60000 // Within 1 minute
+                );
+
+                if (!existingPurchase) {
+                    allPurchases.push(purchase);
+                    localStorage.setItem('fixerAllPurchases', JSON.stringify(allPurchases));
+                }
+            }
+
+            // Also track per-referrer data for regular users
+            if (!referrerAddress || referrerAddress === "0x0000000000000000000000000000000000000000") return;
+
+            const referralData = JSON.parse(localStorage.getItem('fixerReferralData') || '{}');
+
+            if (!referralData[referrerAddress]) {
+                referralData[referrerAddress] = {
+                    referrals: [],
+                    totalBuyers: 0,
+                    totalVolume: 0,
+                    totalBonus: 0
+                };
+            }
+
+            // Check if this buyer is already tracked
+            const existingRef = referralData[referrerAddress].referrals.find(r => r.address === buyerAddress);
+            if (existingRef) {
+                if (amount && !existingRef.purchased) {
+                    existingRef.purchased = true;
+                    existingRef.amount = amount;
+                    existingRef.bonus = amount * 0.05 / 0.0000015; // 5% bonus in FIXER
+                    referralData[referrerAddress].totalBuyers++;
+                    referralData[referrerAddress].totalVolume += amount;
+                    referralData[referrerAddress].totalBonus += existingRef.bonus;
+                }
+            } else {
+                const newRef = {
+                    address: buyerAddress,
+                    date: new Date().toLocaleDateString('fa-IR'),
+                    purchased: !!amount,
+                    amount: amount || 0,
+                    bonus: amount ? amount * 0.05 / 0.0000015 : 0
+                };
+                referralData[referrerAddress].referrals.push(newRef);
+                if (amount) {
+                    referralData[referrerAddress].totalBuyers++;
+                    referralData[referrerAddress].totalVolume += amount;
+                    referralData[referrerAddress].totalBonus += newRef.bonus;
+                }
+            }
+
+            localStorage.setItem('fixerReferralData', JSON.stringify(referralData));
+        }
+
+        // Track referral when user visits with ref parameter
+        function trackVisit() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = urlParams.get('ref');
+            if (referrer && userWalletAddress) {
+                trackReferral(referrer, userWalletAddress, null);
+            }
+        }
+
+        // Extract referrer from URL
+        function getReferrerFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = urlParams.get('ref');
+            if (referrer && document.getElementById('referrerInput')) {
+                document.getElementById('referrerInput').value = referrer;
+            }
+        }
+
+        // Check if admin panel should be shown via URL parameter
+        function checkAdminAccess() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const adminParam = urlParams.get('key');
+            if (adminParam === '957465214') {
+                document.getElementById('admin-panel').classList.add('active');
+                loadAdminData();
+            }
+        }
+
+        // Call on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            getReferrerFromURL();
+            checkAdminAccess();
+        });
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobile-nav');
+            mobileNav.classList.toggle('active');
         }
 
         function openModal(docType) {
@@ -2965,6 +3530,11 @@ Blame
             }
 
             const referrerAddress = document.getElementById('referrerInput').value || "0x0000000000000000000000000000000000000000";
+
+            // Track referral purchase
+            if (referrerAddress !== "0x0000000000000000000000000000000000000000") {
+                trackReferral(referrerAddress, userWalletAddress, parseFloat(usdtAmount));
+            }
 
             try {
                 const buyBtn = document.getElementById('buy-btn');
