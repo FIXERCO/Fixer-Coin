@@ -1561,7 +1561,24 @@ Blame
     }
     </style>
 
-    <h3 style="font-family: 'Segoe UI', Inter, sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFlash 1.5s infinite alternate; margin-top: 0;">
+<div style="text-align: center; margin: 35px auto; max-width: 650px; padding: 15px; clear: both; display: block; position: relative; z-index: 10;">
+    
+    <style>
+    @keyframes fixerFireFlash {
+        0% {
+            color: #ff3333; /* قرمز آتشین */
+            text-shadow: 0 0 5px #ff3333, 0 0 15px #ff0000, 0 0 25px #ff0000;
+            opacity: 0.4;
+        }
+        100% {
+            color: #ffcc00; /* زرد درخشان */
+            text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 45px #ff6600;
+            opacity: 1;
+        }
+    }
+    </style>
+
+    <h3 style="font-family: 'Segoe UI', Inter, sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFireFlash 1.2s infinite alternate; margin-top: 0;">
         FIXER COIN INTRODUCTION
     </h3>
     
@@ -1573,17 +1590,31 @@ Blame
         💎🚀 This is the power of the Fixer Community! 🔥💪
     </p>
 
-</div>
-</video>
+    <!-- کدی که باید اضافه می‌کردید دقیقاً در اینستا قرار گرفت -->
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 12px; padding: 20px; margin-top: 25px; text-align: left; direction: ltr; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
+        <h4 style="color: #ffcc00; font-family: 'Segoe UI', Inter, sans-serif; font-size: 16px; margin: 0 0 12px 0; font-weight: bold; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); padding-bottom: 6px;">📝 Fixer Video Transcript:</h4>
+        <p style="color: #cccccc; font-family: 'Segoe UI', Inter, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0; text-align: justify; font-weight: 400;">
+            Fixer Coin is a fixed supply cryptocurrency with a total of 10 billion tokens and no re-minting capability. The token is deployed on the Base layer two network built on Ethereum and follows OpenZeppelin security standards. Initial supply of 3 billion tokens includes 2 billion allocated for the presale and 1 billion supplied on the Idorom exchange.
+            <br><br>
+            A dynamic market release adds 5 billion tokens gradually as price rises from 0.00000125 to 0.00128. At this stage, total circulating supply reaches 8 billion tokens. Two billion tokens are reserved for future development and strategic burns.
+            <br><br>
+            The system features a dynamic injection model where transaction fees start at 50 percent at the price floor. Concurrent massive token burns will use accumulated fees to reduce total supply toward one billion tokens. When fees drop to zero, listings on major centralized exchanges will immediately begin. The smart contract includes stepwise price management to reduce selling pressure and support steady price growth.
+            <br><br>
+            An anti-whale control enforces transaction limits between 10 million and 200 million tokens. This anti-whale rule is enforced even during the presale phase. An emergency withdrawal function allows users to recover tokens or Ethereum sent to the contract by mistake. A blacklist defense layer isolates and blocks malicious bots from interacting with the token ecosystem.
+            <br><br>
+            <b>Phase one</b> focuses on deploying the final smart contract, securing liquidity on Idorom, and launching the presale. 
+            <br>
+            <b>Phase two</b> uses remaining tokens from the allocation to trigger listings on major global centralized exchanges. 
+            <br>
+            <b>Phase three</b> targets a price explosion through viral marketing, massive manual burns, and whale attraction. 
+            <br>
+            <b>Phase four</b> marks ecosystem maturity when fees reach zero, enabling tier one exchange listings and commercial utility launch.
+        </p>
+    </div>
 
-<p style="font-family: 'Segoe UI', Inter, sans-serif; color: #00ffcc; font-size: 16px; font-weight: bold; text-align: center; margin-top: 15px; letter-spacing: 0.5px;">
-    💎🚀 This is the power of the Fixer Community! 🔥💪
-</p>
+</div> <!-- تگ بسته شدن باکس اصلی ویدیو -->
 
-</div>
-</div>
-
-<div class="presale-wrapper">
+<div class="presale-wrapper"> <!-- شروع بخش پیش‌فروش شما -->
                 <div class="presale-card">
                     <div class="panel-header-with-logo">
                         <img src="fixer_coin_bg.png" alt="Fixer Coin Logo" class="panel-logo">
