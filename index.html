@@ -33,7 +33,19 @@ Blame
             margin: 0;
             padding: 0;
         }
- 
+ <div style="text-align: center; margin: 40px auto; max-width: 650px; padding: 20px; clear: both; display: block;">
+        <h3 style="color: #00ffcc; font-family: 'Segoe UI', Tahoma, sans-serif; margin-bottom: 20px; font-size: 18px;">ویدیوی معرفی پروژه فیکسر / Fixer Coin Introduction</h3>
+        <a href="https://ik.imagekit.io/tmko4vlju/IntroductionFIXER..mp4?updatedAt=1780858640139" target="_blank" style="text-decoration: none; display: inline-block;">
+            <img src="https://i.ibb.co/L1rZgG4/FIXER-VIDEO-COVER.png" alt="Fixer Video" style="width: 100%; max-width: 500px; height: auto; border-radius: 12px; box-shadow: 0px 6px 25px rgba(0, 255, 204, 0.2); border: 1px solid rgba(255, 255, 255, 0.06);">
+        </a>
+        <p style="font-size: 13px; color: #7e8f9f; margin-top: 12px; font-family: 'Segoe UI', Tahoma, sans-serif;">
+            <em>روی تصویر بالا کلیک کنید تا ویدیو با بالاترین کیفیت در تب جدید پخش شود.</em>
+        </p>
+    </div>
+    ```
+
+### چرا این روش دیگر سایت را خراب نمی‌کند؟
+چون با این کار، کدهای اصلی وب‌سایت فیکسر که در بالا قرار دارند دست‌نخورده باقی می‌مانند و این بخش به صورت یک باکس کاملاً مستقل و شیک در انتهای صفحه قرار می‌گیرد و به دلیل داشتن دستور `clear: both;` هیچ تداخلی با بقیه اجزای قالب شما ایجاد نخواهد کرد.
         body {
             background-color: var(--bg-color);
             color: var(--text);
@@ -43,24 +55,8 @@ Blame
  
         html[dir="rtl"] * { font-family: 'B Nazanin', Tahoma, sans-serif; }
         html[dir="ltr"] * { font-family: 'Segoe UI', Inter, sans-serif; }
-    </style>
-</head>
-<body>
-
-    <!-- شروع بخش ویدیوی معرفی فیکسر (بالای سایت) -->
-    <div style="text-align: center; margin: 30px auto; max-width: 750px; padding: 15px; clear: both;">
-        <h3 style="color: #00ffcc; margin-bottom: 20px;">ویدیوی معرفی پروژه فیکسر / Fixer Coin Introduction</h3>
-        <a href="https://ik.imagekit.io/tmko4vlju/IntroductionFIXER..mp4?updatedAt=1780858640139" target="_blank" style="text-decoration: none; display: inline-block;">
-            <img src="https://i.ibb.co/L1rZgG4/FIXER-VIDEO-COVER.png" alt="Fixer Video" style="width: 100%; max-width: 550px; height: auto; border-radius: 12px; box-shadow: 0px 6px 25px rgba(0, 255, 204, 0.2); border: 1px solid rgba(255, 255, 255, 0.06);">
-        </a>
-        <p style="font-size: 13px; color: #7e8f9f; margin-top: 12px;">
-            <em>روی تصویر بالا کلیک کنید تا ویدیو در تب جدید پخش شود.</em>
-        </p>
-    </div>
-    <hr style="border: 0; height: 1px; background: rgba(255, 255, 255, 0.06); margin: 25px 0;" />
-    <!-- پایان بخش ویدیوی معرفی فیکسر -->
-
-    <header>
+ 
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
