@@ -1619,7 +1619,7 @@ Blame
                     <div class="panel-header-with-logo">
                         <img src="fixer_coin_bg.png" alt="Fixer Coin Logo" class="panel-logo">
                         <h3 id="panel-title">Public Presale Panel</h3>
-                    </div>
+</div>
                     <div class="presale-info-tag" id="presale-tag">Fixed Price: 0.0000015 USDT (Base) | Supply: 2B FIXER</div>
                     <div class="input-group">
                         <label id="label-pay">Pay with (USDT - Base Network)</label>
@@ -1712,6 +1712,30 @@ Blame
     </video>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // ۱. بررسی وجود پارامتر ref در آدرس مرورگر (مثال: site.com/?ref=0x123...)
+    const urlParams = new URLSearchParams(window.location.search);
+    let refAddress = urlParams.get('ref');
+    
+    // ۲. اگر رفرال در URL بود آن را ذخیره کن، در غیر این صورت از حافظه مرورگر بخوان
+    if (refAddress) {
+        localStorage.setItem('fixer_referrer', refAddress);
+    } else {
+        refAddress = localStorage.getItem('fixer_referrer');
+    }
+    
+    // ۳. تزریق آدرس معرف به اینپوتِ فرم خرید
+    if (refAddress) {
+        const referrerInput = document.getElementById('referrerInput');
+        if (referrerInput) {
+            referrerInput.value = refAddress;
+            // شبیه‌سازی رویدادِ تایپ برای هماهنگی با سایر کدهای جاوااسکریپت یا وب۳ شما
+            referrerInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    }
+});
+</script>
                 <div class="guide-card">
                     <h2 id="guide-title">🚨 CRITICAL BUYING GUIDE</h2>
                     <ul class="guide-list">
