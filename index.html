@@ -1708,17 +1708,32 @@ Blame
                             display: block;
                         }
 
-                        @keyframes blinker {
-                            50% {
-                                opacity: 0;
-                            }
-                        }
-                    </style>
+</div>
+                </div>
 
-  <h3 class="blinking-title">
+                <style>
+                    .blinking-title {
+                        color: #ff3333 !important; /* رنگ قرمز جیغ */
+                        font-size: 24px !important; /* سایز بزرگ فونت */
+                        font-weight: 900 !important; /* ضخامت زیاد */
+                        margin-bottom: 15px;
+                        text-align: center;
+                        animation: blinker 1.2s linear infinite; /* سرعت خاموش و روشن شدن */
+                        display: block;
+                    }
+
+                    @keyframes blinker {
+                        50% {
+                            opacity: 0;
+                        }
+                    }
+                </style>
+
+                <div style="margin: 25px auto; max-width: 100%; text-align: center;">
+                    <h3 class="blinking-title">
                         🚨 METAMASK BUYING GUIDE
                     </h3>
-                    <video width="100%" controls style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
+                    <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
                         <source src="metamaskfixer.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -1728,7 +1743,7 @@ Blame
                     <h3 class="blinking-title">
                         🚨 TRUST WALLET BUYING GUIDE
                     </h3>
-                    <video width="100%" controls style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
+                    <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
                         <source src="trustwalletfixer.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
@@ -3280,14 +3295,38 @@ Blame
             document.getElementById('wp-title').textContent = langData.wpTitle;
             document.getElementById('wp-desc').textContent = langData.wpDesc;
             document.getElementById('presale-section-title').textContent = langData.presaleSectionTitle;
-            document.getElementById('footer-text').textContent = langData.footerText;
+           document.getElementById('footer-text').textContent = langData.footerText;
 
             if (!userWalletAddress) {
-                document.getElementById('ref-link-display').textContent = langData.refNoWallet;
+                // بررسی می‌کنیم اگر کاربر خودش با لینک دعوت آمده، آدرس دعوت‌کننده را نشان دهد، در غیر این صورت پیام پیش‌فرض
+                const savedReferrer = localStorage.getItem('referrer');
+                if (savedReferrer) {
+                    document.getElementById('ref-link-display').textContent = "Invited by: " + savedReferrer.substring(0, 6) + "..." + savedReferrer.substring(38);
+                } else {
+                    document.getElementById('ref-link-display').textContent = langData.refNoWallet;
+                }
             }
         }
 
-        // ۱. تابع اتصال به کیف‌پول (Connect Wallet)
+        // 🟢 کد هوشمند جدید: دریافت و ذخیره آدرس رفرال به محض ورود کاربر به سایت
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refAddress = urlParams.get('ref');
+            
+            // اگر آدرس رفرال در لینک بود و با 0x شروع می‌شد، آن را در حافظه مرورگر ذخیره کن
+            if (refAddress && refAddress.startsWith('0x') && refAddress.length === 42) {
+                localStorage.setItem('referrer', refAddress);
+                console.log("Referrer code detected and saved:", refAddress);
+                
+                // نمایش آدرس دعوت‌کننده در باکس رفرال قبل از اتصال ولت
+                const refDisplay = document.getElementById('ref-link-display');
+                if (refDisplay) {
+                    refDisplay.textContent = "Invited by: " + refAddress.substring(0, 6) + "..." + refAddress.substring(38);
+                }
+            }
+        });
+
+        // ۱. تابع اتصال به کیف‌پول (Connect Wallet) - اصلاح شده
         async function connectWallet() {
             if (window.ethereum) {
                 try {
@@ -3303,6 +3342,7 @@ Blame
                     document.getElementById('wallet-btn').innerText =
                         userWalletAddress.substring(0, 6) + "..." + userWalletAddress.substring(38);
 
+                    // تولید لینک رفرال اختصاصی خود کاربر برای به اشتراک گذاری
                     const refLink = window.location.href.split('?')[0] + "?ref=" + userWalletAddress;
                     document.getElementById('ref-link-display').innerText = refLink;
 
@@ -3340,7 +3380,6 @@ Blame
                 }
             }
         }
-
         function calculateTokens() {
             const usdtAmount = parseFloat(document.getElementById('usdtInput').value);
             if (!isNaN(usdtAmount) && usdtAmount > 0) {
