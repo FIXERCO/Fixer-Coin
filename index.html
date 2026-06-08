@@ -1714,28 +1714,43 @@ Blame
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // ۱. بررسی وجود پارامتر ref در آدرس مرورگر (مثال: site.com/?ref=0x123...)
+    let refAddress = null;
+
+    // ۱. بررسی حالت اول: رفرال استاندارد (قبل از هشتگ)
     const urlParams = new URLSearchParams(window.location.search);
-    let refAddress = urlParams.get('ref');
-    
-    // ۲. اگر رفرال در URL بود آن را ذخیره کن، در غیر این صورت از حافظه مرورگر بخوان
+    refAddress = urlParams.get('ref');
+
+    // ۲. بررسی حالت دوم: رفرال بعد از هشتگ (دقیقاً مثل لینک نمونه شما: #home?ref=0x...)
+    if (!refAddress && window.location.hash.includes('?')) {
+        const hashParts = window.location.hash.split('?');
+        if (hashParts.length > 1) {
+            const hashParams = new URLSearchParams(hashParts[1]);
+            refAddress = hashParams.get('ref');
+        }
+    }
+
+    // ۳. ذخیره در حافظه مرورگر برای ماندگاری (اگر کاربر بین صفحات چرخید گم نشود)
     if (refAddress) {
         localStorage.setItem('fixer_referrer', refAddress);
     } else {
         refAddress = localStorage.getItem('fixer_referrer');
     }
-    
-    // ۳. تزریق آدرس معرف به اینپوتِ فرم خرید
+
+    // ۴. تزریق خودکار به اینپوت فرم خرید با تاخیر کوچک برای اطمینان از لود کامل المان‌ها
     if (refAddress) {
-        const referrerInput = document.getElementById('referrerInput');
-        if (referrerInput) {
-            referrerInput.value = refAddress;
-            // شبیه‌سازی رویدادِ تایپ برای هماهنگی با سایر کدهای جاوااسکریپت یا وب۳ شما
-            referrerInput.dispatchEvent(new Event('input', { bubbles: true }));
-        }
+        setTimeout(function() {
+            const referrerInput = document.getElementById('referrerInput');
+            if (referrerInput) {
+                referrerInput.value = refAddress;
+                // تحریک رویداد input برای هماهنگی با کدهای جاوااسکریپت وب۳ شما
+                referrerInput.dispatchEvent(new Event('input', { bubbles: true }));
+                console.log("Referral address successfully extracted and injected:", refAddress);
+            }
+        }, 100);
     }
 });
 </script>
+
                 <div class="guide-card">
                     <h2 id="guide-title">🚨 CRITICAL BUYING GUIDE</h2>
                     <ul class="guide-list">
@@ -1750,7 +1765,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 </div>
             </div>
         </section>
-
         <!-- Admin Panel -->
         <div class="admin-panel" id="admin-panel">
             <div class="admin-header">
