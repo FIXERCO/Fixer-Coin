@@ -48,7 +48,7 @@ const presaleAbi = [
     }
 ];
 
-// USDT Contract ABI (Standard ERC20) - این ثابت است
+// USDT Contract ABI (Standard ERC20)
 const usdtAbi = [
     {
         "constant": false,
@@ -70,3 +70,7 @@ const usdtAbi = [
         "type": "function"
     }
 ];
+
+// آدرس قراردادهای شما
+const presaleAddress = "0xec703a2D2c46500B9932EB68db6Bd07F65d990cA";
+const usdtAddress = "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913";
