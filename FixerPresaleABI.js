@@ -1,12 +1,9 @@
-// FixerPresale Contract ABI
+// FixerPresale Contract ABI - Updated
 const presaleAbi = [
     {
         "inputs": [
-            {"internalType": "address", "name": "_token", "type": "address"},
-            {"internalType": "address", "name": "_usdt", "type": "address"},
-            {"internalType": "uint256", "name": "_price", "type": "uint256"},
-            {"internalType": "uint256", "name": "_startTime", "type": "uint256"},
-            {"internalType": "uint256", "name": "_endTime", "type": "uint256"}
+            {"internalType": "address", "name": "_fixerToken", "type": "address"},
+            {"internalType": "address", "name": "_usdtToken", "type": "address"}
         ],
         "stateMutability": "nonpayable",
         "type": "constructor"
@@ -29,7 +26,7 @@ const presaleAbi = [
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [{"internalType": "address", "name": "", "type": "address"}],
         "name": "userBalances",
         "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
         "stateMutability": "view",
@@ -37,59 +34,22 @@ const presaleAbi = [
     },
     {
         "inputs": [],
-        "name": "token",
-        "outputs": [{"internalType": "contract IERC20", "name": "", "type": "address"}],
+        "name": "owner",
+        "outputs": [{"internalType": "address", "name": "", "type": "address"}],
         "stateMutability": "view",
         "type": "function"
     },
     {
         "inputs": [],
-        "name": "usdt",
-        "outputs": [{"internalType": "contract IERC20", "name": "", "type": "address"}],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "price",
-        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "startTime",
-        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "endTime",
-        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "totalRaised",
-        "outputs": [{"internalType": "uint256", "name": "", "type": "uint256"}],
-        "stateMutability": "view",
+        "name": "withdrawUSDT",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     }
 ];
 
-// USDT Contract ABI (Standard ERC20)
+// USDT Contract ABI (Standard ERC20) - این ثابت است
 const usdtAbi = [
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "name",
-        "outputs": [{"name": "", "type": "string"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
     {
         "constant": false,
         "inputs": [
@@ -98,46 +58,14 @@ const usdtAbi = [
         ],
         "name": "approve",
         "outputs": [{"name": "", "type": "bool"}],
-        "payable": false,
         "stateMutability": "nonpayable",
         "type": "function"
     },
     {
         "constant": true,
-        "inputs": [],
-        "name": "decimals",
-        "outputs": [{"name": "", "type": "uint8"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [{"name": "_owner", "type": "address"}],
-        "name": "balanceOf",
-        "outputs": [{"name": "balance", "type": "uint256"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [],
-        "name": "symbol",
-        "outputs": [{"name": "", "type": "string"}],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {"name": "_owner", "type": "address"},
-            {"name": "_spender", "type": "address"}
-        ],
+        "inputs": [{"name": "_owner", "type": "address"}, {"name": "_spender", "type": "address"}],
         "name": "allowance",
         "outputs": [{"name": "", "type": "uint256"}],
-        "payable": false,
         "stateMutability": "view",
         "type": "function"
     }
