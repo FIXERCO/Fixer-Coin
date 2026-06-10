@@ -97,7 +97,7 @@ Blame
             z-index: 0;
         }
 
-@keyframes floatLogoLarge {
+        @keyframes floatLogoLarge {
             0%, 100% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
             50% { transform: translate(-50%, -50%) translateY(-20px) rotate(5deg); }
         }
@@ -267,6 +267,141 @@ Blame
         html[dir="rtl"] .btn-copy { margin-right: 10px; }
         html[dir="ltr"] .btn-copy { margin-left: 10px; }
  
+        .presale-wrapper {
+            flex: 1;
+            min-width: 340px;
+            max-width: 460px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+ 
+        .presale-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+ 
+        .panel-header-with-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+ 
+        .panel-logo {
+            height: 60px;
+            width: 60px;
+            background: #fff;
+            padding: 3px;
+            border-radius: 50%;
+            object-fit: contain;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+ 
+        .presale-card h3 { text-align: center; font-size: 22px; }
+ 
+        .presale-info-tag {
+            text-align: center;
+            font-size: 13px;
+            color: var(--primary);
+            background: rgba(0, 255, 204, 0.08);
+            padding: 8px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+ 
+        .input-group { margin-bottom: 20px; }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+ 
+        html[dir="rtl"] .input-group label { text-align: right; }
+        html[dir="ltr"] .input-group label { text-align: left; }
+ 
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            text-align: left;
+            direction: ltr;
+        }
+ 
+        .dashboard-box {
+            background: rgba(0, 255, 204, 0.02);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+        }
+ 
+        .db-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+ 
+        .db-item {
+            background: rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+ 
+        .db-item span {
+            display: block;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+ 
+        .db-item b { font-size: 15px; color: var(--primary); font-family: monospace; }
+ 
+        .ref-input-wrapper {
+            display: flex;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 5px;
+            align-items: center;
+            margin-top: 10px;
+        }
+ 
+        .ref-link-text {
+            flex: 1;
+            font-family: monospace !important;
+            font-size: 11px;
+            color: var(--text-muted);
+            padding: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            direction: ltr;
+            text-align: left;
+        }
+ 
+        .btn-copy-ref {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+ 
         .guide-card {
             background: rgba(255, 183, 3, 0.02);
             border: 1px solid rgba(255, 183, 3, 0.2);
@@ -375,7 +510,7 @@ Blame
             margin-top: 40px;
         }
  
-       .doc-card {
+        .doc-card {
             background: rgba(18, 24, 38, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 255, 204, 0.08);
@@ -517,6 +652,46 @@ Blame
         .modal-body p { margin-bottom: 15px; text-align: justify; }
         .modal-body ul, .modal-body ol { margin-left: 20px; margin-right: 20px; margin-bottom: 20px; }
         .modal-body li { margin-bottom: 8px; }
+
+        /* Balance Display */
+        .balance-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .balance-display span {
+            color: var(--text-muted);
+        }
+
+        .balance-display b {
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        /* Button Group */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-approve:hover {
+            background: linear-gradient(135deg, #ff9500, #ff7700);
+            transform: translateY(-2px);
+        }
+
+        .btn-claim:hover {
+            background: linear-gradient(135deg, #0055cc, #003399);
+            transform: translateY(-2px);
+        }
 
         /* Network Status */
         .network-status {
@@ -671,6 +846,10 @@ Blame
             .contract-box {
                 flex-direction: column;
                 gap: 10px;
+            }
+
+            .presale-wrapper {
+                padding: 0 20px;
             }
 
             .schematic-container {
@@ -846,7 +1025,7 @@ Blame
         .ladder-bar:hover {
             transform: scale(1.02);
         }
-     
+
         .ladder-50 { width: 100%; background: linear-gradient(90deg, #ff6b6b, #ee5a5a); }
         .ladder-40 { width: 80%; background: linear-gradient(90deg, #ffa500, #ff8c00); }
         .ladder-30 { width: 60%; background: linear-gradient(90deg, #ffd700, #ffb700); }
@@ -1188,7 +1367,7 @@ Blame
             color: #fff;
         }
 
-      .admin-grid {
+        .admin-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
@@ -1335,6 +1514,7 @@ Blame
             <a href="#identity" id="nav-identity">Identity</a>
             <a href="#roadmap" id="nav-roadmap">Roadmap</a>
             <a href="#whitepaper" id="nav-whitepaper">Whitepaper</a>
+            <a href="#home" id="nav-presale">Presale</a>
         </nav>
 
         <!-- Mobile Navigation -->
@@ -1343,6 +1523,7 @@ Blame
             <a href="#identity" onclick="toggleMobileMenu()">Identity</a>
             <a href="#roadmap" onclick="toggleMobileMenu()">Roadmap</a>
             <a href="#whitepaper" onclick="toggleMobileMenu()">Whitepaper</a>
+            <a href="#home" onclick="toggleMobileMenu()">Presale</a>
         </div>
         <div class="header-actions">
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobile-menu-btn">☰</button>
@@ -1432,6 +1613,157 @@ Blame
     </div>
 
 </div> <!-- تگ بسته شدن باکس اصلی ویدیو -->
+
+<div class="presale-wrapper"> <!-- شروع بخش پیش‌فروش شما -->
+                <div class="presale-card">
+                    <div class="panel-header-with-logo">
+                        <img src="fixer_coin_bg.png" alt="Fixer Coin Logo" class="panel-logo">
+                        <h3 id="panel-title">Public Presale Panel</h3>
+                    </div>
+                    <div class="presale-info-tag" id="presale-tag">Fixed Price: 0.0000015 USDT (Base) | Supply: 2B FIXER</div>
+                    <div class="input-group">
+                        <label id="label-pay">Pay with (USDT - Base Network)</label>
+                        <input type="number" id="usdtInput" placeholder="0.0" oninput="calculateTokens()">
+                    </div>
+                    <div class="input-group">
+                        <label id="label-received">Receive Token (FIXER)</label>
+                        <input type="text" id="fixerOutput" placeholder="0.0" disabled>
+                    </div>
+                    <div class="input-group">
+                        <label id="label-referrer">Referrer Address (Optional)</label>
+                        <input type="text" id="referrerInput" placeholder="0x...">
+                    </div>
+                    <div class="balance-display">
+                        <span id="label-usdt-balance">Your USDT Balance:</span>
+                        <b id="usdt-balance">0.0 USDT</b>
+                    </div>
+                    <div class="balance-display">
+                        <span id="label-reserved-balance">Reserved FIXER:</span>
+                        <b id="reserved-balance">0.0 FIXER</b>
+                    </div>
+                    <div class="button-group">
+                        <button class="btn-approve" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #ffb703, #ff9500); border: none; color: #000; margin-bottom: 10px; cursor: pointer;" id="approve-btn">Approve USDT</button>
+                        <button class="btn-connect" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #00ffcc, #00ccaa); border: none; color: #000; margin-bottom: 10px; cursor: pointer;" id="buy-btn">Buy Fixer Token</button>
+                        <button class="btn-claim" style="width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; background: linear-gradient(135deg, #0077ff, #0055cc); border: none; color: #fff; cursor: pointer;" id="claim-btn">Claim Tokens</button>
+                    </div>
+                    <div class="network-status" id="network-status" style="margin-top: 15px; padding: 10px; border-radius: 8px; text-align: center; font-size: 14px; background: rgba(255, 183, 3, 0.1); border: 1px solid rgba(255, 183, 3, 0.3); color: #ffb703;">
+                        ⚠️ Please connect your wallet and switch to Base Network
+                    </div>
+                </div>
+
+                <div class="presale-card dashboard-box">
+                    <h3 id="db-title">📊 Your Account Dashboard</h3>
+                    <div class="db-grid">
+                        <div class="db-item">
+                            <span id="db-purchased-lbl">Purchased FIXER</span>
+                            <b id="db-purchased">0.0</b>
+                        </div>
+                        <div class="db-item">
+                            <span id="db-refs-lbl">Total Referrals</span>
+                            <b id="db-refs">0</b>
+                        </div>
+                        <div class="db-item" style="grid-column: span 2;">
+                            <span id="db-bonus-lbl">Referral Bonus Collected</span>
+                            <b id="db-bonus">0.0 FIXER</b>
+                        </div>
+                    </div>
+               <h4 style="color: var(--primary); font-size: 15px; margin-top: 15px; text-align: center;" id="ref-title">🔗 Invite & Earn 5% Bonus</h4>
+                    <div class="ref-input-wrapper">
+                        <div class="ref-link-text" id="ref-link-display">Please connect your wallet first...</div>
+                        <button class="btn-copy-ref" onclick="copyReferralLink()" id="ref-copy-btn">Copy Link</button>
+                    </div>
+                </div>
+
+                <style>
+                    .blinking-title {
+                        color: #ff3333 !important; /* رنگ قرمز جیغ */
+                        font-size: 24px !important; /* سایز بزرگ فونت */
+                        font-weight: 900 !important; /* ضخامت زیاد */
+                        margin-bottom: 15px;
+                        text-align: center; /* تراز شدن دقیق در مرکز */
+                        animation: blinker 1.2s linear infinite; /* افکت خاموش و روشن شدن */
+                        display: block;
+                    }
+
+                    @keyframes blinker {
+                        50% {
+                            opacity: 0;
+                        }
+                    }
+                </style>
+
+                <div style="margin: 25px auto; max-width: 100%; text-align: center;">
+                    <h3 class="blinking-title">
+                        🚨 METAMASK BUYING GUIDE
+                    </h3>
+<!-- استایل اختصاصی چشمک‌زن قرمز و بزرگ برای عناوین انگلیسی -->
+                    <style>
+                        .blinking-title {
+                            color: #ff3333 !important; /* رنگ قرمز جیغ */
+                            font-size: 24px !important; /* سایز بزرگ فونت */
+                            font-weight: 900 !important; /* ضخامت زیاد */
+                            margin-bottom: 15px;
+                            text-align: center; /* تراز شدن دقیق در مرکز */
+                            animation: blinker 1.2s linear infinite; /* افکت خاموش و روشن شدن */
+                            display: block;
+                        }
+
+</div>
+                </div>
+
+                <style>
+                    .blinking-title {
+                        color: #ff3333 !important; /* رنگ قرمز جیغ */
+                        font-size: 24px !important; /* سایز بزرگ فونت */
+                        font-weight: 900 !important; /* ضخامت زیاد */
+                        margin-bottom: 15px;
+                        text-align: center;
+                        animation: blinker 1.2s linear infinite; /* سرعت خاموش و روشن شدن */
+                        display: block;
+                    }
+
+@keyframes blinker {
+                        50% {
+                            opacity: 0;
+                        }
+                    }
+                </style>
+
+                </div>
+
+                <div style="margin: 25px auto; max-width: 100%; text-align: center;">
+                    <h3 class="blinking-title">
+                        🚨 METAMASK BUYING GUIDE
+                    </h3>
+                    <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
+                        <source src="metamaskfixer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div style="margin: 35px auto 25px auto; max-width: 100%; text-align: center;">
+                    <h3 class="blinking-title">
+                        🚨 TRUST WALLET BUYING GUIDE
+                    </h3>
+                    <video width="100%" controls controlsList="nodownload" oncontextmenu="return false;" style="border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); max-height: 450px;">
+                        <source src="trustwalletfixer.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="guide-card">
+                    <h2 id="guide-title">🚨 CRITICAL BUYING GUIDE</h2>
+                    <ul class="guide-list">
+                        <li id="guide-li1">Ensure your **USDT (Tether) is strictly on the Base Network**. Sending USDT from other networks (like TRC20, ERC20, or BSC) will result in irreversible loss of funds.</li>
+                        <li id="guide-li2">Set your Web3 Wallet (MetaMask / Trust Wallet) **network selection to Base Network** before confirming the transaction.</li>
+                        <li id="guide-li3">Need help adding Base Network to your wallet? You can add it securely via Chainlist (Powered by Chainlink): <br><a href="https://chainlist.org/chain/8453" target="_blank" class="chainlist-link">👉 Click here to add Base Network via Chainlist</a></li>
+                        <li id="guide-li4">**Gas Fee Requirement:** All transactions require ETH (Base) for gas fees. Make sure you have enough ETH in your wallet to cover transaction costs.</li>
+                        <li id="guide-li5">**Token Delivery Policy:** Your purchased FIXER tokens and referral bonuses are securely tracked on-chain and will become claimable immediately after the public presale round officially concludes.</li>
+                        <li id="guide-li6">**Participation Limits:** Minimum and maximum participation in the presale for each wallet is 10 million to 200 million Fixer Coin tokens (15 USDT to 300 USDT).</li>
+                        <li id="guide-li7">**Automatic Calculation:** Enter USDT amount and the system will automatically calculate your Fixer Coin tokens based on the fixed price of 0.0000015 USDT per token.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
         <!-- Admin Panel -->
@@ -1483,11 +1815,17 @@ Blame
                 </table>
             </div>
         </div>
- 
-     <!-- Key Features Overview -->
+
+        <!-- Key Features Overview -->
         <section class="features-overview-section">
             <h2 class="section-title" id="features-overview-title">Key Features Overview</h2>
             <div class="features-grid-overview">
+                <div class="feature-card-overview">
+                    <div class="feature-icon">💎</div>
+                    <h3 id="fo-presale-title">Presale</h3>
+                    <p id="fo-presale-desc">Buy FIXER tokens at fixed price with USDT on Base Network</p>
+                    <a href="#home" class="feature-link">Participate Now →</a>
+                </div>
                 <div class="feature-card-overview">
                     <div class="feature-icon">🔒</div>
                     <h3 id="fo-security-title">Anti-Dump</h3>
@@ -1503,7 +1841,7 @@ Blame
                 <div class="feature-card-overview">
                     <div class="feature-icon">📊</div>
                     <h3 id="fo-tokenomics-title">Tokenomics</h3>
-                    <p id="fo-tokenomics-desc">Optimized token structure with strategic distribution</p>
+                    <p id="fo-tokenomics-desc">2B tokens at 0.0000015 USDT with optimized structure</p>
                     <a href="#identity" class="feature-link">View Details →</a>
                 </div>
                 <div class="feature-card-overview">
@@ -1559,13 +1897,13 @@ Blame
                 <div class="tokenomics-diagram">
                     <div class="wallet-circle wallet-1">
                         <span id="id-wallet1-label">Wallet 1 (Owner)</span>
-                        <strong id="id-wallet1-value">8B Tokens</strong>
-                        <small id="id-wallet1-percent">80%</small>
+                        <strong id="id-wallet1-value">7B Tokens</strong>
+                        <small id="id-wallet1-percent">70%</small>
                     </div>
                     <div class="wallet-circle wallet-2">
-                        <span id="id-wallet2-label">Strategic Reserve</span>
-                        <strong id="id-wallet2-value">2B Tokens</strong>
-                        <small id="id-wallet2-percent">20%</small>
+                        <span id="id-wallet2-label">Wallet 2 (Presale)</span>
+                        <strong id="id-wallet2-value">3B Tokens</strong>
+                        <small id="id-wallet2-percent">30%</small>
                     </div>
                     <div class="wallet-circle wallet-3">
                         <span id="id-wallet3-label">Wallet 3 (AutoSwap)</span>
@@ -1676,6 +2014,13 @@ Blame
                         <div class="flow-content">
                             <h6 id="rm1-step1-title">Contract Deployment</h6>
                             <p id="rm1-step1-desc">Deploy final code on Base with anti-hack security layer</p>
+                        </div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon">💰</div>
+                        <div class="flow-content">
+                            <h6 id="rm1-step2-title">Initial Funding</h6>
+                            <p id="rm1-step2-desc">Offer 2B tokens to attract early investors</p>
                         </div>
                     </div>
                     <div class="flow-step">
@@ -1803,11 +2148,11 @@ Blame
                     <div class="pie-legend">
                         <div class="legend-item">
                             <div class="legend-color legend-color-1"></div>
-                            <div class="legend-text" id="wp-legend1">Liquidity Injection Support (50% - 5B)</div>
+                            <div class="legend-text" id="wp-legend1">Presale & Liquidity (30% - 3B)</div>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color legend-color-2"></div>
-                            <div class="legend-text" id="wp-legend2">Ecosystem & Owner Allocation (30% - 3B)</div>
+                            <div class="legend-text" id="wp-legend2">Liquidity Injection Support (50% - 5B)</div>
                         </div>
                         <div class="legend-item">
                             <div class="legend-color legend-color-3"></div>
@@ -1894,13 +2239,17 @@ Blame
                 </div>
             </div>
         </section>
- 
+
         <section class="info-section" id="about">
             <h2 class="section-title" id="features-title">Core Whitepaper Features</h2>
             <div class="features-grid">
                 <div class="feature-card">
                     <h4 id="f1-title">🔒 Anti-Dump Mechanism</h4>
                     <p id="f1-desc">Imposing smart trading limits on exchanges (Min 10M and Max 200M tokens) to prevent price manipulation by whales.</p>
+                </div>
+                <div class="feature-card">
+                    <h4 id="f2-title">📊 Tokenomics & Presale Allocation</h4>
+                    <p id="f2-desc">Exclusive allocation of 2,000,000,000 Fixer tokens at a fixed initial price of 0.0000015 USDT to build foundational liquidity pools.</p>
                 </div>
                 <div class="feature-card">
                     <h4 id="f3-title">🔵 Base Network Framework</h4>
@@ -1991,14 +2340,14 @@ Blame
                     <p>عرضه ۱۰ میلیارد توکن پروژه به ۳ بخش استراتژیک تقسیم شده است:</p>
                     <ul>
                         <li><b>کیف‌پول شماره ۱ (مالک):</b> ذخایرِ تزریق پویا و توسعه اکوسیستم.</li>
-                        <li><b>کیف‌پول شماره ۲:</b> تخصیص کامل بخش تأمین نقدینگی استخرها.</li>
+                        <li><b>کیف‌پول شماره ۲:</b> تخصیص کامل بخش نقدینگی و پنل پیش‌فروش عمومی.</li>
                         <li><b>کیف‌پول شماره ۳:</b> صندوق خودکار انباشت و تبدیل کارمزدها (AutoSwap).</li>
                     </ul>
                     <h4>۳. مکانیزم کارمزد فروش پله‌ای (Dynamic Step-Tax System)</h4>
                     <p><b>منطق کارمزد:</b> با رشد قیمت از کف قیمتی مشخص‌شده ($0.00000125) به سمت سقف قیمتی هدف ($0.00128000)، کارمزد فروش از ۵۰٪ به صورت کاملاً خطی کاهش یافته و در نهایت به ۰٪ می‌رسد.</p>
                     <p><b>سیستم بازگشت‌پذیری پویا:</b> این فرمول کاملاً دوطرفه است؛ در صورتی که تحت شرایط بازار قیمت دارایی افت کند، قرارداد هوشمند فوراً کارمزد متناسب با پله قیمتی جدید را مجدداً اعمال می‌کند تا از استخر نقدینگی در برابر ریزش‌های آبشاری محافظت کند.</p>
                     <h4>۴. مکانیزم حسابداری غیرمتمرکز (Threshold-Based Logic)</h4>
-                    <p>به منظور بهینه‌سازی مصرف گس‌فی (Gas Efficiency) و حفظ پایداری شبکه, کارمزدهای حاصل از معاملات به شکل زیر مدیریت می‌شوند:</p>
+                    <p>به منظور بهینه‌سازی مصرف گس‌فی (Gas Efficiency) و حفظ پایداری شبکه، کارمزدهای حاصل از معاملات به شکل زیر مدیریت می‌شوند:</p>
                     <ul>
                         <li><b>فاز انباشت:</b> کارمزدهای کسر شده، ابتدا به صورت توکن در صندوق امنِ خودِ قرارداد هوشمند جمع‌آوری می‌شوند.</li>
                         <li><b>اجرای حد نصاب:</b> به محض اینکه موجودی توکن‌های داخل قرارداد به مرز <b>۲,۰۰۰,۰۰۰ توکن (2M FIXER)</b> برسد، در اولین تراکنش فروش بعدی، سیستم عملیات تفکیک خودکار (Auto-Swap & Split) را اجرا می‌کند:</li>
@@ -2015,6 +2364,7 @@ Blame
                     title: "نقشه راه استراتژیک پروژه فیکسر کوین",
                     body: `<h4>🔹 فاز ۱: فونداسیون، امنیت مطلق و راه‌اندازی</h4>
                     <p><b>دیپلوی و قفل قرارداد:</b> انتشار کد نهایی فیکسر کوین روی بلاک‌چین بیس (Base) مجهز به لایه امنیتی ضد هک و فرمول ۵۰ پله‌ای کارمزد معکوس.</p>
+                    <p><b>تأمین مالی اولیه (Presale):</b> عرضه ۲ میلیارد توکن جهت جذب سرمایه‌گذاران اولیه و شکل‌گیری جامعه هولدرها.</p>
                     <p><b>تزریق نقدینگی به آیرودروم (Aerodrome):</b> انتقال ۱ میلیارد توکن به همراه نقدینگی بیس به صرافی غیرمتمرکز آیرودروم و قفل کردن ابدی توکن‌های استخر (LP Tokens).</p>
                     <p><b>راه‌اندازی رسانه فیکسر نیوز:</b> استارت رسمی کانال اطلاع‌رسانی پروژه و متصل کردن ربات‌های اتوماتیکِ نمایش لحظه‌ای قیمت.</p>
  
@@ -2063,12 +2413,12 @@ Blame
                     <p>The 10 billion fixed supply is distributed across three strategic operational modules:</p>
                     <ul>
                         <li><b>Wallet #1 (Owner):</b> Dynamic Injection & Ecosystem Development Reserves.</li>
-                        <li><b>Wallet #2:</b> Dedicated Pool Liquidity provision.</li>
+                        <li><b>Wallet #2:</b> Dedicated Presale Allocation and Pool Liquidity provision.</li>
                         <li><b>Wallet #3:</b> AutoSwap Fee Accumulation and Conversion Vault.</li>
                     </ul>
                     <h4>3. Dynamic Step-Tax System</h4>
                     <p><b>Fee Logic:</b> Starting from a baseline floor price of $0.00000125 up to the ultimate target ceiling of $0.00128000, the sell tax decreases linearly from 50% to exactly 0%.</p>
-                    <p><b>Dynamic Reversibility:</b> The formula is fully bidirectional; if market conditions trigger a price drop, the smart contract automatically re-apply the matching higher tax tier to prevent catastrophic liquidity drains.</p>
+                    <p><b>Dynamic Reversibility:</b> The formula is fully bidirectional; if market conditions trigger a price drop, the smart contract automatically re-applies the matching higher tax tier to prevent catastrophic liquidity drains.</p>
                     <h4>4. Decentralized Accounting (Threshold-Based Logic)</h4>
                     <p>To maximize network gas efficiency and ensure pool safety, all transaction taxes are routed automatically:</p>
                     <ul>
@@ -2087,6 +2437,7 @@ Blame
                     title: "Fixer Coin Strategic Roadmap",
                     body: `<h4>🔹 Phase 1: Foundation, Absolute Security, and Launch</h4>
                     <p><b>Contract Deployment & Lock:</b> Deployment of the official Fixer Coin contract code on the Base blockchain, backed by anti-exploit layers and the 50-tier reverse-tax script.</p>
+                    <p><b>Public Presale:</b> Commencing the distribution of 2 Billion tokens to onboard the foundational global community of early holders.</p>
                     <p><b>Liquidity Injection:</b> Supplying 1 Billion tokens alongside Base liquidity onto Aerodrome DEX, followed by a permanent, immutable burn/lock of the LP tokens.</p>
                     <p><b>Fixer News Launch:</b> Ignition of the official communication network integrated with automated automated price-tracking bots.</p>
  
@@ -2108,565 +2459,1106 @@ Blame
             }
         };
  
-       const translations = {
-    fa: {
-        dir: "rtl",
-        title: "Fixer Coin | وب‌سایت رسمی فیکسر کوین",
-        navAbout: "مشخصات",
-        navDocs: "مستندات",
-        langBtn: "English",
-        heroTitle: "اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span>",
-        heroDesc: "پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base USDT) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.",
-        copyBtn: "کپی آدرس قرارداد",
-        featuresOverviewTitle: "نمای کلی ویژگی‌های کلیدی",
-        foSecurityTitle: "ضد نوسان",
-        foSecurityDesc: "محدودیت‌های معاملاتی هوشمند برای جلوگیری از دستکاری قیمت",
-        foSecurityLink: "بیشتر بدانید →",
-        foNetworkTitle: "شبکه بیس",
-        foNetworkDesc: "راهکار سریع، امن و کم‌کارمزد لایه ۲",
-        foNetworkLink: "کاوش کنید →",
-        foTokenomicsTitle: "توکنومیک",
-        foTokenomicsDesc: "۲ میلیارد توکن با قیمت ۰.۰۰۰۰۰۱۵ تتر و ساختار بهینه",
-        foTokenomicsLink: "مشاهده جزئیات →",
-        foRoadmapTitle: "نقشه راه",
-        foRoadmapDesc: "مراحل توسعه استراتژیک و نقاط عطف",
-        foRoadmapLink: "دیدن نقشه راه →",
-        foDocsTitle: "مستندات",
-        foDocsDesc: "وایت پیپر کامل و مشخصات فنی",
-        foDocsLink: "خواندن مستندات →",
-        featuresTitle: "ویژگی‌های بنیادی وایت پیپر فیکسر",
-        f1Title: "🔒 مکانیزم ضدِ نوسان (Anti-Dump)",
-        f1Desc: "اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.",
-        f2Title: "📊 توکنومیک و تخصیص پیش‌فروش",
-        f2Desc: "تخصیص اختصاصی ۲,۰۰۰,۰۰۰,۰۰۰ توکن فیکسر با قیمت ثابت اولیه ۰.۰۰۰۰۰۱۵ تتر جهت ایجاد بستر اولیه استخرهای نقدینگی.",
-        f3Title: "🔵 بستر شبکه بیس (Base)",
-        f3Desc: "بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز شبکه بیس.",
-        docsSectionTitle: "مستندات رسمی و کلیدی توکن",
-        doc1Title: "وایت‌پیپر اکوسیستم",
-        doc1Desc: "دفترچه راهنمای کامل پروژه شامل جزییات فلسفه مالی، سیستم‌های پویا و زیرساخت رسانه‌ای غیرمتمرکز.",
-        doc1Btn: "مطالعه وایت‌پیپر",
-        doc2Title: "شناسنامه فنی و توکنومیکس",
-        doc2Desc: "تحلیل دقیق معماری پله‌های کارمزد بازگشت‌پذیر، حد نصاب‌های حسابداری و لایه‌های مدیریتی قرارداد.",
-        doc2Btn: "مطالعه سند فنی",
-        doc3Title: "نقشه راه استراتژیک",
-        doc3Desc: "برنامه زمانی توسعه پروژه از دیپلوی و توکن‌سوزی‌ها تا لیست صرافی‌ها و کاربرد تجاری در دنیای واقعی.",
-        doc3Btn: "مطالعه نقشه راه",
-        navHome: "خانه",
-        navIdentity: "شناسنامه",
-        navRoadmap: "نقشه راه",
-        navWhitepaper: "وایت‌پیپر",
-        identityTitle: "شناسنامه فنی فیکسر کوین",
-        id1Title: "🪙 نام توکن",
-        id1Desc: "فیکسر (Fixer)",
-        id2Title: "📊 عرضه کل",
-        id2Desc: "10,000,000,000 (10 میلیارد)",
-        id3Title: "🔗 شبکه",
-        id3Desc: "Base Network (L2)",
-        id4Title: "📋 استاندارد",
-        id4Desc: "ERC-20",
-        id5Title: "💰 قیمت پیش‌فروش",
-        id5Desc: "0.0000015 USDT",
-        id6Title: "🔒 کارمزد فروش",
-        id6Desc: "50% → 0% (پله‌ای)",
-        roadmapTitle: "نقشه راه استراتژیک",
-        rm1Title: "🔹 فاز ۱",
-        rm1Desc: "فونداسیون، امنیت مطلق و راه‌اندازی",
-        rm2Title: "🔹 فاز ۲",
-        rm2Desc: "تثبیت مارکت و فعال‌سازی موتورهای مالی",
-        rm3Title: "🔹 فاز ۳",
-        rm3Desc: "سلطه رسانه‌ای و توکن‌سوزی‌های ۱۰ پله‌ای",
-        rm4Title: "🔹 فاز ۴",
-        rm4Desc: "کارمزد صفر، نقدشوندگی مطلق و توسعه بین‌المللی",
-        whitepaperTitle: "وایت‌پیپر فیکسر کوین",
-        wpTitle: "📄 خلاصه مدیریتی",
-        wpDesc: "در فضای به شدت در حال تغییر امور مالی غیرمتمرکز (DeFi)، نوسانات شدید بازار، تخلیه ناگهانی توکن‌ها توسط ربات‌های معامله‌گر و نگاه‌های کوتاه‌مدت نوسان‌گیران، همواره تهدیدهایی حیاتی برای توکن‌های تازه‌راه‌اندازی شده به شمار می‌روند. فیکسر کوین (FIXER) با معرفی یک مکانیزم هوشمند، تغییر بزرگی در قوانین توکنومیکس ایجاد کرده است: سیستم کارمزد پله‌ای پویای مبتنی بر قرارداد هوشمند غیرقابل‌تغییر.",
-        footerText: "© 2026 فیکسر کوین. تمامی حقوق محفوظ است.",
-        alertCopy: "آدرس قرارداد فیکسر کوین کپی شد!",
-        idSpecTitle: "مشخصات عمومی و هویت فنی",
-        idNameLabel: "نام ارز",
-        idNameValue: "فیکسر (Fixer)",
-        idSymbolLabel: "نماد",
-        idSymbolValue: "FIXER",
-        idSupplyLabel: "عرضه کل",
-        idSupplyValue: "10B توکن",
-        idNetworkLabel: "شبکه",
-        idNetworkValue: "Base Chain",
-        idStandardLabel: "استاندارد",
-        idStandardValue: "ERC-20",
-        idDecimalsLabel: "اعشار",
-        idDecimalsValue: "8 رقم",
-        idDistTitle: "ساختار توزیع توکن‌ها",
-        idWallet1Label: "ولت ۱ (مالک)",
-        idWallet1Value: "7B توکن",
-        idWallet1Percent: "70%",
-        idWallet2Label: "ولت ۲ (پیش‌فروش)",
-        idWallet2Value: "3B توکن",
-        idWallet2Percent: "30%",
-        idWallet3Label: "ولت ۳ (AutoSwap)",
-        idWallet3Value: "کارمزدها",
-        idWallet3Percent: "35%",
-        idTaxTitle: "مکانیزم کارمزد پله‌ای",
-        idTax50: "50% - $0.00000125",
-        idTax40: "40% - $0.00025675",
-        idTax30: "30% - $0.00051225",
-        idTax20: "20% - $0.00076775",
-        idTax10: "10% - $0.00102325",
-        idTax0: "0% - $0.00128000",
-        idThresholdTitle: "مکانیزم حسابداری غیرمتمرکز",
-        idTh1Title: "فاز انباشت",
-        idTh1Desc: "کارمزدها در قرارداد جمع می‌شوند تا به 2M توکن برسند",
-        idTh2Title: "اجرای حد نصاب",
-        idTh2Desc: "در اولین فروش بعدی، تفکیک خودکار اجرا می‌شود",
-        idTh3Title: "35% نقدینگی",
-        idTh3Desc: "تبدیل به ETH و واریز به ولت ۳",
-        idTh4Title: "65% اکوسیستم",
-        idTh4Desc: "انتقال توکن به ولت ۱ بدون فشار فروش",
-        idSecurityTitle: "ابزارهای مدیریتی و لایه‌های حفاظتی",
-        idSec1Title: "setTier",
-        idSec1Desc: "مدیریت پله قیمتی",
-        idSec2Title: "setMin/MaxTx",
-        idSec2Desc: "کنترل ضد نهنگ",
-        idSec3Title: "emergencyWithdraw",
-        idSec3Desc: "برداشت اضطراری",
-        idSec4Title: "isBlacklisted",
-        idSec4Desc: "لیست سیاه ربات‌ها",
-        idSec5Title: "isExcluded",
-        idSec5Desc: "معافیت رسمی",
-        rmPhase1Title: "فاز ۱: پونداسیون، امنیت مطلق و راه‌اندازی",
-        rm1Step1Title: "دیپلوی قرارداد",
-        rm1Step1Desc: "انتشار کد نهایی روی شبکه بیس با لایه امنیتی ضد هک",
-        rm1Step2Title: "تأمین مالی اولیه",
-        rm1Step2Desc: "عرضه 2 میلیارد توکن برای جذب سرمایه‌گذاران اولیه",
-        rm1Step3Title: "قفل نقدینگی",
-        rm1Step3Desc: "تزریق 1B توکن به آیرودروم و قفل ابدی LP",
-        rm1Step4Title: "راه‌اندازی فیکسر نیوز",
-        rm1Step4Desc: "استارت کانال رسانه‌ای و ربات‌های نمایش قیمت",
-        rmPhase2Title: "فاز ۲: تثبیت مارکت و فعال‌سازی موتورهای مالی",
-        rm2Step1Title: "ثبت در مراجع جهانی",
-        rm2Step1Desc: "لیست در CoinMarketCap و CoinGecko",
-        rm2Step2Title: "موتور درآمد خودکار",
-        rm2Step2Desc: "فعال‌سازی حد نصاب 2M توکن و تفکیک درآمدها",
-        rm2Step3Title: "پلتفرم استیکینگ",
-        rm2Step3Desc: "پاداش به هولدرهای وفادار با سهم 15%",
-        rmPhase3Title: "فاز ۳: سلطه رسانه‌ای و توکن‌سوزی‌های برنامه‌ریزی‌شده",
-        rm3Step1Title: "مارکتینگ ویرال",
-        rm3Step1Desc: "کمپین‌های تبلیغاتی در اینستاگرام و تلگرام",
-        rm3Step2Title: "توکن‌سوزی دستی",
-        rm3Step2Desc: "اجرای رویدادهای بزرگ سوزاندن از ولت ۱",
-        rm3Step3Title: "جذب نهنگ‌ها",
-        rm3Step3Desc: "عبور از پله‌های میانی و کاهش کارمزد",
-        rmPhase4Title: "فاز ۴: کارمزد صفر، آزادی مطلق و توسعه بین‌المللی",
-        rm4Step1Title: "فتح سقف قیمتی",
-        rm4Step1Desc: "لمس $0.00128000 و صفر شدن کامل کارمزد",
-        rm4Step2Title: "لیست در CEX",
-        rm4Step2Desc: "ورود به صرافی‌های متمرکز بزرگ",
-        rm4Step3Title: "کاربرد تجاری",
-        rm4Step3Desc: "ادغام در حواله‌های مالی و لجستیک بین‌المللی",
-        wpPhilTitle: "فلسفه بازار",
-        wpPhil1Title: "کشش ارگانیک رسانه‌ای",
-        wpPhil1Desc: "پشتیبانی فیکسر نیوز برای ایجاد پایگاه ارتباطی بومی و رو به رشد",
-        wpPhil2Title: "حفاظت الگوریتمی",
-        wpPhil2Desc: "مدل ریاضی با رابطه معکوس بین قیمت و کارمزد فروش",
-        wpDistTitle: "ساختار توزیع توکن‌ها",
-        wpLegend1: "پیش‌فروش و نقدینگی (30% - 3B)",
-        wpLegend2: "پشتیبان تزریق نقدینگی (50% - 5B)",
-        wpLegend3: "ذخیره استراتژیک (20% - 2B)",
-        wpTaxTitle: "مکانیزم کارمزد 51 پله‌ای",
-        wpTax50: "50%",
-        wpTax40: "40%",
-        wpTax30: "30%",
-        wpTax25: "25%",
-        wpTax20: "20%",
-        wpTax10: "10%",
-        wpTax0: "0%",
-        wpThresholdTitle: "مکانیزم حسابداری غیرمتمرکز",
-        wpTh1Title: "فاز انباشت",
-        wpTh1Desc: "کارمزدهای فروش کسر شده در قرارداد جمع می‌شوند",
-        wpTh2Title: "اجرای حد آستانه",
-        wpTh2Desc: "به محض رسیدن به 2M توکن، تفکیک خودکار اجرا می‌شود",
-        wpTh3Title: "35% نقدینگی",
-        wpTh3Desc: "تبدیل به ETH و واریز به ولت ۳",
-        wpTh4Title: "65% اکوسیستم",
-        wpTh4Desc: "انتقال توکن به ولت ۱ بدون فشار فروش",
-        wpSecurityTitle: "امنیت لایه‌ای و کنترل دسترسی",
-        wpSec1Title: "لیست سفید",
-        wpSec1Desc: "معافیت کیف‌پول‌های رسمی از کارمزد",
-        wpSec2Title: "lockTheSwap",
-        wpSec2Desc: "محافظت در برابر حملات Reentrancy",
-        wpSec3Title: "لیست سیاه",
-        wpSec3Desc: "مسدودسازی ربات‌های مخرب MEV"
-    },
-    en: {
-        dir: "ltr",
-        title: "Fixer Coin | Official Website",
-        navAbout: "Features",
-        navDocs: "Documents",
-        langBtn: "فارسی",
-        heroTitle: "Smart & Financial Ecosystem <br><span>Fixer Coin (FIXER)</span>",
-        heroDesc: "An innovative project built on the secure and fast Base network (Base USDT) with an Anti-Dump tokenomics structure and optimized dynamic transaction fees.",
-        copyBtn: "Copy Contract Address",
-        featuresOverviewTitle: "Core Features Overview",
-        foSecurityTitle: "Anti-Dump",
-        foSecurityDesc: "Smart trading limits to prevent price manipulation",
-        foSecurityLink: "Learn More →",
-        foNetworkTitle: "Base Network",
-        foNetworkDesc: "Fast, secure, and low-fee Layer 2 solution",
-        foNetworkLink: "Explore →",
-        foTokenomicsTitle: "Tokenomics",
-        foTokenomicsDesc: "2B tokens at a fixed price of 0.0000015 USDT with optimized structure",
-        foTokenomicsLink: "View Details →",
-        foRoadmapTitle: "Roadmap",
-        foRoadmapDesc: "Strategic development phases and milestones",
-        foRoadmapLink: "View Roadmap →",
-        foDocsTitle: "Documentation",
-        foDocsDesc: "Complete whitepaper and technical specifications",
-        foDocsLink: "Read Docs →",
-        featuresTitle: "Core Whitepaper Features",
-        f1Title: "🔒 Anti-Dump Mechanism",
-        f1Desc: "Imposing smart trading limits on exchanges (Min 10M and Max 200M tokens) to prevent price manipulation by whales.",
-        f2Title: "📊 Tokenomics & Presale Allocation",
-        f2Desc: "Exclusive allocation of 2,000,000,000 Fixer tokens at a fixed initial price of 0.0000015 USDT to build foundational liquidity pools.",
-        f3Title: "🔵 Base Network Framework",
-        f3Desc: "Benefiting from the superior security of Ethereum Layer 1 combined with the extremely low transaction fees of the Base network.",
-        docsSectionTitle: "Official Token Documentation",
-        doc1Title: "Ecosystem Whitepaper",
-        doc1Desc: "Complete project manual detailing the financial philosophy, dynamic system, and decentralized media infrastructure.",
-        doc1Btn: "Read Whitepaper",
-        doc2Title: "Technical Specification",
-        doc2Desc: "Deep architecture breakdown including the 51-tier reversibility tax protocol, accounting limits, and smart protections.",
-        doc2Btn: "Read Tech Spec",
-        doc3Title: "Strategic Roadmap",
-        doc3Desc: "Strategic timeline from initial deployment and token burns to CEX listings and international merchant trade utility.",
-        doc3Btn: "Read Roadmap",
-        navHome: "Home",
-        navIdentity: "Identity",
-        navRoadmap: "Roadmap",
-        navWhitepaper: "Whitepaper",
-        identityTitle: "Fixer Coin Technical Identity",
-        id1Title: "🪙 Token Name",
-        id1Desc: "Fixer (FIXER)",
-        id2Title: "📊 Total Supply",
-        id2Desc: "10,000,000,000 (10 Billion)",
-        id3Title: "🔗 Network",
-        id3Desc: "Base Network (L2)",
-        id4Title: "📋 Standard",
-        id4Desc: "ERC-20",
-        id5Title: "💰 Presale Price",
-        id5Desc: "0.0000015 USDT",
-        id6Title: "🔒 Sell Tax",
-        id6Desc: "50% → 0% (Tiered)",
-        roadmapTitle: "Strategic Roadmap",
-        rm1Title: "🔹 Phase 1",
-        rm1Desc: "Foundation, Absolute Security, and Launch",
-        rm2Title: "🔹 Phase 2",
-        rm2Desc: "Market Stabilization and Financial Engine Activation",
-        rm3Title: "🔹 Phase 3",
-        rm3Desc: "Media Dominance and 10-Tier Token Burns",
-        rm4Title: "🔹 Phase 4",
-        rm4Desc: "Zero Tax, Absolute Liquidity, and Global Development",
-        whitepaperTitle: "Fixer Coin Whitepaper",
-        wpTitle: "📄 Executive Summary",
-        wpDesc: "In the rapidly shifting landscape of Decentralized Finance (DeFi), extreme market volatility, sudden token dumps by algorithmic trading bots, and short-sighted speculation pose existential threats to newly launched projects. FixerCoin (FIXER) introduces a paradigm shift in tokenomics through an innovative mechanism: an immutable, smart contract-driven dynamic tiered fee system.",
-        footerText: "© 2026 Fixer Coin. All Rights Reserved.",
-        alertCopy: "Fixer Coin contract address copied!",
-        idSpecTitle: "General Specifications & Technical Identity",
-        idNameLabel: "Token Name",
-        idNameValue: "Fixer (FIXER)",
-        idSymbolLabel: "Symbol",
-        idSymbolValue: "FIXER",
-        idSupplyLabel: "Total Supply",
-        idSupplyValue: "10B Tokens",
-        idNetworkLabel: "Network",
-        idNetworkValue: "Base Chain",
-        idStandardLabel: "Standard",
-        idStandardValue: "ERC-20",
-        idDecimalsLabel: "Decimals",
-        idDecimalsValue: "8 digits",
-        idDistTitle: "Token Distribution Structure",
-        idWallet1Label: "Wallet 1 (Owner)",
-        idWallet1Value: "7B Tokens",
-        idWallet1Percent: "70%",
-        idWallet2Label: "Wallet 2 (Presale)",
-        idWallet2Value: "3B Tokens",
-        idWallet2Percent: "30%",
-        idWallet3Label: "Wallet 3 (AutoSwap)",
-        idWallet3Value: "Fees",
-        idWallet3Percent: "35%",
-        idTaxTitle: "Tiered Tax Mechanism",
-        idTax50: "50% - $0.00000125",
-        idTax40: "40% - $0.00025675",
-        idTax30: "30% - $0.00051225",
-        idTax20: "20% - $0.00076775",
-        idTax10: "10% - $0.00102325",
-        idTax0: "0% - $0.00128000",
-        idThresholdTitle: "Decentralized Accounting Mechanism",
-        idTh1Title: "Accumulation Phase",
-        idTh1Desc: "Fees collected in contract until reaching 2M tokens",
-        idTh2Title: "Threshold Execution",
-        idTh2Desc: "On next sale, automatic split is executed",
-        idTh3Title: "35% Liquidity",
-        idTh3Desc: "Converted to ETH and sent to Wallet 3",
-        idTh4Title: "65% Ecosystem",
-        idTh4Desc: "Tokens transferred to Wallet 1 without sell pressure",
-        idSecurityTitle: "Management Tools & Security Layers",
-        idSec1Title: "setTier",
-        idSec1Desc: "Price tier management",
-        idSec2Title: "setMin/MaxTx",
-        idSec2Desc: "Anti-whale control",
-        idSec3Title: "emergencyWithdraw",
-        idSec3Desc: "Emergency withdrawal",
-        idSec4Title: "isBlacklisted",
-        idSec4Desc: "Bot blacklist",
-        idSec5Title: "isExcluded",
-        idSec5Desc: "Official exemption",
-        rmPhase1Title: "Phase 1: Foundation, Absolute Security, and Launch",
-        rm1Step1Title: "Contract Deployment",
-        rm1Step1Desc: "Deploy final code on Base with anti-hack security layer",
-        rm1Step2Title: "Initial Funding",
-        rm1Step2Desc: "Offer 2B tokens to attract early investors",
-        rm1Step3Title: "Liquidity Lock",
-        rm1Step3Desc: "Inject 1B tokens to Aerodrome and lock LP permanently",
-        rm1Step4Title: "Fixer News Launch",
-        rm1Step4Desc: "Start media channel and price tracking bots",
-        rmPhase2Title: "Phase 2: Market Stabilization and Financial Engine Activation",
-        rm2Step1Title: "Global Reference Listings",
-        rm2Step1Desc: "List on CoinMarketCap and CoinGecko",
-        rm2Step2Title: "Auto Revenue Engine",
-        rm2Step2Desc: "Activate 2M token threshold and fee splitting",
-        rm2Step3Title: "Staking Platform",
-        rm2Step3Desc: "Reward loyal holders with 15% share",
-        rmPhase3Title: "Phase 3: Media Dominance and Planned Token Burns",
-        rm3Step1Title: "Viral Marketing",
-        rm3Step1Desc: "Ad campaigns on Instagram and Telegram",
-        rm3Step2Title: "Manual Token Burns",
-        rm3Step2Desc: "Execute large burn events from Wallet 1",
-        rm3Step3Title: "Whale Attraction",
-        rm3Step3Desc: "Cross middle tiers and reduce tax",
-        rmPhase4Title: "Phase 4: Zero Tax, Absolute Freedom, and Global Development",
-        rm4Step1Title: "Price Ceiling Achievement",
-        rm4Step1Desc: "Touch $0.00128000 and zero tax completely",
-        rm4Step2Title: "CEX Listing",
-        rm4Step2Desc: "Enter major centralized exchanges",
-        rm4Step3Title: "Commercial Utility",
-        rm4Step3Desc: "Integration in international finance and logistics",
-        wpPhilTitle: "Market Philosophy",
-        wpPhil1Title: "Organic Media Traction",
-        wpPhil1Desc: "Fixer News support for native communication base",
-        wpPhil2Title: "Algorithmic Protection",
-        wpPhil2Desc: "Mathematical model with inverse price-tax relationship",
-        wpDistTitle: "Token Distribution Structure",
-        wpLegend1: "Presale & Liquidity (30% - 3B)",
-        wpLegend2: "Liquidity Injection Support (50% - 5B)",
-        wpLegend3: "Strategic Reserve (20% - 2B)",
-        wpTaxTitle: "51-Tier Tax Mechanism",
-        wpTax50: "50%",
-        wpTax40: "40%",
-        wpTax30: "30%",
-        wpTax25: "25%",
-        wpTax20: "20%",
-        wpTax10: "10%",
-        wpTax0: "0%",
-        wpThresholdTitle: "Decentralized Accounting Mechanism",
-        wpTh1Title: "Accumulation Phase",
-        wpTh1Desc: "Sell fees collected in contract",
-        wpTh2Title: "Threshold Execution",
-        wpTh2Desc: "Auto-split executed upon reaching 2M tokens",
-        wpTh3Title: "35% Liquidity",
-        wpTh3Desc: "Converted to ETH and sent to Wallet 3",
-        wpTh4Title: "65% Ecosystem",
-        wpTh4Desc: "Tokens transferred to Wallet 1 without sell pressure",
-        wpSecurityTitle: "Layered Security & Access Control",
-        wpSec1Title: "Whitelist",
-        wpSec1Desc: "Official wallets exempt from fees",
-        wpSec2Title: "lockTheSwap",
-        wpSec2Desc: "Protection against Reentrancy attacks",
-        wpSec3Title: "Blacklist",
-        wpSec3Desc: "Block malicious MEV bots"
-    }
-};
-     
-   // Load ABI files (در صورت نیاز به بخش‌های دیگر وب‌سایت)
-const script = document.createElement('script');
-script.src = 'FixerPresaleABI.js';
-document.head.appendChild(script);
-
-// آدرس‌های حیاتی پروژه (موارد مربوط به پیش‌فروش حذف شد)
-const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
-const ADMIN_ADDRESS = "0x5d4098869b9e687572365c188ab0aa83f2428967"; // آدرس ادمین برای پنل مدیریت
-
-let currentLang = 'en';
-
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'fa' : 'en';
-    const langData = translations[currentLang];
-
-    // Update all text elements
-    document.documentElement.dir = langData.dir;
-    document.documentElement.lang = currentLang;
-    document.title = langData.title;
-
-    document.getElementById('nav-home').textContent = langData.navHome;
-    document.getElementById('nav-identity').textContent = langData.navIdentity;
-    document.getElementById('nav-roadmap').textContent = langData.navRoadmap;
-    document.getElementById('nav-whitepaper').textContent = langData.navWhitepaper;
-    document.getElementById('lang-btn').textContent = langData.langBtn;
-    document.getElementById('hero-title').innerHTML = langData.heroTitle;
-    document.getElementById('hero-desc').textContent = langData.heroDesc;
-    document.getElementById('copy-btn').textContent = langData.copyBtn;
-    document.getElementById('guide-title').textContent = langData.guideTitle;
-    document.getElementById('guide-li1').innerHTML = langData.guideLi1;
-    document.getElementById('guide-li2').innerHTML = langData.guideLi2;
-    document.getElementById('guide-li3').innerHTML = langData.guideLi3;
-    document.getElementById('guide-li4').innerHTML = langData.guideLi4;
-    document.getElementById('guide-li5').innerHTML = langData.guideLi5;
-    document.getElementById('guide-li6').innerHTML = langData.guideLi6;
-    document.getElementById('guide-li7').innerHTML = langData.guideLi7;
-    document.getElementById('identity-title').textContent = langData.identityTitle;
-    document.getElementById('id1-title').textContent = langData.id1Title;
-    document.getElementById('id1-desc').textContent = langData.id1Desc;
-    document.getElementById('id2-title').textContent = langData.id2Title;
-    document.getElementById('id2-desc').textContent = langData.id2Desc;
-    document.getElementById('id3-title').textContent = langData.id3Title;
-    document.getElementById('id3-desc').textContent = langData.id3Desc;
-    document.getElementById('id4-title').textContent = langData.id4Title;
-    document.getElementById('id4-desc').textContent = langData.id4Desc;
-    document.getElementById('id5-title').textContent = langData.id5Title;
-    document.getElementById('id5-desc').textContent = langData.id5Desc;
-    document.getElementById('id6-title').textContent = langData.id6Title;
-    document.getElementById('id6-desc').textContent = langData.id6Desc;
-    document.getElementById('roadmap-title').textContent = langData.roadmapTitle;
-    document.getElementById('rm1-title').textContent = langData.rm1Title;
-    document.getElementById('rm1-desc').textContent = langData.rm1Desc;
-    document.getElementById('rm2-title').textContent = langData.rm2Title;
-    document.getElementById('rm2-desc').textContent = langData.rm2Desc;
-    document.getElementById('rm3-title').textContent = langData.rm3Title;
-    document.getElementById('rm3-desc').textContent = langData.rm3Desc;
-    document.getElementById('rm4-title').textContent = langData.rm4Title;
-    document.getElementById('rm4-desc').textContent = langData.rm4Desc;
-    document.getElementById('whitepaper-title').textContent = langData.whitepaperTitle;
-    document.getElementById('wp-title').textContent = langData.wpTitle;
-    document.getElementById('wp-desc').textContent = langData.wpDesc;
-    document.getElementById('footer-text').textContent = langData.footerText;
-    document.getElementById('features-title').textContent = langData.featuresTitle;
-    document.getElementById('f1-title').textContent = langData.f1Title;
-    document.getElementById('f1-desc').textContent = langData.f1Desc;
-    document.getElementById('f2-title').textContent = langData.f2Title;
-    document.getElementById('f2-desc').textContent = langData.f2Desc;
-    document.getElementById('f3-title').textContent = langData.f3Title;
-    document.getElementById('f3-desc').textContent = langData.f3Desc;
-    document.getElementById('docs-section-title').textContent = langData.docsSectionTitle;
-    document.getElementById('doc1-title').textContent = langData.doc1Title;
-    document.getElementById('doc1-desc').textContent = langData.doc1Desc;
-
-    // سایر بخش‌های غیر مرتبط با پیش‌فروش (Identity, Roadmap, Whitepaper) که در کد شما بود حفظ شدند
-    // ... (ادامه منطق آپدیت المان‌های متنی غیر پیش‌فروش)
-}
+        const translations = {
+            fa: {
+                dir: "rtl",
+                title: "Fixer Coin | وب‌سایت رسمی فیکسر کوین",
+                navAbout: "مشخصات",
+                navDocs: "مستندات",
+                navPresale: "پیش‌فروش",
+                langBtn: "English",
+                walletBtn: "اتصال کیف پول",
+                heroTitle: "اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span>",
+                heroDesc: "پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base USDT) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.",
+                copyBtn: "کپی آدرس قرارداد",
+                panelTitle: "پنل خرید پیش‌فروش عمومی",
+                presaleTag: "قیمت ثابت: ۰.۰۰۰۰۰۱۵ تتر (بیس) | عرضه: ۲ میلیارد FIXER",
+                labelPay: "پرداخت بر حسب (USDT - شبکه بیس)",
+                labelReceived: "توکن دریافتی (FIXER)",
+                buyBtn: "خرید توکن فیکسر",
+                dbTitle: "📊 پنل کاربری شما",
+                dbPurchasedLbl: "فیکسر خریداری شده",
+                dbRefsLbl: "تعداد معرف‌های شما",
+                dbBonusLbl: "پاداش فیکسر جمع‌آوری شده",
+                refTitle: "🔗 معرفی فیکسر و دریافت ۵٪ پاداش",
+                refCopyBtn: "کپی لینک",
+                refNoWallet: "لطفاً ابتدا کیف پول خود را متصل کنید...",
+                guideTitle: "🚨 راهنمای حیاتی و الزامی خرید",
+                guideLi1: "دقت نمایید که تترهای (USDT) شما **حتماً باید بر بستر شبکه بیس (Base)** باشد. ارسال تتر از سایر شبکه‌ها (مانند TRC20 یا BSC) باعث از بین رفتن دارایی شما می‌شود.",
+                guideLi2: "قبل از تایید و انجام تراکنش، حتماً **شبکه کیف پول خود (متامسک / تراست‌ولت) را روی شبکه بیس (Base)** تنظیم نمایید.",
+                guideLi3: "برای اضافه کردن آسان و امن شبکه بیس به ولت خود، می‌توانید از مرجع رسمی پورتال چین‌لینک استفاده کنید: <br><a href='https://chainlist.org/chain/8453' target='_blank' class='chainlist-link'>👉 برای افزودن خودکار شبکه بیس کلیک کنید</a>",
+                guideLi4: "**نیاز به ETH برای کارمزد:** تمام تراکنش‌ها نیاز به ETH (شبکه بیس) برای پرداخت کارمزد گس دارند. مطمئن شوید که موجودی ETH کافی در کیف پول خود برای پوشش هزینه‌های تراکنش دارید.",
+                guideLi5: "**سیاست برداشت:** فیکسرهای خریداری‌شده و سود حاصل از معرفی، پس از اتمام دوره پیش‌فروش عمومی جهت کلیم و واریز به ولت فعال خواهند شد.",
+                guideLi6: "**محدودیت مشارکت:** حداقل و حداکثر مشارکت در پیش‌فروش برای هر کیف پول 10 میلیون تا 200 میلیون توکن فیکسر کوین است (15 USDT تا 300 USDT).",
+                guideLi7: "**محاسبه خودکار:** با وارد کردن مقدار USDT، سیستم به صورت خودکار تعداد توکن‌های فیکر شما را بر اساس قیمت ثابت 0.0000015 USDT محاسبه می‌کند.",
+                featuresOverviewTitle: "نمای کلی ویژگی‌های کلیدی",
+                foPresaleTitle: "پیش‌فروش",
+                foPresaleDesc: "خرید توکن‌های فیکسر با قیمت ثابت با تتر در شبکه بیس",
+                foPresaleLink: "مشارکت کنید →",
+                foSecurityTitle: "ضد نوسان",
+                foSecurityDesc: "محدودیت‌های معاملاتی هوشمند برای جلوگیری از دستکاری قیمت",
+                foSecurityLink: "بیشتر بدانید →",
+                foNetworkTitle: "شبکه بیس",
+                foNetworkDesc: "راهکار سریع، امن و کم‌کارمزد لایه ۲",
+                foNetworkLink: "کاوش کنید →",
+                foTokenomicsTitle: "توکنومیک",
+                foTokenomicsDesc: "۲ میلیارد توکن با قیمت ۰.۰۰۰۰۰۱۵ تتر و ساختار بهینه",
+                foTokenomicsLink: "مشاهده جزئیات →",
+                foRoadmapTitle: "نقشه راه",
+                foRoadmapDesc: "مراحل توسعه استراتژیک و نقاط عطف",
+                foRoadmapLink: "دیدن نقشه راه →",
+                foDocsTitle: "مستندات",
+                foDocsDesc: "وایت پیپر کامل و مشخصات فنی",
+                foDocsLink: "خواندن مستندات →",
+                featuresTitle: "ویژگی‌های بنیادی وایت پیپر فیکسر",
+                f1Title: "🔒 مکانیزم ضدِ نوسان (Anti-Dump)",
+                f1Desc: "اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.",
+                f2Title: "📊 توکنومیک و تخصیص پیش‌فروش",
+                f2Desc: "تخصیص اختصاصی ۲,۰۰۰,۰۰۰,۰۰۰ توکن فیکسر با قیمت ثابت اولیه ۰.۰۰۰۰۰۱۵ تتر جهت ایجاد بستر اولیه استخرهای نقدینگی.",
+                f3Title: "🔵 بستر شبکه بیس (Base)",
+                f3Desc: "بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز شبکه بیس.",
+                docsSectionTitle: "مستندات رسمی و کلیدی توکن",
+                doc1Title: "وایت‌پیپر اکوسیستم",
+                doc1Desc: "دفترچه راهنمای کامل پروژه شامل جزییات فلسفه مالی، سیستم‌های پویا و زیرساخت رسانه‌ای غیرمتمرکز.",
+                doc1Btn: "مطالعه وایت‌پیپر",
+                doc2Title: "شناسنامه فنی و توکنومیکس",
+                doc2Desc: "تحلیل دقیق معماری پله‌های کارمزد بازگشت‌پذیر، حد نصاب‌های حسابداری و لایه‌های مدیریتی قرارداد.",
+                doc2Btn: "مطالعه سند فنی",
+                doc3Title: "نقشه راه استراتژیک",
+                doc3Desc: "برنامه زمانی توسعه پروژه از دیپلوی و توکن‌سوزی‌ها تا لیست صرافی‌ها و کاربرد تجاری در دنیای واقعی.",
+                doc3Btn: "مطالعه نقشه راه",
+                navHome: "خانه",
+                navIdentity: "شناسنامه",
+                navRoadmap: "نقشه راه",
+                navWhitepaper: "وایت‌پیپر",
+                navPresale: "پیش‌فروش",
+                identityTitle: "شناسنامه فنی فیکسر کوین",
+                id1Title: "🪙 نام توکن",
+                id1Desc: "فیکسر (Fixer)",
+                id2Title: "📊 عرضه کل",
+                id2Desc: "10,000,000,000 (10 میلیارد)",
+                id3Title: "🔗 شبکه",
+                id3Desc: "Base Network (L2)",
+                id4Title: "📋 استاندارد",
+                id4Desc: "ERC-20",
+                id5Title: "💰 قیمت پیش‌فروش",
+                id5Desc: "0.0000015 USDT",
+                id6Title: "🔒 کارمزد فروش",
+                id6Desc: "50% → 0% (پله‌ای)",
+                roadmapTitle: "نقشه راه استراتژیک",
+                rm1Title: "🔹 فاز ۱",
+                rm1Desc: "فونداسیون، امنیت مطلق و راه‌اندازی",
+                rm2Title: "🔹 فاز ۲",
+                rm2Desc: "تثبیت مارکت و فعال‌سازی موتورهای مالی",
+                rm3Title: "🔹 فاز ۳",
+                rm3Desc: "سلطه رسانه‌ای و توکن‌سوزی‌های ۱۰ پله‌ای",
+                rm4Title: "🔹 فاز ۴",
+                rm4Desc: "کارمزد صفر، نقدشوندگی مطلق و توسعه بین‌المللی",
+                whitepaperTitle: "وایت‌پیپر فیکسر کوین",
+                wpTitle: "📄 خلاصه مدیریتی",
+                wpDesc: "در فضای به شدت در حال تغییر امور مالی غیرمتمرکز (DeFi)، نوسانات شدید بازار، تخلیه ناگهانی توکن‌ها توسط ربات‌های معامله‌گر و نگاه‌های کوتاه‌مدت نوسان‌گیران، همواره تهدیدهایی حیاتی برای توکن‌های تازه‌راه‌اندازی شده به شمار می‌روند. فیکسر کوین (FIXER) با معرفی یک مکانیزم هوشمند، تغییر بزرگی در قوانین توکنومیکس ایجاد کرده است: سیستم کارمزد پله‌ای پویای مبتنی بر قرارداد هوشمند غیرقابل‌تغییر.",
+                presaleSectionTitle: "پیش‌فروش عمومی",
+                footerText: "© 2026 فیکسر کوین. تمامی حقوق محفوظ است.",
+                alertCopy: "آدرس قرارداد فیکسر کوین کپی شد!",
+                alertRefCopy: "لینک معرف شما کپی شد!",
+                alertWalletSuccess: "کیف پول با موفقیت متصل شد:\n",
+                alertWalletCancel: "اتصال به کیف پول لغو شد.",
+                alertNoWallet: "کیف پول هوشمندی روی مرورگر شما یافت نشد.",
+                idSpecTitle: "مشخصات عمومی و هویت فنی",
+                idNameLabel: "نام ارز",
+                idNameValue: "فیکسر (Fixer)",
+                idSymbolLabel: "نماد",
+                idSymbolValue: "FIXER",
+                idSupplyLabel: "عرضه کل",
+                idSupplyValue: "10B توکن",
+                idNetworkLabel: "شبکه",
+                idNetworkValue: "Base Chain",
+                idStandardLabel: "استاندارد",
+                idStandardValue: "ERC-20",
+                idDecimalsLabel: "اعشار",
+                idDecimalsValue: "8 رقم",
+                idDistTitle: "ساختار توزیع توکن‌ها",
+                idWallet1Label: "ولت ۱ (مالک)",
+                idWallet1Value: "7B توکن",
+                idWallet1Percent: "70%",
+                idWallet2Label: "ولت ۲ (پیش‌فروش)",
+                idWallet2Value: "3B توکن",
+                idWallet2Percent: "30%",
+                idWallet3Label: "ولت ۳ (AutoSwap)",
+                idWallet3Value: "کارمزدها",
+                idWallet3Percent: "35%",
+                idTaxTitle: "مکانیزم کارمزد پله‌ای",
+                idTax50: "50% - $0.00000125",
+                idTax40: "40% - $0.00025675",
+                idTax30: "30% - $0.00051225",
+                idTax20: "20% - $0.00076775",
+                idTax10: "10% - $0.00102325",
+                idTax0: "0% - $0.00128000",
+                idThresholdTitle: "مکانیزم حسابداری غیرمتمرکز",
+                idTh1Title: "فاز انباشت",
+                idTh1Desc: "کارمزدها در قرارداد جمع می‌شوند تا به 2M توکن برسند",
+                idTh2Title: "اجرای حد نصاب",
+                idTh2Desc: "در اولین فروش بعدی، تفکیک خودکار اجرا می‌شود",
+                idTh3Title: "35% نقدینگی",
+                idTh3Desc: "تبدیل به ETH و واریز به ولت ۳",
+                idTh4Title: "65% اکوسیستم",
+                idTh4Desc: "انتقال توکن به ولت ۱ بدون فشار فروش",
+                idSecurityTitle: "ابزارهای مدیریتی و لایه‌های حفاظتی",
+                idSec1Title: "setTier",
+                idSec1Desc: "مدیریت پله قیمتی",
+                idSec2Title: "setMin/MaxTx",
+                idSec2Desc: "کنترل ضد نهنگ",
+                idSec3Title: "emergencyWithdraw",
+                idSec3Desc: "برداشت اضطراری",
+                idSec4Title: "isBlacklisted",
+                idSec4Desc: "لیست سیاه ربات‌ها",
+                idSec5Title: "isExcluded",
+                idSec5Desc: "معافیت رسمی",
+                rmPhase1Title: "فاز ۱: پونداسیون، امنیت مطلق و راه‌اندازی",
+                rm1Step1Title: "دیپلوی قرارداد",
+                rm1Step1Desc: "انتشار کد نهایی روی شبکه بیس با لایه امنیتی ضد هک",
+                rm1Step2Title: "تأمین مالی اولیه",
+                rm1Step2Desc: "عرضه 2 میلیارد توکن برای جذب سرمایه‌گذاران اولیه",
+                rm1Step3Title: "قفل نقدینگی",
+                rm1Step3Desc: "تزریق 1B توکن به آیرودروم و قفل ابدی LP",
+                rm1Step4Title: "راه‌اندازی فیکسر نیوز",
+                rm1Step4Desc: "استارت کانال رسانه‌ای و ربات‌های نمایش قیمت",
+                rmPhase2Title: "فاز ۲: تثبیت مارکت و فعال‌سازی موتورهای مالی",
+                rm2Step1Title: "ثبت در مراجع جهانی",
+                rm2Step1Desc: "لیست در CoinMarketCap و CoinGecko",
+                rm2Step2Title: "موتور درآمد خودکار",
+                rm2Step2Desc: "فعال‌سازی حد نصاب 2M توکن و تفکیک درآمدها",
+                rm2Step3Title: "پلتفرم استیکینگ",
+                rm2Step3Desc: "پاداش به هولدرهای وفادار با سهم 15%",
+                rmPhase3Title: "فاز ۳: سلطه رسانه‌ای و توکن‌سوزی‌های برنامه‌ریزی‌شده",
+                rm3Step1Title: "مارکتینگ ویرال",
+                rm3Step1Desc: "کمپین‌های تبلیغاتی در اینستاگرام و تلگرام",
+                rm3Step2Title: "توکن‌سوزی دستی",
+                rm3Step2Desc: "اجرای رویدادهای بزرگ سوزاندن از ولت ۱",
+                rm3Step3Title: "جذب نهنگ‌ها",
+                rm3Step3Desc: "عبور از پله‌های میانی و کاهش کارمزد",
+                rmPhase4Title: "فاز ۴: کارمزد صفر، آزادی مطلق و توسعه بین‌المللی",
+                rm4Step1Title: "فتح سقف قیمتی",
+                rm4Step1Desc: "لمس $0.00128000 و صفر شدن کامل کارمزد",
+                rm4Step2Title: "لیست در CEX",
+                rm4Step2Desc: "ورود به صرافی‌های متمرکز بزرگ",
+                rm4Step3Title: "کاربرد تجاری",
+                rm4Step3Desc: "ادغام در حواله‌های مالی و لجستیک بین‌المللی",
+                wpPhilTitle: "فلسفه بازار",
+                wpPhil1Title: "کشش ارگانیک رسانه‌ای",
+                wpPhil1Desc: "پشتیبانی فیکسر نیوز برای ایجاد پایگاه ارتباطی بومی و رو به رشد",
+                wpPhil2Title: "حفاظت الگوریتمی",
+                wpPhil2Desc: "مدل ریاضی با رابطه معکوس بین قیمت و کارمزد فروش",
+                wpDistTitle: "ساختار توزیع توکن‌ها",
+                wpLegend1: "پیش‌فروش و نقدینگی (30% - 3B)",
+                wpLegend2: "پشتیبان تزریق نقدینگی (50% - 5B)",
+                wpLegend3: "ذخیره استراتژیک (20% - 2B)",
+                wpTaxTitle: "مکانیزم کارمزد 51 پله‌ای",
+                wpTax50: "50%",
+                wpTax40: "40%",
+                wpTax30: "30%",
+                wpTax25: "25%",
+                wpTax20: "20%",
+                wpTax10: "10%",
+                wpTax0: "0%",
+                wpThresholdTitle: "مکانیزم حسابداری غیرمتمرکز",
+                wpTh1Title: "فاز انباشت",
+                wpTh1Desc: "کارمزدهای فروش کسر شده در قرارداد جمع می‌شوند",
+                wpTh2Title: "اجرای حد آستانه",
+                wpTh2Desc: "به محض رسیدن به 2M توکن، تفکیک خودکار اجرا می‌شود",
+                wpTh3Title: "35% نقدینگی",
+                wpTh3Desc: "تبدیل به ETH و واریز به ولت ۳",
+                wpTh4Title: "65% اکوسیستم",
+                wpTh4Desc: "انتقال توکن به ولت ۱ بدون فشار فروش",
+                wpSecurityTitle: "امنیت لایه‌ای و کنترل دسترسی",
+                wpSec1Title: "لیست سفید",
+                wpSec1Desc: "معافیت کیف‌پول‌های رسمی از کارمزد",
+                wpSec2Title: "lockTheSwap",
+                wpSec2Desc: "محافظت در برابر حملات Reentrancy",
+                wpSec3Title: "لیست سیاه",
+                wpSec3Desc: "مسدودسازی ربات‌های مخرب MEV",
+                labelReferrer: "آدرس معرف (اختیاری)",
+                labelUsdtBalance: "موجودی تتر شما:",
+                labelReservedBalance: "توکن‌های رزرو شده:",
+                approveBtn: "تایید تتر (Approve)",
+                claimBtn: "برداشت توکن‌ها (Claim)",
+                networkStatus: "⚠️ لطفاً کیف پول خود را متصل کنید و به شبکه Base بروید",
+                networkStatusConnected: "✅ متصل به شبکه Base",
+                networkStatusWrong: "❌ لطفاً به شبکه Base تغییر دهید"
+            },
+            en: {
+                dir: "ltr",
+                title: "Fixer Coin | Official Website",
+                navAbout: "Features",
+                navDocs: "Documents",
+                navPresale: "Presale",
+                langBtn: "فارسی",
+                walletBtn: "Connect Wallet",
+                heroTitle: "Smart & Financial Ecosystem <br><span>Fixer Coin (FIXER)</span>",
+                heroDesc: "An innovative project built on the secure and fast Base network (Base USDT) with an Anti-Dump tokenomics structure and optimized dynamic transaction fees.",
+                copyBtn: "Copy Contract Address",
+                panelTitle: "Public Presale Panel",
+                presaleTag: "Fixed Price: 0.0000015 USDT (Base) | Supply: 2B FIXER",
+                labelPay: "Pay with (USDT - Base Network)",
+                labelReceived: "Receive Token (FIXER)",
+                buyBtn: "Buy Fixer Token",
+                dbTitle: "📊 Your Account Dashboard",
+                dbPurchasedLbl: "Purchased FIXER",
+                dbRefsLbl: "Total Referrals",
+                dbBonusLbl: "Referral Bonus Collected",
+                refTitle: "🔗 Invite & Earn 5% Bonus",
+                refCopyBtn: "Copy Link",
+                refNoWallet: "Please connect your wallet first...",
+                guideTitle: "🚨 CRITICAL BUYING GUIDE",
+                guideLi1: "Ensure your **USDT (Tether) is strictly on the Base Network**. Sending USDT from other networks (like TRC20, ERC20, or BSC) will result in irreversible loss of funds.",
+                guideLi2: "Set your Web3 Wallet (MetaMask / Trust Wallet) **network selection to Base Network** before confirming the transaction.",
+                guideLi3: "Need help adding Base Network to your wallet? You can add it securely via Chainlist (Powered by Chainlink): <br><a href='https://chainlist.org/chain/8453' target='_blank' class='chainlist-link'>👉 Click here to add Base Network via Chainlist</a>",
+                guideLi4: "**Gas Fee Requirement:** All transactions require ETH (Base) for gas fees. Make sure you have enough ETH in your wallet to cover transaction costs.",
+                guideLi5: "**Token Delivery Policy:** Your purchased FIXER tokens and referral bonuses are securely tracked on-chain and will become claimable immediately after the public presale round officially concludes.",
+                guideLi6: "**Participation Limits:** Minimum and maximum participation in the presale for each wallet is 10 million to 200 million Fixer Coin tokens (15 USDT to 300 USDT).",
+                guideLi7: "**Automatic Calculation:** Enter USDT amount and the system will automatically calculate your Fixer Coin tokens based on the fixed price of 0.0000015 USDT per token.",
+                featuresTitle: "Core Whitepaper Features",
+                f1Title: "🔒 Anti-Dump Mechanism",
+                f1Desc: "Imposing smart trading limits on exchanges (Min 10M and Max 200M tokens) to prevent price manipulation by whales.",
+                f2Title: "📊 Tokenomics & Presale Allocation",
+                f2Desc: "Exclusive allocation of 2,000,000,000 Fixer tokens at a fixed initial price of 0.0000015 USDT to build foundational liquidity pools.",
+                f3Title: "🔵 Base Network Framework",
+                f3Desc: "Benefiting from the superior security of Ethereum Layer 1 combined with the extremely low transaction fees of the Base network.",
+                docsSectionTitle: "Official Token Documentation",
+                doc1Title: "Ecosystem Whitepaper",
+                doc1Desc: "Complete project manual detailing the financial philosophy, dynamic system, and decentralized media infrastructure.",
+                doc1Btn: "Read Whitepaper",
+                doc2Title: "Technical Specification",
+                doc2Desc: "Deep architecture breakdown including the 51-tier reversibility tax protocol, accounting limits, and smart protections.",
+                doc2Btn: "Read Tech Spec",
+                doc3Title: "Strategic Roadmap",
+                doc3Desc: "Strategic timeline from initial deployment and token burns to CEX listings and international merchant trade utility.",
+                doc3Btn: "Read Roadmap",
+                navHome: "Home",
+                navIdentity: "Identity",
+                navRoadmap: "Roadmap",
+                navWhitepaper: "Whitepaper",
+                navPresale: "Presale",
+                identityTitle: "Fixer Coin Technical Identity",
+                id1Title: "🪙 Token Name",
+                id1Desc: "Fixer (FIXER)",
+                id2Title: "📊 Total Supply",
+                id2Desc: "10,000,000,000 (10 Billion)",
+                id3Title: "🔗 Network",
+                id3Desc: "Base Network (L2)",
+                id4Title: "📋 Standard",
+                id4Desc: "ERC-20",
+                id5Title: "💰 Presale Price",
+                id5Desc: "0.0000015 USDT",
+                id6Title: "🔒 Sell Tax",
+                id6Desc: "50% → 0% (Tiered)",
+                roadmapTitle: "Strategic Roadmap",
+                rm1Title: "🔹 Phase 1",
+                rm1Desc: "Foundation, Absolute Security, and Launch",
+                rm2Title: "🔹 Phase 2",
+                rm2Desc: "Market Stabilization and Financial Engine Activation",
+                rm3Title: "🔹 Phase 3",
+                rm3Desc: "Media Dominance and 10-Tier Token Burns",
+                rm4Title: "🔹 Phase 4",
+                rm4Desc: "Zero Tax, Absolute Liquidity, and Global Development",
+                whitepaperTitle: "Fixer Coin Whitepaper",
+                wpTitle: "📄 Executive Summary",
+                wpDesc: "In the rapidly shifting landscape of Decentralized Finance (DeFi), extreme market volatility, sudden token dumps by algorithmic trading bots, and short-sighted speculation pose existential threats to newly launched projects. FixerCoin (FIXER) introduces a paradigm shift in tokenomics through an innovative mechanism: an immutable, smart contract-driven dynamic tiered fee system.",
+                presaleSectionTitle: "Public Presale",
+                footerText: "© 2026 Fixer Coin. All Rights Reserved.",
+                alertCopy: "Fixer Coin contract address copied!",
+                alertRefCopy: "Your referral link copied!",
+                alertWalletSuccess: "Wallet connected successfully:\n",
+                alertWalletCancel: "Wallet connection canceled.",
+                alertNoWallet: "No smart wallet found on your browser.",
+                idSpecTitle: "General Specifications & Technical Identity",
+                idNameLabel: "Token Name",
+                idNameValue: "Fixer (FIXER)",
+                idSymbolLabel: "Symbol",
+                idSymbolValue: "FIXER",
+                idSupplyLabel: "Total Supply",
+                idSupplyValue: "10B Tokens",
+                idNetworkLabel: "Network",
+                idNetworkValue: "Base Chain",
+                idStandardLabel: "Standard",
+                idStandardValue: "ERC-20",
+                idDecimalsLabel: "Decimals",
+                idDecimalsValue: "8 digits",
+                idDistTitle: "Token Distribution Structure",
+                idWallet1Label: "Wallet 1 (Owner)",
+                idWallet1Value: "7B Tokens",
+                idWallet1Percent: "70%",
+                idWallet2Label: "Wallet 2 (Presale)",
+                idWallet2Value: "3B Tokens",
+                idWallet2Percent: "30%",
+                idWallet3Label: "Wallet 3 (AutoSwap)",
+                idWallet3Value: "Fees",
+                idWallet3Percent: "35%",
+                idTaxTitle: "Tiered Tax Mechanism",
+                idTax50: "50% - $0.00000125",
+                idTax40: "40% - $0.00025675",
+                idTax30: "30% - $0.00051225",
+                idTax20: "20% - $0.00076775",
+                idTax10: "10% - $0.00102325",
+                idTax0: "0% - $0.00128000",
+                idThresholdTitle: "Decentralized Accounting Mechanism",
+                idTh1Title: "Accumulation Phase",
+                idTh1Desc: "Fees collected in contract until reaching 2M tokens",
+                idTh2Title: "Threshold Execution",
+                idTh2Desc: "On next sale, automatic split is executed",
+                idTh3Title: "35% Liquidity",
+                idTh3Desc: "Converted to ETH and sent to Wallet 3",
+                idTh4Title: "65% Ecosystem",
+                idTh4Desc: "Tokens transferred to Wallet 1 without sell pressure",
+                idSecurityTitle: "Management Tools & Security Layers",
+                idSec1Title: "setTier",
+                idSec1Desc: "Price tier management",
+                idSec2Title: "setMin/MaxTx",
+                idSec2Desc: "Anti-whale control",
+                idSec3Title: "emergencyWithdraw",
+                idSec3Desc: "Emergency withdrawal",
+                idSec4Title: "isBlacklisted",
+                idSec4Desc: "Bot blacklist",
+                idSec5Title: "isExcluded",
+                idSec5Desc: "Official exemption",
+                rmPhase1Title: "Phase 1: Foundation, Absolute Security, and Launch",
+                rm1Step1Title: "Contract Deployment",
+                rm1Step1Desc: "Deploy final code on Base with anti-hack security layer",
+                rm1Step2Title: "Initial Funding",
+                rm1Step2Desc: "Offer 2B tokens to attract early investors",
+                rm1Step3Title: "Liquidity Lock",
+                rm1Step3Desc: "Inject 1B tokens to Aerodrome and lock LP permanently",
+                rm1Step4Title: "Fixer News Launch",
+                rm1Step4Desc: "Start media channel and price tracking bots",
+                rmPhase2Title: "Phase 2: Market Stabilization and Financial Engine Activation",
+                rm2Step1Title: "Global Reference Listings",
+                rm2Step1Desc: "List on CoinMarketCap and CoinGecko",
+                rm2Step2Title: "Auto Revenue Engine",
+                rm2Step2Desc: "Activate 2M token threshold and fee splitting",
+                rm2Step3Title: "Staking Platform",
+                rm2Step3Desc: "Reward loyal holders with 15% share",
+                rmPhase3Title: "Phase 3: Media Dominance and Planned Token Burns",
+                rm3Step1Title: "Viral Marketing",
+                rm3Step1Desc: "Ad campaigns on Instagram and Telegram",
+                rm3Step2Title: "Manual Token Burns",
+                rm3Step2Desc: "Execute large burn events from Wallet 1",
+                rm3Step3Title: "Whale Attraction",
+                rm3Step3Desc: "Cross middle tiers and reduce tax",
+                rmPhase4Title: "Phase 4: Zero Tax, Absolute Freedom, and Global Development",
+                rm4Step1Title: "Price Ceiling Achievement",
+                rm4Step1Desc: "Touch $0.00128000 and zero tax completely",
+                rm4Step2Title: "CEX Listing",
+                rm4Step2Desc: "Enter major centralized exchanges",
+                rm4Step3Title: "Commercial Utility",
+                rm4Step3Desc: "Integration in international finance and logistics",
+                wpPhilTitle: "Market Philosophy",
+                wpPhil1Title: "Organic Media Traction",
+                wpPhil1Desc: "Fixer News support for native communication base",
+                wpPhil2Title: "Algorithmic Protection",
+                wpPhil2Desc: "Mathematical model with inverse price-tax relationship",
+                wpDistTitle: "Token Distribution Structure",
+                wpLegend1: "Presale & Liquidity (30% - 3B)",
+                wpLegend2: "Liquidity Injection Support (50% - 5B)",
+                wpLegend3: "Strategic Reserve (20% - 2B)",
+                wpTaxTitle: "51-Tier Tax Mechanism",
+                wpTax50: "50%",
+                wpTax40: "40%",
+                wpTax30: "30%",
+                wpTax25: "25%",
+                wpTax20: "20%",
+                wpTax10: "10%",
+                wpTax0: "0%",
+                wpThresholdTitle: "Decentralized Accounting Mechanism",
+                wpTh1Title: "Accumulation Phase",
+                wpTh1Desc: "Sell fees collected in contract",
+                wpTh2Title: "Threshold Execution",
+                wpTh2Desc: "Auto-split executed upon reaching 2M tokens",
+                wpTh3Title: "35% Liquidity",
+                wpTh3Desc: "Converted to ETH and sent to Wallet 3",
+                wpTh4Title: "65% Ecosystem",
+                wpTh4Desc: "Tokens transferred to Wallet 1 without sell pressure",
+                wpSecurityTitle: "Layered Security & Access Control",
+                wpSec1Title: "Whitelist",
+                wpSec1Desc: "Official wallets exempt from fees",
+                wpSec2Title: "lockTheSwap",
+                wpSec2Desc: "Protection against Reentrancy attacks",
+                wpSec3Title: "Blacklist",
+                wpSec3Desc: "Block malicious MEV bots",
+                labelReferrer: "Referrer Address (Optional)",
+                labelUsdtBalance: "Your USDT Balance:",
+                labelReservedBalance: "Reserved FIXER:",
+                approveBtn: "Approve USDT",
+                claimBtn: "Claim Tokens",
+                networkStatus: "⚠️ Please connect your wallet and switch to Base Network",
+                networkStatusConnected: "✅ Connected to Base Network",
+                networkStatusWrong: "❌ Please switch to Base Network"
+            }
+        };
 
         // Load ABI files
-const script = document.createElement('script');
-script.src = 'FixerPresaleABI.js';
-document.head.appendChild(script);
+        const script = document.createElement('script');
+        script.src = 'FixerPresaleABI.js';
+        document.head.appendChild(script);
 
-// آدرس‌های حیاتی پروژه (موارد پیش‌فروش حذف شد)
-const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
+        // آدرس‌های حیاتی پروژه فیکسر کوین (تنظیم شده بر اساس کانترکت‌های جدید شما)
+        const TOKEN_ADDRESS = "0x3Ec4588F1c0C52d73263D5C1fe5532d075c7De0F";
+        const PRESALE_ADDRESS = "0x217e6b606dd60a136776965554f0cbdc618ff3d3";
+        const USDT_BASE_ADDRESS = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"; // USDT رسمی روی شبکه بیس
+        const ADMIN_ADDRESS = "0x5d4098869b9e687572365c188ab0aa83f2428967"; // آدرس ادمین برای دسترسی به پنل مدیریت
+ 
+        const TOKEN_PRICE = 0.0000015; // قیمت ثبت شده در سایت شما
+        let userWalletAddress = null;
+        let web3Provider = null;
+ 
+        let currentLang = 'en';
+        let walletAddress = "";
+ 
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'fa' : 'en';
+            const langData = translations[currentLang];
 
-let currentLang = 'en';
+            // Update all text elements
+            document.documentElement.dir = langData.dir;
+            document.documentElement.lang = currentLang;
+            document.title = langData.title;
 
-function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'fa' : 'en';
-    const langData = translations[currentLang];
+            document.getElementById('nav-home').textContent = langData.navHome;
+            document.getElementById('nav-identity').textContent = langData.navIdentity;
+            document.getElementById('nav-roadmap').textContent = langData.navRoadmap;
+            document.getElementById('nav-whitepaper').textContent = langData.navWhitepaper;
+            document.getElementById('nav-presale').textContent = langData.navPresale;
+            document.getElementById('lang-btn').textContent = langData.langBtn;
+            document.getElementById('wallet-btn').textContent = langData.walletBtn;
+            document.getElementById('hero-title').innerHTML = langData.heroTitle;
+            document.getElementById('hero-desc').textContent = langData.heroDesc;
+            document.getElementById('copy-btn').textContent = langData.copyBtn;
+            document.getElementById('panel-title').textContent = langData.panelTitle;
+            document.getElementById('presale-tag').textContent = langData.presaleTag;
+            document.getElementById('label-pay').textContent = langData.labelPay;
+            document.getElementById('label-received').textContent = langData.labelReceived;
+            document.getElementById('buy-btn').textContent = langData.buyBtn;
+            document.getElementById('db-title').textContent = langData.dbTitle;
+            document.getElementById('db-purchased-lbl').textContent = langData.dbPurchasedLbl;
+            document.getElementById('db-refs-lbl').textContent = langData.dbRefsLbl;
+            document.getElementById('db-bonus-lbl').textContent = langData.dbBonusLbl;
+            document.getElementById('ref-title').textContent = langData.refTitle;
+            document.getElementById('ref-copy-btn').textContent = langData.refCopyBtn;
+            document.getElementById('guide-title').textContent = langData.guideTitle;
+            document.getElementById('guide-li1').innerHTML = langData.guideLi1;
+            document.getElementById('guide-li2').innerHTML = langData.guideLi2;
+            document.getElementById('guide-li3').innerHTML = langData.guideLi3;
+            document.getElementById('guide-li4').innerHTML = langData.guideLi4;
+            document.getElementById('guide-li5').innerHTML = langData.guideLi5;
+            document.getElementById('guide-li6').innerHTML = langData.guideLi6;
+            document.getElementById('guide-li7').innerHTML = langData.guideLi7;
+            document.getElementById('identity-title').textContent = langData.identityTitle;
+            document.getElementById('id1-title').textContent = langData.id1Title;
+            document.getElementById('id1-desc').textContent = langData.id1Desc;
+            document.getElementById('id2-title').textContent = langData.id2Title;
+            document.getElementById('id2-desc').textContent = langData.id2Desc;
+            document.getElementById('id3-title').textContent = langData.id3Title;
+            document.getElementById('id3-desc').textContent = langData.id3Desc;
+            document.getElementById('id4-title').textContent = langData.id4Title;
+            document.getElementById('id4-desc').textContent = langData.id4Desc;
+            document.getElementById('id5-title').textContent = langData.id5Title;
+            document.getElementById('id5-desc').textContent = langData.id5Desc;
+            document.getElementById('id6-title').textContent = langData.id6Title;
+            document.getElementById('id6-desc').textContent = langData.id6Desc;
+            document.getElementById('roadmap-title').textContent = langData.roadmapTitle;
+            document.getElementById('rm1-title').textContent = langData.rm1Title;
+            document.getElementById('rm1-desc').textContent = langData.rm1Desc;
+            document.getElementById('rm2-title').textContent = langData.rm2Title;
+            document.getElementById('rm2-desc').textContent = langData.rm2Desc;
+            document.getElementById('rm3-title').textContent = langData.rm3Title;
+            document.getElementById('rm3-desc').textContent = langData.rm3Desc;
+            document.getElementById('rm4-title').textContent = langData.rm4Title;
+            document.getElementById('rm4-desc').textContent = langData.rm4Desc;
+            document.getElementById('whitepaper-title').textContent = langData.whitepaperTitle;
+            document.getElementById('wp-title').textContent = langData.wpTitle;
+            document.getElementById('wp-desc').textContent = langData.wpDesc;
+            document.getElementById('presale-section-title').textContent = langData.presaleSectionTitle;
+            document.getElementById('footer-text').textContent = langData.footerText;
+            document.getElementById('features-title').textContent = langData.featuresTitle;
+            document.getElementById('f1-title').textContent = langData.f1Title;
+            document.getElementById('f1-desc').textContent = langData.f1Desc;
+            document.getElementById('f2-title').textContent = langData.f2Title;
+            document.getElementById('f2-desc').textContent = langData.f2Desc;
+            document.getElementById('f3-title').textContent = langData.f3Title;
+            document.getElementById('f3-desc').textContent = langData.f3Desc;
+            document.getElementById('docs-section-title').textContent = langData.docsSectionTitle;
+            document.getElementById('doc1-title').textContent = langData.doc1Title;
+            document.getElementById('doc1-desc').textContent = langData.doc1Desc;
 
-    // Update all text elements
-    document.documentElement.dir = langData.dir;
-    document.documentElement.lang = currentLang;
-    document.title = langData.title;
+            // Schematic elements
+            if (document.getElementById('id-spec-title')) {
+                document.getElementById('id-spec-title').textContent = langData.idSpecTitle;
+                document.getElementById('id-name-label').textContent = langData.idNameLabel;
+                document.getElementById('id-name-value').textContent = langData.idNameValue;
+                document.getElementById('id-symbol-label').textContent = langData.idSymbolLabel;
+                document.getElementById('id-symbol-value').textContent = langData.idSymbolValue;
+                document.getElementById('id-supply-label').textContent = langData.idSupplyLabel;
+                document.getElementById('id-supply-value').textContent = langData.idSupplyValue;
+                document.getElementById('id-network-label').textContent = langData.idNetworkLabel;
+                document.getElementById('id-network-value').textContent = langData.idNetworkValue;
+                document.getElementById('id-standard-label').textContent = langData.idStandardLabel;
+                document.getElementById('id-standard-value').textContent = langData.idStandardValue;
+                document.getElementById('id-decimals-label').textContent = langData.idDecimalsLabel;
+                document.getElementById('id-decimals-value').textContent = langData.idDecimalsValue;
+            }
+            if (document.getElementById('id-dist-title')) {
+                document.getElementById('id-dist-title').textContent = langData.idDistTitle;
+                document.getElementById('id-wallet1-label').textContent = langData.idWallet1Label;
+                document.getElementById('id-wallet1-value').textContent = langData.idWallet1Value;
+                document.getElementById('id-wallet1-percent').textContent = langData.idWallet1Percent;
+                document.getElementById('id-wallet2-label').textContent = langData.idWallet2Label;
+                document.getElementById('id-wallet2-value').textContent = langData.idWallet2Value;
+                document.getElementById('id-wallet2-percent').textContent = langData.idWallet2Percent;
+                document.getElementById('id-wallet3-label').textContent = langData.idWallet3Label;
+                document.getElementById('id-wallet3-value').textContent = langData.idWallet3Value;
+                document.getElementById('id-wallet3-percent').textContent = langData.idWallet3Percent;
+            }
+            if (document.getElementById('id-tax-title')) {
+                document.getElementById('id-tax-title').textContent = langData.idTaxTitle;
+                document.getElementById('id-tax-50').textContent = langData.idTax50;
+                document.getElementById('id-tax-40').textContent = langData.idTax40;
+                document.getElementById('id-tax-30').textContent = langData.idTax30;
+                document.getElementById('id-tax-20').textContent = langData.idTax20;
+                document.getElementById('id-tax-10').textContent = langData.idTax10;
+                document.getElementById('id-tax-0').textContent = langData.idTax0;
+            }
+            if (document.getElementById('id-threshold-title')) {
+                document.getElementById('id-threshold-title').textContent = langData.idThresholdTitle;
+                document.getElementById('id-th1-title').textContent = langData.idTh1Title;
+                document.getElementById('id-th1-desc').textContent = langData.idTh1Desc;
+                document.getElementById('id-th2-title').textContent = langData.idTh2Title;
+                document.getElementById('id-th2-desc').textContent = langData.idTh2Desc;
+                document.getElementById('id-th3-title').textContent = langData.idTh3Title;
+                document.getElementById('id-th3-desc').textContent = langData.idTh3Desc;
+                document.getElementById('id-th4-title').textContent = langData.idTh4Title;
+                document.getElementById('id-th4-desc').textContent = langData.idTh4Desc;
+            }
+            if (document.getElementById('id-security-title')) {
+                document.getElementById('id-security-title').textContent = langData.idSecurityTitle;
+                document.getElementById('id-sec1-title').textContent = langData.idSec1Title;
+                document.getElementById('id-sec1-desc').textContent = langData.idSec1Desc;
+                document.getElementById('id-sec2-title').textContent = langData.idSec2Title;
+                document.getElementById('id-sec2-desc').textContent = langData.idSec2Desc;
+                document.getElementById('id-sec3-title').textContent = langData.idSec3Title;
+                document.getElementById('id-sec3-desc').textContent = langData.idSec3Desc;
+                document.getElementById('id-sec4-title').textContent = langData.idSec4Title;
+                document.getElementById('id-sec4-desc').textContent = langData.idSec4Desc;
+                document.getElementById('id-sec5-title').textContent = langData.idSec5Title;
+                document.getElementById('id-sec5-desc').textContent = langData.idSec5Desc;
+            }
 
-    document.getElementById('nav-home').textContent = langData.navHome;
-    document.getElementById('nav-identity').textContent = langData.navIdentity;
-    document.getElementById('nav-roadmap').textContent = langData.navRoadmap;
-    document.getElementById('nav-whitepaper').textContent = langData.navWhitepaper;
-    document.getElementById('lang-btn').textContent = langData.langBtn;
-    
-    document.getElementById('hero-title').innerHTML = langData.heroTitle;
-    document.getElementById('hero-desc').textContent = langData.heroDesc;
-    document.getElementById('copy-btn').textContent = langData.copyBtn;
-    
-    document.getElementById('identity-title').textContent = langData.identityTitle;
-    document.getElementById('id1-title').textContent = langData.id1Title;
-    document.getElementById('id1-desc').textContent = langData.id1Desc;
-    document.getElementById('id2-title').textContent = langData.id2Title;
-    document.getElementById('id2-desc').textContent = langData.id2Desc;
-    document.getElementById('id3-title').textContent = langData.id3Title;
-    document.getElementById('id3-desc').textContent = langData.id3Desc;
-    document.getElementById('id4-title').textContent = langData.id4Title;
-    document.getElementById('id4-desc').textContent = langData.id4Desc;
-    document.getElementById('id5-title').textContent = langData.id5Title;
-    document.getElementById('id5-desc').textContent = langData.id5Desc;
-    document.getElementById('id6-title').textContent = langData.id6Title;
-    document.getElementById('id6-desc').textContent = langData.id6Desc;
+            // Roadmap schematic elements
+            if (document.getElementById('rm-phase1-title')) {
+                document.getElementById('rm-phase1-title').textContent = langData.rmPhase1Title;
+                document.getElementById('rm1-step1-title').textContent = langData.rm1Step1Title;
+                document.getElementById('rm1-step1-desc').textContent = langData.rm1Step1Desc;
+                document.getElementById('rm1-step2-title').textContent = langData.rm1Step2Title;
+                document.getElementById('rm1-step2-desc').textContent = langData.rm1Step2Desc;
+                document.getElementById('rm1-step3-title').textContent = langData.rm1Step3Title;
+                document.getElementById('rm1-step3-desc').textContent = langData.rm1Step3Desc;
+                document.getElementById('rm1-step4-title').textContent = langData.rm1Step4Title;
+                document.getElementById('rm1-step4-desc').textContent = langData.rm1Step4Desc;
+                document.getElementById('rm-phase2-title').textContent = langData.rmPhase2Title;
+                document.getElementById('rm2-step1-title').textContent = langData.rm2Step1Title;
+                document.getElementById('rm2-step1-desc').textContent = langData.rm2Step1Desc;
+                document.getElementById('rm2-step2-title').textContent = langData.rm2Step2Title;
+                document.getElementById('rm2-step2-desc').textContent = langData.rm2Step2Desc;
+                document.getElementById('rm2-step3-title').textContent = langData.rm2Step3Title;
+                document.getElementById('rm2-step3-desc').textContent = langData.rm2Step3Desc;
+                document.getElementById('rm-phase3-title').textContent = langData.rmPhase3Title;
+                document.getElementById('rm3-step1-title').textContent = langData.rm3Step1Title;
+                document.getElementById('rm3-step1-desc').textContent = langData.rm3Step1Desc;
+                document.getElementById('rm3-step2-title').textContent = langData.rm3Step2Title;
+                document.getElementById('rm3-step2-desc').textContent = langData.rm3Step2Desc;
+                document.getElementById('rm3-step3-title').textContent = langData.rm3Step3Title;
+                document.getElementById('rm3-step3-desc').textContent = langData.rm3Step3Desc;
+                document.getElementById('rm-phase4-title').textContent = langData.rmPhase4Title;
+                document.getElementById('rm4-step1-title').textContent = langData.rm4Step1Title;
+                document.getElementById('rm4-step1-desc').textContent = langData.rm4Step1Desc;
+                document.getElementById('rm4-step2-title').textContent = langData.rm4Step2Title;
+                document.getElementById('rm4-step2-desc').textContent = langData.rm4Step2Desc;
+                document.getElementById('rm4-step3-title').textContent = langData.rm4Step3Title;
+                document.getElementById('rm4-step3-desc').textContent = langData.rm4Step3Desc;
+            }
 
-    document.getElementById('roadmap-title').textContent = langData.roadmapTitle;
-    document.getElementById('rm1-title').textContent = langData.rm1Title;
-    document.getElementById('rm1-desc').textContent = langData.rm1Desc;
-    document.getElementById('rm2-title').textContent = langData.rm2Title;
-    document.getElementById('rm2-desc').textContent = langData.rm2Desc;
-    document.getElementById('rm3-title').textContent = langData.rm3Title;
-    document.getElementById('rm3-desc').textContent = langData.rm3Desc;
-    document.getElementById('rm4-title').textContent = langData.rm4Title;
-    document.getElementById('rm4-desc').textContent = langData.rm4Desc;
+            // Whitepaper schematic elements
+            if (document.getElementById('wp-phil-title')) {
+                document.getElementById('wp-phil-title').textContent = langData.wpPhilTitle;
+                document.getElementById('wp-phil1-title').textContent = langData.wpPhil1Title;
+                document.getElementById('wp-phil1-desc').textContent = langData.wpPhil1Desc;
+                document.getElementById('wp-phil2-title').textContent = langData.wpPhil2Title;
+                document.getElementById('wp-phil2-desc').textContent = langData.wpPhil2Desc;
+                document.getElementById('wp-dist-title').textContent = langData.wpDistTitle;
+                document.getElementById('wp-legend1').textContent = langData.wpLegend1;
+                document.getElementById('wp-legend2').textContent = langData.wpLegend2;
+                document.getElementById('wp-legend3').textContent = langData.wpLegend3;
+                document.getElementById('wp-tax-title').textContent = langData.wpTaxTitle;
+                document.getElementById('wp-tax50').textContent = langData.wpTax50;
+                document.getElementById('wp-tax40').textContent = langData.wpTax40;
+                document.getElementById('wp-tax30').textContent = langData.wpTax30;
+                document.getElementById('wp-tax25').textContent = langData.wpTax25;
+                document.getElementById('wp-tax20').textContent = langData.wpTax20;
+                document.getElementById('wp-tax10').textContent = langData.wpTax10;
+                document.getElementById('wp-tax0').textContent = langData.wpTax0;
+                document.getElementById('wp-threshold-title').textContent = langData.wpThresholdTitle;
+                document.getElementById('wp-th1-title').textContent = langData.wpTh1Title;
+                document.getElementById('wp-th1-desc').textContent = langData.wpTh1Desc;
+                document.getElementById('wp-th2-title').textContent = langData.wpTh2Title;
+                document.getElementById('wp-th2-desc').textContent = langData.wpTh2Desc;
+                document.getElementById('wp-th3-title').textContent = langData.wpTh3Title;
+                document.getElementById('wp-th3-desc').textContent = langData.wpTh3Desc;
+                document.getElementById('wp-th4-title').textContent = langData.wpTh4Title;
+                document.getElementById('wp-th4-desc').textContent = langData.wpTh4Desc;
+                document.getElementById('wp-security-title').textContent = langData.wpSecurityTitle;
+                document.getElementById('wp-sec1-title').textContent = langData.wpSec1Title;
+                document.getElementById('wp-sec1-desc').textContent = langData.wpSec1Desc;
+                document.getElementById('wp-sec2-title').textContent = langData.wpSec2Title;
+                document.getElementById('wp-sec2-desc').textContent = langData.wpSec2Desc;
+                document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
+                document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
+            }
 
-    document.getElementById('whitepaper-title').textContent = langData.whitepaperTitle;
-    document.getElementById('wp-title').textContent = langData.wpTitle;
-    document.getElementById('wp-desc').textContent = langData.wpDesc;
+            // New presale elements
+            if (document.getElementById('label-referrer')) {
+                document.getElementById('label-referrer').textContent = langData.labelReferrer;
+                document.getElementById('label-usdt-balance').textContent = langData.labelUsdtBalance;
+                document.getElementById('label-reserved-balance').textContent = langData.labelReservedBalance;
+                document.getElementById('approve-btn').textContent = langData.approveBtn;
+                document.getElementById('claim-btn').textContent = langData.claimBtn;
+                document.getElementById('network-status').textContent = langData.networkStatus;
+            }
 
-    // Schematic elements - Whitepaper
-    if (document.getElementById('wp-phil-title')) {
-        document.getElementById('wp-phil-title').textContent = langData.wpPhilTitle;
-        document.getElementById('wp-phil1-title').textContent = langData.wpPhil1Title;
-        document.getElementById('wp-phil1-desc').textContent = langData.wpPhil1Desc;
-        document.getElementById('wp-phil2-title').textContent = langData.wpPhil2Title;
-        document.getElementById('wp-phil2-desc').textContent = langData.wpPhil2Desc;
-        document.getElementById('wp-dist-title').textContent = langData.wpDistTitle;
-        document.getElementById('wp-legend1').textContent = langData.wpLegend1;
-        document.getElementById('wp-legend2').textContent = langData.wpLegend2;
-        document.getElementById('wp-legend3').textContent = langData.wpLegend3;
-        document.getElementById('wp-tax-title').textContent = langData.wpTaxTitle;
-        document.getElementById('wp-tax50').textContent = langData.wpTax50;
-        document.getElementById('wp-tax40').textContent = langData.wpTax40;
-        document.getElementById('wp-tax30').textContent = langData.wpTax30;
-        document.getElementById('wp-tax25').textContent = langData.wpTax25;
-        document.getElementById('wp-tax20').textContent = langData.wpTax20;
-        document.getElementById('wp-tax10').textContent = langData.wpTax10;
-        document.getElementById('wp-tax0').textContent = langData.wpTax0;
-        document.getElementById('wp-threshold-title').textContent = langData.wpThresholdTitle;
-        document.getElementById('wp-th1-title').textContent = langData.wpTh1Title;
-        document.getElementById('wp-th1-desc').textContent = langData.wpTh1Desc;
-        document.getElementById('wp-th2-title').textContent = langData.wpTh2Title;
-        document.getElementById('wp-th2-desc').textContent = langData.wpTh2Desc;
-        document.getElementById('wp-th3-title').textContent = langData.wpTh3Title;
-        document.getElementById('wp-th3-desc').textContent = langData.wpTh3Desc;
-        document.getElementById('wp-th4-title').textContent = langData.wpTh4Title;
-        document.getElementById('wp-th4-desc').textContent = langData.wpTh4Desc;
-        document.getElementById('wp-security-title').textContent = langData.wpSecurityTitle;
-        document.getElementById('wp-sec1-title').textContent = langData.wpSec1Title;
-        document.getElementById('wp-sec1-desc').textContent = langData.wpSec1Desc;
-        document.getElementById('wp-sec2-title').textContent = langData.wpSec2Title;
-        document.getElementById('wp-sec2-desc').textContent = langData.wpSec2Desc;
-        document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
-        document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
-    }
-    
-    document.getElementById('footer-text').textContent = langData.footerText;
-}
+            // Schematic elements - Identity
+            if (document.getElementById('id-spec-title')) {
+                document.getElementById('id-spec-title').textContent = langData.idSpecTitle;
+                document.getElementById('id-name-label').textContent = langData.idNameLabel;
+                document.getElementById('id-name-value').textContent = langData.idNameValue;
+                document.getElementById('id-symbol-label').textContent = langData.idSymbolLabel;
+                document.getElementById('id-symbol-value').textContent = langData.idSymbolValue;
+                document.getElementById('id-supply-label').textContent = langData.idSupplyLabel;
+                document.getElementById('id-supply-value').textContent = langData.idSupplyValue;
+                document.getElementById('id-network-label').textContent = langData.idNetworkLabel;
+                document.getElementById('id-network-value').textContent = langData.idNetworkValue;
+                document.getElementById('id-standard-label').textContent = langData.idStandardLabel;
+                document.getElementById('id-standard-value').textContent = langData.idStandardValue;
+                document.getElementById('id-decimals-label').textContent = langData.idDecimalsLabel;
+                document.getElementById('id-decimals-value').textContent = langData.idDecimalsValue;
+            }
+            if (document.getElementById('id-dist-title')) {
+                document.getElementById('id-dist-title').textContent = langData.idDistTitle;
+                document.getElementById('id-wallet1-label').textContent = langData.idWallet1Label;
+                document.getElementById('id-wallet1-value').textContent = langData.idWallet1Value;
+                document.getElementById('id-wallet1-percent').textContent = langData.idWallet1Percent;
+                document.getElementById('id-wallet2-label').textContent = langData.idWallet2Label;
+                document.getElementById('id-wallet2-value').textContent = langData.idWallet2Value;
+                document.getElementById('id-wallet2-percent').textContent = langData.idWallet2Percent;
+                document.getElementById('id-wallet3-label').textContent = langData.idWallet3Label;
+                document.getElementById('id-wallet3-value').textContent = langData.idWallet3Value;
+                document.getElementById('id-wallet3-percent').textContent = langData.idWallet3Percent;
+            }
+            if (document.getElementById('id-tax-title')) {
+                document.getElementById('id-tax-title').textContent = langData.idTaxTitle;
+                document.getElementById('id-tax-50').textContent = langData.idTax50;
+                document.getElementById('id-tax-40').textContent = langData.idTax40;
+                document.getElementById('id-tax-30').textContent = langData.idTax30;
+                document.getElementById('id-tax-20').textContent = langData.idTax20;
+                document.getElementById('id-tax-10').textContent = langData.idTax10;
+                document.getElementById('id-tax-0').textContent = langData.idTax0;
+            }
+            if (document.getElementById('id-threshold-title')) {
+                document.getElementById('id-threshold-title').textContent = langData.idThresholdTitle;
+                document.getElementById('id-th1-title').textContent = langData.idTh1Title;
+                document.getElementById('id-th1-desc').textContent = langData.idTh1Desc;
+                document.getElementById('id-th2-title').textContent = langData.idTh2Title;
+                document.getElementById('id-th2-desc').textContent = langData.idTh2Desc;
+                document.getElementById('id-th3-title').textContent = langData.idTh3Title;
+                document.getElementById('id-th3-desc').textContent = langData.idTh3Desc;
+                document.getElementById('id-th4-title').textContent = langData.idTh4Title;
+                document.getElementById('id-th4-desc').textContent = langData.idTh4Desc;
+            }
+            if (document.getElementById('id-security-title')) {
+                document.getElementById('id-security-title').textContent = langData.idSecurityTitle;
+                document.getElementById('id-sec1-title').textContent = langData.idSec1Title;
+                document.getElementById('id-sec1-desc').textContent = langData.idSec1Desc;
+                document.getElementById('id-sec2-title').textContent = langData.idSec2Title;
+                document.getElementById('id-sec2-desc').textContent = langData.idSec2Desc;
+                document.getElementById('id-sec3-title').textContent = langData.idSec3Title;
+                document.getElementById('id-sec3-desc').textContent = langData.idSec3Desc;
+                document.getElementById('id-sec4-title').textContent = langData.idSec4Title;
+                document.getElementById('id-sec4-desc').textContent = langData.idSec4Desc;
+                document.getElementById('id-sec5-title').textContent = langData.idSec5Title;
+                document.getElementById('id-sec5-desc').textContent = langData.idSec5Desc;
+            }
 
-function copyContract() {
-    const contractAddress = document.getElementById('contract').innerText;
-    navigator.clipboard.writeText(contractAddress);
-    alert("آدرس قرارداد کپی شد!");
-}
-    // Call on page load
+            // Schematic elements - Roadmap
+            if (document.getElementById('rm-phase1-title')) {
+                document.getElementById('rm-phase1-title').textContent = langData.rmPhase1Title;
+                document.getElementById('rm1-step1-title').textContent = langData.rm1Step1Title;
+                document.getElementById('rm1-step1-desc').textContent = langData.rm1Step1Desc;
+                document.getElementById('rm1-step2-title').textContent = langData.rm1Step2Title;
+                document.getElementById('rm1-step2-desc').textContent = langData.rm1Step2Desc;
+                document.getElementById('rm1-step3-title').textContent = langData.rm1Step3Title;
+                document.getElementById('rm1-step3-desc').textContent = langData.rm1Step3Desc;
+                document.getElementById('rm1-step4-title').textContent = langData.rm1Step4Title;
+                document.getElementById('rm1-step4-desc').textContent = langData.rm1Step4Desc;
+                document.getElementById('rm-phase2-title').textContent = langData.rmPhase2Title;
+                document.getElementById('rm2-step1-title').textContent = langData.rm2Step1Title;
+                document.getElementById('rm2-step1-desc').textContent = langData.rm2Step1Desc;
+                document.getElementById('rm2-step2-title').textContent = langData.rm2Step2Title;
+                document.getElementById('rm2-step2-desc').textContent = langData.rm2Step2Desc;
+                document.getElementById('rm2-step3-title').textContent = langData.rm2Step3Title;
+                document.getElementById('rm2-step3-desc').textContent = langData.rm2Step3Desc;
+                document.getElementById('rm-phase3-title').textContent = langData.rmPhase3Title;
+                document.getElementById('rm3-step1-title').textContent = langData.rm3Step1Title;
+                document.getElementById('rm3-step1-desc').textContent = langData.rm3Step1Desc;
+                document.getElementById('rm3-step2-title').textContent = langData.rm3Step2Title;
+                document.getElementById('rm3-step2-desc').textContent = langData.rm3Step2Desc;
+                document.getElementById('rm3-step3-title').textContent = langData.rm3Step3Title;
+                document.getElementById('rm3-step3-desc').textContent = langData.rm3Step3Desc;
+                document.getElementById('rm-phase4-title').textContent = langData.rmPhase4Title;
+                document.getElementById('rm4-step1-title').textContent = langData.rm4Step1Title;
+                document.getElementById('rm4-step1-desc').textContent = langData.rm4Step1Desc;
+                document.getElementById('rm4-step2-title').textContent = langData.rm4Step2Title;
+                document.getElementById('rm4-step2-desc').textContent = langData.rm4Step2Desc;
+                document.getElementById('rm4-step3-title').textContent = langData.rm4Step3Title;
+                document.getElementById('rm4-step3-desc').textContent = langData.rm4Step3Desc;
+            }
+
+            // Schematic elements - Whitepaper
+            if (document.getElementById('wp-phil-title')) {
+                document.getElementById('wp-phil-title').textContent = langData.wpPhilTitle;
+                document.getElementById('wp-phil1-title').textContent = langData.wpPhil1Title;
+                document.getElementById('wp-phil1-desc').textContent = langData.wpPhil1Desc;
+                document.getElementById('wp-phil2-title').textContent = langData.wpPhil2Title;
+                document.getElementById('wp-phil2-desc').textContent = langData.wpPhil2Desc;
+                document.getElementById('wp-dist-title').textContent = langData.wpDistTitle;
+                document.getElementById('wp-legend1').textContent = langData.wpLegend1;
+                document.getElementById('wp-legend2').textContent = langData.wpLegend2;
+                document.getElementById('wp-legend3').textContent = langData.wpLegend3;
+                document.getElementById('wp-tax-title').textContent = langData.wpTaxTitle;
+                document.getElementById('wp-tax50').textContent = langData.wpTax50;
+                document.getElementById('wp-tax40').textContent = langData.wpTax40;
+                document.getElementById('wp-tax30').textContent = langData.wpTax30;
+                document.getElementById('wp-tax25').textContent = langData.wpTax25;
+                document.getElementById('wp-tax20').textContent = langData.wpTax20;
+                document.getElementById('wp-tax10').textContent = langData.wpTax10;
+                document.getElementById('wp-tax0').textContent = langData.wpTax0;
+                document.getElementById('wp-threshold-title').textContent = langData.wpThresholdTitle;
+                document.getElementById('wp-th1-title').textContent = langData.wpTh1Title;
+                document.getElementById('wp-th1-desc').textContent = langData.wpTh1Desc;
+                document.getElementById('wp-th2-title').textContent = langData.wpTh2Title;
+                document.getElementById('wp-th2-desc').textContent = langData.wpTh2Desc;
+                document.getElementById('wp-th3-title').textContent = langData.wpTh3Title;
+                document.getElementById('wp-th3-desc').textContent = langData.wpTh3Desc;
+                document.getElementById('wp-th4-title').textContent = langData.wpTh4Title;
+                document.getElementById('wp-th4-desc').textContent = langData.wpTh4Desc;
+                document.getElementById('wp-security-title').textContent = langData.wpSecurityTitle;
+                document.getElementById('wp-sec1-title').textContent = langData.wpSec1Title;
+                document.getElementById('wp-sec1-desc').textContent = langData.wpSec1Desc;
+                document.getElementById('wp-sec2-title').textContent = langData.wpSec2Title;
+                document.getElementById('wp-sec2-desc').textContent = langData.wpSec2Desc;
+                document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
+                document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
+            }
+            document.getElementById('doc1-btn').textContent = langData.doc1Btn;
+            document.getElementById('doc2-title').textContent = langData.doc2Title;
+            document.getElementById('doc2-desc').textContent = langData.doc2Desc;
+            document.getElementById('doc2-btn').textContent = langData.doc2Btn;
+            document.getElementById('doc3-title').textContent = langData.doc3Title;
+            document.getElementById('doc3-desc').textContent = langData.doc3Desc;
+            document.getElementById('doc3-btn').textContent = langData.doc3Btn;
+            document.getElementById('identity-title').textContent = langData.identityTitle;
+            document.getElementById('id1-title').textContent = langData.id1Title;
+            document.getElementById('id1-desc').textContent = langData.id1Desc;
+            document.getElementById('id2-title').textContent = langData.id2Title;
+            document.getElementById('id2-desc').textContent = langData.id2Desc;
+            document.getElementById('id3-title').textContent = langData.id3Title;
+            document.getElementById('id3-desc').textContent = langData.id3Desc;
+            document.getElementById('id4-title').textContent = langData.id4Title;
+            document.getElementById('id4-desc').textContent = langData.id4Desc;
+            document.getElementById('id5-title').textContent = langData.id5Title;
+            document.getElementById('id5-desc').textContent = langData.id5Desc;
+            document.getElementById('id6-title').textContent = langData.id6Title;
+            document.getElementById('id6-desc').textContent = langData.id6Desc;
+            document.getElementById('roadmap-title').textContent = langData.roadmapTitle;
+            document.getElementById('rm1-title').textContent = langData.rm1Title;
+            document.getElementById('rm1-desc').textContent = langData.rm1Desc;
+            document.getElementById('rm2-title').textContent = langData.rm2Title;
+            document.getElementById('rm2-desc').textContent = langData.rm2Desc;
+            document.getElementById('rm3-title').textContent = langData.rm3Title;
+            document.getElementById('rm3-desc').textContent = langData.rm3Desc;
+            document.getElementById('rm4-title').textContent = langData.rm4Title;
+            document.getElementById('rm4-desc').textContent = langData.rm4Desc;
+            document.getElementById('whitepaper-title').textContent = langData.whitepaperTitle;
+            document.getElementById('wp-title').textContent = langData.wpTitle;
+            document.getElementById('wp-desc').textContent = langData.wpDesc;
+            document.getElementById('presale-section-title').textContent = langData.presaleSectionTitle;
+           document.getElementById('footer-text').textContent = langData.footerText;
+
+            if (!userWalletAddress) {
+                // بررسی می‌کنیم اگر کاربر خودش با لینک دعوت آمده، آدرس دعوت‌کننده را نشان دهد، در غیر این صورت پیام پیش‌فرض
+                const savedReferrer = localStorage.getItem('referrer');
+                if (savedReferrer) {
+                    document.getElementById('ref-link-display').textContent = "Invited by: " + savedReferrer.substring(0, 6) + "..." + savedReferrer.substring(38);
+                } else {
+                    document.getElementById('ref-link-display').textContent = langData.refNoWallet;
+                }
+            }
+        }
+
+        // 🟢 کد هوشمند جدید: دریافت و ذخیره آدرس رفرال به محض ورود کاربر به سایت
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const refAddress = urlParams.get('ref');
+            
+            // اگر آدرس رفرال در لینک بود و با 0x شروع می‌شد، آن را در حافظه مرورگر ذخیره کن
+            if (refAddress && refAddress.startsWith('0x') && refAddress.length === 42) {
+                localStorage.setItem('referrer', refAddress);
+                console.log("Referrer code detected and saved:", refAddress);
+                
+                // نمایش آدرس دعوت‌کننده در باکس رفرال قبل از اتصال ولت
+                const refDisplay = document.getElementById('ref-link-display');
+                if (refDisplay) {
+                    refDisplay.textContent = "Invited by: " + refAddress.substring(0, 6) + "..." + refAddress.substring(38);
+                }
+            }
+        });
+
+        // ۱. تابع اتصال به کیف‌پول (Connect Wallet) - اصلاح شده
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    userWalletAddress = accounts[0];
+
+                    const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                    if (chainId !== '0x2105') {
+                        alert("لطفاً شبکه کیف‌پول خود را به Base Network تغییر دهید.");
+                        await switchNetworkToBase();
+                    }
+
+                    document.getElementById('wallet-btn').innerText =
+                        userWalletAddress.substring(0, 6) + "..." + userWalletAddress.substring(38);
+
+                    // تولید لینک رفرال اختصاصی خود کاربر برای به اشتراک گذاری
+                    const refLink = window.location.href.split('?')[0] + "?ref=" + userWalletAddress;
+                    document.getElementById('ref-link-display').innerText = refLink;
+
+                    // Track referral visit
+                    trackVisit();
+
+                    updateDashboard();
+
+                } catch (error) {
+                    console.error("اتصال به ولت لغو شد:", error);
+                }
+            } else {
+                alert("ولت Web3 یافت نشد! لطفاً متامسک یا تراست ولت را نصب کنید.");
+            }
+        }
+
+        async function switchNetworkToBase() {
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: '0x2105' }],
+                });
+            } catch (err) {
+                if (err.code === 4902) {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [{
+                            chainId: '0x2105',
+                            chainName: 'Base',
+                            nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+                            rpcUrls: ['https://mainnet.base.org'],
+                            blockExplorerUrls: ['https://basescan.org']
+                        }],
+                    });
+                }
+            }
+        }
+        function calculateTokens() {
+            const usdtAmount = parseFloat(document.getElementById('usdtInput').value);
+            if (!isNaN(usdtAmount) && usdtAmount > 0) {
+                const calculatedFixer = usdtAmount / TOKEN_PRICE;
+                document.getElementById('fixerOutput').value = calculatedFixer.toLocaleString(undefined, {maximumFractionDigits: 2});
+            } else {
+                document.getElementById('fixerOutput').value = "0.0";
+            }
+        }
+
+        function updateDashboard() {
+            // کدهای خواندن اطلاعات آن‌چین برای Purchased FIXER و بونوس رفرال در اینجا قرار می‌گیرد.
+        }
+
+        function copyContract() {
+            const contractAddress = document.getElementById('contract').innerText;
+            navigator.clipboard.writeText(contractAddress);
+            alert("آدرس قرارداد کپی شد!");
+        }
+
+        function copyReferralLink() {
+            const refLink = document.getElementById('ref-link-display').innerText;
+            navigator.clipboard.writeText(refLink);
+            alert("لینک رفرال کپی شد!");
+        }
+
+        // Admin Panel Functions
+        function toggleAdminPanel() {
+            const panel = document.getElementById('admin-panel');
+            panel.classList.toggle('active');
+            if (panel.classList.contains('active')) {
+                loadAdminData();
+            }
+        }
+
+        function copyAdminRefLink() {
+            const refLink = document.getElementById('admin-ref-link').value;
+            navigator.clipboard.writeText(refLink);
+            alert("لینک اختصاصی کپی شد!");
+        }
+
+        function loadAdminData() {
+            // Load all purchases from localStorage
+            const allPurchases = JSON.parse(localStorage.getItem('fixerAllPurchases') || '[]');
+
+            // Calculate stats
+            const totalBuyers = allPurchases.length;
+            const totalVolume = allPurchases.reduce((sum, p) => sum + p.amount, 0);
+            const totalBonus = totalVolume * 0.05 / 0.0000015; // 5% bonus in FIXER
+
+            // Count unique referrers
+            const uniqueReferrers = [...new Set(allPurchases.map(p => p.referrerAddress))].filter(r => r !== "0x0000000000000000000000000000000000000000");
+
+            // Update stats
+            document.getElementById('admin-total-referrals').textContent = uniqueReferrers.length;
+            document.getElementById('admin-total-buyers').textContent = totalBuyers;
+            document.getElementById('admin-total-volume').textContent = totalVolume.toFixed(2);
+            document.getElementById('admin-total-bonus').textContent = totalBonus.toFixed(2);
+
+            // Update purchases list
+            const tbody = document.getElementById('admin-referrals-list');
+            if (allPurchases.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: var(--text-muted);">هنوز خریدی ثبت نشده است</td></tr>';
+            } else {
+                tbody.innerHTML = allPurchases.map(p => `
+                    <tr>
+                        <td style="font-family: monospace; font-size: 11px;">${p.buyerAddress.substring(0, 8)}...${p.buyerAddress.substring(38)}</td>
+                        <td>${p.date}</td>
+                        <td>${p.amount.toFixed(2)} USDT</td>
+                        <td style="font-family: monospace; font-size: 11px;">${p.referrerAddress === "0x0000000000000000000000000000000000000000" ? 'بدون معرف' : p.referrerAddress.substring(0, 8)}...${p.referrerAddress.substring(38)}</td>
+                    </tr>
+                `).join('');
+            }
+        }
+
+        function trackReferral(referrerAddress, buyerAddress, amount) {
+            // Save all purchases globally for admin panel
+            const allPurchases = JSON.parse(localStorage.getItem('fixerAllPurchases') || '[]');
+
+            if (amount) {
+                const purchase = {
+                    buyerAddress: buyerAddress,
+                    referrerAddress: referrerAddress || "0x0000000000000000000000000000000000000000",
+                    amount: amount,
+                    date: new Date().toLocaleDateString('fa-IR'),
+                    timestamp: Date.now()
+                };
+
+                // Check if this purchase already exists
+                const existingPurchase = allPurchases.find(p =>
+                    p.buyerAddress === buyerAddress &&
+                    p.amount === amount &&
+                    Math.abs(p.timestamp - purchase.timestamp) < 60000 // Within 1 minute
+                );
+
+                if (!existingPurchase) {
+                    allPurchases.push(purchase);
+                    localStorage.setItem('fixerAllPurchases', JSON.stringify(allPurchases));
+                }
+            }
+
+            // Also track per-referrer data for regular users
+            if (!referrerAddress || referrerAddress === "0x0000000000000000000000000000000000000000") return;
+
+            const referralData = JSON.parse(localStorage.getItem('fixerReferralData') || '{}');
+
+            if (!referralData[referrerAddress]) {
+                referralData[referrerAddress] = {
+                    referrals: [],
+                    totalBuyers: 0,
+                    totalVolume: 0,
+                    totalBonus: 0
+                };
+            }
+
+            // Check if this buyer is already tracked
+            const existingRef = referralData[referrerAddress].referrals.find(r => r.address === buyerAddress);
+            if (existingRef) {
+                if (amount && !existingRef.purchased) {
+                    existingRef.purchased = true;
+                    existingRef.amount = amount;
+                    existingRef.bonus = amount * 0.05 / 0.0000015; // 5% bonus in FIXER
+                    referralData[referrerAddress].totalBuyers++;
+                    referralData[referrerAddress].totalVolume += amount;
+                    referralData[referrerAddress].totalBonus += existingRef.bonus;
+                }
+            } else {
+                const newRef = {
+                    address: buyerAddress,
+                    date: new Date().toLocaleDateString('fa-IR'),
+                    purchased: !!amount,
+                    amount: amount || 0,
+                    bonus: amount ? amount * 0.05 / 0.0000015 : 0
+                };
+                referralData[referrerAddress].referrals.push(newRef);
+                if (amount) {
+                    referralData[referrerAddress].totalBuyers++;
+                    referralData[referrerAddress].totalVolume += amount;
+                    referralData[referrerAddress].totalBonus += newRef.bonus;
+                }
+            }
+
+            localStorage.setItem('fixerReferralData', JSON.stringify(referralData));
+        }
+
+        // Track referral when user visits with ref parameter
+        function trackVisit() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = urlParams.get('ref');
+            if (referrer && userWalletAddress) {
+                trackReferral(referrer, userWalletAddress, null);
+            }
+        }
+
+        // Extract referrer from URL
+        function getReferrerFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = urlParams.get('ref');
+            if (referrer && document.getElementById('referrerInput')) {
+                document.getElementById('referrerInput').value = referrer;
+            }
+        }
+
+        // Check if admin panel should be shown via URL parameter
+        function checkAdminAccess() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const adminParam = urlParams.get('key');
+            if (adminParam === '957465214') {
+                document.getElementById('admin-panel').classList.add('active');
+                loadAdminData();
+            }
+        }
+
+        // Call on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // تنها عملکردهای غیر پیش‌فروش باقی می‌مانند
+            getReferrerFromURL();
+            checkAdminAccess();
         });
 
         // Toggle mobile menu
@@ -2686,11 +3578,241 @@ function copyContract() {
             document.getElementById('doc-modal-overlay').classList.remove('active');
         }
 
+        // New functions for Presale Contract Integration
+        let signer = null;
+        let provider = null;
+        let usdtContract = null;
+        let presaleContract = null;
+
+        // Check if user is on Base Network
+        async function checkNetwork() {
+            if (!window.ethereum) return false;
+
+            try {
+                const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                const networkStatus = document.getElementById('network-status');
+                const langData = translations[currentLang];
+
+                if (chainId === '0x2105') { // Base Mainnet
+                    networkStatus.textContent = langData.networkStatusConnected;
+                    networkStatus.className = 'network-status connected';
+                    return true;
+                } else {
+                    networkStatus.textContent = langData.networkStatusWrong;
+                    networkStatus.className = 'network-status wrong-network';
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error checking network:', error);
+                return false;
+            }
+        }
+
+        // Update user balances
+        async function updateBalances() {
+            if (!userWalletAddress || !usdtContract || !presaleContract) return;
+
+            try {
+                // Get USDT balance
+                const usdtBalance = await usdtContract.balanceOf(userWalletAddress);
+                document.getElementById('usdt-balance').textContent = ethers.utils.formatUnits(usdtBalance, 6) + ' USDT';
+
+                // Get reserved FIXER balance
+                const reservedBalance = await presaleContract.userBalances(userWalletAddress);
+                document.getElementById('reserved-balance').textContent = ethers.utils.formatUnits(reservedBalance, 18) + ' FIXER';
+            } catch (error) {
+                console.error('Error updating balances:', error);
+            }
+        }
+
+        // Approve USDT for presale contract
+        async function approveUSDT() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            const usdtAmount = document.getElementById('usdtInput').value;
+            if (!usdtAmount || usdtAmount <= 0) {
+                alert("لطفاً مقدار معتبری برای تایید وارد کنید.");
+                return;
+            }
+
+            try {
+                const approveBtn = document.getElementById('approve-btn');
+                approveBtn.textContent = "Processing...";
+                approveBtn.disabled = true;
+
+                const amountInWei = ethers.utils.parseUnits(usdtAmount, 6);
+                const tx = await usdtContract.approve(PRESALE_ADDRESS, amountInWei);
+                await tx.wait();
+
+                alert("تایید تتر با موفقیت انجام شد!");
+                approveBtn.textContent = translations[currentLang].approveBtn;
+                approveBtn.disabled = false;
+            } catch (error) {
+                console.error('Error approving USDT:', error);
+                alert("خطا در تایید تتر: " + error.message);
+                const approveBtn = document.getElementById('approve-btn');
+                approveBtn.textContent = translations[currentLang].approveBtn;
+                approveBtn.disabled = false;
+            }
+        }
+
+        // Buy tokens with approved USDT
+        async function buyTokens() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            const usdtAmount = document.getElementById('usdtInput').value;
+            if (!usdtAmount || usdtAmount <= 0) {
+                alert("لطفاً مقدار معتبری برای خرید وارد کنید.");
+                return;
+            }
+
+            // محاسبه تعداد توکن‌ها
+            const tokensToReceive = parseFloat(usdtAmount) / TOKEN_PRICE;
+            const minTokens = 10000000; // 10 میلیون توکن
+            const maxTokens = 200000000; // 200 میلیون توکن
+
+            if (tokensToReceive < minTokens) {
+                alert(`حداقل مشارکت در پیش فروش برای هر کیف پول 10 میلیون توکن فیکسر کوین است (${(minTokens * TOKEN_PRICE).toFixed(2)} USDT)`);
+                return;
+            }
+
+            if (tokensToReceive > maxTokens) {
+                alert(`حداکثر مشارکت در پیش فروش برای هر کیف پول 200 میلیون توکن فیکسر کوین است (${(maxTokens * TOKEN_PRICE).toFixed(2)} USDT)`);
+                return;
+            }
+
+            const referrerAddress = document.getElementById('referrerInput').value || "0x0000000000000000000000000000000000000000";
+
+            // Track referral purchase
+            if (referrerAddress !== "0x0000000000000000000000000000000000000000") {
+                trackReferral(referrerAddress, userWalletAddress, parseFloat(usdtAmount));
+            }
+
+            try {
+                const buyBtn = document.getElementById('buy-btn');
+                buyBtn.textContent = "Processing...";
+                buyBtn.disabled = true;
+
+                const amountInWei = ethers.utils.parseUnits(usdtAmount, 6);
+                const tx = await presaleContract.buyTokens(amountInWei, referrerAddress);
+                await tx.wait();
+
+                alert("خرید با موفقیت انجام شد!");
+                buyBtn.textContent = translations[currentLang].buyBtn;
+                buyBtn.disabled = false;
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error buying tokens:', error);
+                alert("خطا در خرید توکن: " + error.message);
+                const buyBtn = document.getElementById('buy-btn');
+                buyBtn.textContent = translations[currentLang].buyBtn;
+                buyBtn.disabled = false;
+            }
+        }
+
+        // Claim purchased tokens after presale ends
+        async function claimTokens() {
+            if (!userWalletAddress) {
+                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
+                return;
+            }
+
+            if (!await checkNetwork()) {
+                alert("لطفاً به شبکه Base تغییر دهید.");
+                await switchNetworkToBase();
+                return;
+            }
+
+            try {
+                const claimBtn = document.getElementById('claim-btn');
+                claimBtn.textContent = "Processing...";
+                claimBtn.disabled = true;
+
+                const tx = await presaleContract.claimTokens();
+                await tx.wait();
+
+                alert("توکن‌ها با موفقیت برداشت شدند!");
+                claimBtn.textContent = translations[currentLang].claimBtn;
+                claimBtn.disabled = false;
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error claiming tokens:', error);
+                alert("خطا در برداشت توکن: " + error.message);
+                const claimBtn = document.getElementById('claim-btn');
+                claimBtn.textContent = translations[currentLang].claimBtn;
+                claimBtn.disabled = false;
+            }
+        }
+
+        // Initialize contracts when wallet is connected
+        async function initializeContracts() {
+            if (!window.ethereum || !userWalletAddress) return;
+
+            try {
+                provider = new ethers.providers.Web3Provider(window.ethereum);
+                signer = provider.getSigner();
+
+                // Initialize USDT contract
+                usdtContract = new ethers.Contract(USDT_BASE_ADDRESS, usdtAbi, signer);
+
+                // Initialize Presale contract
+                presaleContract = new ethers.Contract(PRESALE_ADDRESS, presaleAbi, signer);
+
+                // Update balances
+                await updateBalances();
+            } catch (error) {
+                console.error('Error initializing contracts:', error);
+            }
+        }
+
+        // Update connectWallet function to initialize contracts
+        const originalConnectWallet = connectWallet;
+        connectWallet = async function() {
+            await originalConnectWallet();
+            if (userWalletAddress) {
+                await checkNetwork();
+                await initializeContracts();
+            }
+        };
+
+        // Add event listeners for new buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('approve-btn').addEventListener('click', approveUSDT);
+            document.getElementById('buy-btn').addEventListener('click', buyTokens);
+            document.getElementById('claim-btn').addEventListener('click', claimTokens);
+        });
+
         function closeModalOnOverlay(event) {
             if (event.target.id === 'doc-modal-overlay') {
                 closeModal();
             }
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById('wallet-btn').addEventListener('click', connectWallet);
+        });
     </script>
 </body>
 </html>
