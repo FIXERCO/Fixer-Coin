@@ -18,8 +18,8 @@ Blame
         }
  
         :root {
-            --bg-color: #0a1f33;
-            --card-bg: #0d2538;
+            --bg-color: #0a2a4a;
+            --card-bg: #0d3555;
             --primary: #00ffcc;
             --secondary: #0077ff;
             --warning: #ffb703;
@@ -107,8 +107,57 @@ Blame
             font-weight: 900;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
+        }
+
+        .verified-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        html[dir="rtl"] .verified-badge {
+            margin-left: 0;
+            margin-right: 15px;
+        }
+
+        .verified-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .verified-tick {
+            color: #00ff00;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+
+        .verified-text {
+            color: #ff9500;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+
+        .click-here {
+            color: #00ff00;
+            font-size: 9px;
+            font-weight: 600;
+            margin-top: 1px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .verified-badge:hover .click-here {
+            opacity: 1;
         }
  
         nav a {
@@ -170,6 +219,39 @@ Blame
             display: flex;
             align-items: center;
             gap: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid rgba(0, 255, 204, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: rgba(0, 255, 204, 0.2);
+            border-color: rgba(0, 255, 204, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.3);
+        }
+
+        .social-icon svg {
+            transition: transform 0.3s ease;
+        }
+
+        .social-icon:hover svg {
+            transform: scale(1.1);
         }
  
         .btn-lang {
@@ -1508,6 +1590,11 @@ Blame
         <div class="logo-container">
             <img src="fixer_coin_bg.png" alt="Fixer Coin Logo" class="logo-img">
             <span class="logo-text">FIXER COIN</span>
+            <a href="https://repo.sourcify.dev/8453/0xC5F7aCFa7B540d0BBe61aD71927D479C0c91E3b2" target="_blank" class="verified-badge">
+                <span class="verified-tick">✓</span>
+                <span class="verified-text">Verified</span>
+                <span class="click-here">Click here</span>
+            </a>
         </div>
         <nav>
             <a href="#home" id="nav-home">Home</a>
@@ -1526,6 +1613,25 @@ Blame
             <a href="#home" onclick="toggleMobileMenu()">Presale</a>
         </div>
         <div class="header-actions">
+            <div class="social-icons">
+                <a href="#" target="_blank" class="social-icon telegram-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 2L2 9L9 12L12 22L22 2Z" stroke="#00ffcc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="social-icon instagram-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="20" height="20" rx="5" stroke="#00ffcc" stroke-width="2"/>
+                        <circle cx="12" cy="12" r="4" stroke="#00ffcc" stroke-width="2"/>
+                        <circle cx="18" cy="6" r="1" fill="#00ffcc"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" class="social-icon x-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4L20 20M20 4L4 20" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </a>
+            </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobile-menu-btn">☰</button>
             <button class="btn-lang" onclick="toggleLanguage()" id="lang-btn">فارسی</button>
         </div>
@@ -1546,38 +1652,21 @@ Blame
 <div style="text-align: center; margin: 35px auto; max-width: 650px; padding: 15px; clear: both; display: block; position: relative; z-index: 10;">
     
     <style>
-    @keyframes fixerFlash {
-        0% {
-            color: #ffffff;
-            text-shadow: 0 0 5px #fff, 0 0 10px #ffcc00, 0 0 20px #ffcc00;
-            opacity: 0.3;
-        }
-        100% {
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 40px #ff9900;
-            opacity: 1;
-        }
-    }
-    </style>
-
-<div style="text-align: center; margin: 35px auto; max-width: 650px; padding: 15px; clear: both; display: block; position: relative; z-index: 10;">
-    
-    <style>
     @keyframes fixerFireFlash {
         0% {
-            color: #ff3333; /* قرمز آتشین */
+            color: #ff3333;
             text-shadow: 0 0 5px #ff3333, 0 0 15px #ff0000, 0 0 25px #ff0000;
             opacity: 0.4;
         }
         100% {
-            color: #ffcc00; /* زرد درخشان */
+            color: #ffcc00;
             text-shadow: 0 0 15px #ffcc00, 0 0 30px #ff9900, 0 0 45px #ff6600;
             opacity: 1;
         }
     }
     </style>
 
-    <h3 style="font-family: 'Segoe UI', Inter, sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFireFlash 1.2s infinite alternate; margin-top: 0;">
+    <h3 id="video-intro-title" style="font-family: 'Segoe UI', Inter, sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFireFlash 1.2s infinite alternate; margin-top: 0;">
         FIXER COIN INTRODUCTION
     </h3>
     
@@ -1585,12 +1674,12 @@ Blame
         <source src="FIXERCO.mp4" type="video/mp4">
     </video>
 
-    <p style="font-family: 'Segoe UI', Inter, sans-serif; color: #00ffcc; font-size: 16px; font-weight: bold; text-align: center; margin-top: 15px; letter-spacing: 0.5px;">
+    <p id="video-intro-text" style="font-family: 'Segoe UI', Inter, sans-serif; color: #00ffcc; font-size: 16px; font-weight: bold; text-align: center; margin-top: 15px; letter-spacing: 0.5px;">
         💎🚀 This is the power of the Fixer Community! 🔥
     </p>
 
     <!-- کدی که باید اضافه می‌کردید دقیقاً در اینستا قرار گرفت -->
-    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 12px; padding: 20px; margin-top: 25px; text-align: left; direction: ltr; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
+    <div id="video-transcript-container" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 12px; padding: 20px; margin-top: 25px; text-align: left; direction: ltr; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
         <h4 id="video-transcript-title" style="color: #ffcc00; font-family: 'Segoe UI', Inter, sans-serif; font-size: 16px; margin: 0 0 12px 0; font-weight: bold; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); padding-bottom: 6px;">📝 Fixer Video Transcript:</h4>
         <p id="video-transcript-text" style="color: #cccccc; font-family: 'Segoe UI', Inter, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0; text-align: justify; font-weight: 400;">
             Fixer Coin is a fixed supply cryptocurrency with a total of 10 billion tokens and no re-minting capability. The token is deployed on the Base layer two network built on Ethereum and follows OpenZeppelin security standards. Initial supply of 3 billion tokens includes 2 billion allocated for the presale and 1 billion supplied on the Aerodrome exchange.
@@ -2312,34 +2401,16 @@ Blame
                 <b>فاز سوم</b> هدف انفجار قیمت از طریق بازاریابی ویروسی، سوزش‌های دستی عظیم و جذب نهنگ‌ها است.
                 <br>
                 <b>فاز چهارم</b> بلوغ اکوسیستم را زمانی که کارمزدها به صفر می‌رسند، نشان می‌دهد که لیست شدن در صرافی‌های ردیف اول و راه‌اندازی کاربرد تجاری را امکان‌پذیر می‌کند.`,
-                walletBtn: "اتصال کیف پول",
                 heroTitle: "اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span>",
                 heroDesc: "پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base USDT) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.",
                 copyBtn: "کپی آدرس قرارداد",
-                featuresOverviewTitle: "نمای کلی ویژگی‌های کلیدی",
-                foPresaleTitle: "پیش‌فروش",
-                foPresaleDesc: "خرید توکن‌های فیکسر با قیمت ثابت با تتر در شبکه بیس",
-                foPresaleLink: "مشارکت کنید →",
-                foSecurityTitle: "ضد نوسان",
-                foSecurityDesc: "محدودیت‌های معاملاتی هوشمند برای جلوگیری از دستکاری قیمت",
-                foSecurityLink: "بیشتر بدانید →",
-                foNetworkTitle: "شبکه بیس",
-                foNetworkDesc: "راهکار سریع، امن و کم‌کارمزد لایه ۲",
-                foNetworkLink: "کاوش کنید →",
-                foTokenomicsTitle: "توکنومیک",
-                foTokenomicsDesc: "۲ میلیارد توکن با قیمت ۰.۰۰۰۰۰۱۵ تتر و ساختار بهینه",
-                foTokenomicsLink: "مشاهده جزئیات →",
-                foRoadmapTitle: "نقشه راه",
-                foRoadmapDesc: "مراحل توسعه استراتژیک و نقاط عطف",
-                foRoadmapLink: "دیدن نقشه راه →",
-                foDocsTitle: "مستندات",
-                foDocsDesc: "وایت پیپر کامل و مشخصات فنی",
-                foDocsLink: "خواندن مستندات →",
+                videoIntroTitle: "معرفی فیکسر کوین",
+                videoIntroText: "💎🚀 این قدرت جامعه فیکسر است! 🔥",
                 featuresTitle: "ویژگی‌های بنیادی وایت پیپر فیکسر",
                 f1Title: "🔒 مکانیزم ضدِ نوسان (Anti-Dump)",
                 f1Desc: "اعمال محدودیت‌های معاملاتی هوشمند بر روی صرافی‌ها (حداقل ۱۰ میلیون و حداکثر ۲۰۰ میلیون توکن) جهت جلوگیری از دستکاری قیمت توسط نهنگ‌ها.",
-                f2Title: "📊 توکنومیک و تخصیص پیش‌فروش",
-                f2Desc: "تخصیص اختصاصی ۲,۰۰۰,۰۰۰,۰۰۰ توکن فیکسر با قیمت ثابت اولیه ۰.۰۰۰۰۰۱۵ تتر جهت ایجاد بستر اولیه استخرهای نقدینگی.",
+                f2Title: "📊 توکنومیک و تخصیص توسعه",
+                f2Desc: "تخصیص اختصاصی ۲,۰۰۰,۰۰۰,۰۰۰ توکن فیکسر برای توسعه و ایجاد بستر اولیه استخرهای نقدینگی.",
                 f3Title: "🔵 بستر شبکه بیس (Base)",
                 f3Desc: "بهره‌مندی از امنیت فوق‌العاده لایه اول اتریوم همراه با کارمزدهای بسیار ناچیز شبکه بیس.",
                 docsSectionTitle: "مستندات رسمی و کلیدی توکن",
@@ -2366,10 +2437,8 @@ Blame
                 id3Desc: "Base Network (L2)",
                 id4Title: "📋 استاندارد",
                 id4Desc: "ERC-20",
-                id5Title: "💰 قیمت پیش‌فروش",
-                id5Desc: "0.0000015 USDT",
-                id6Title: "🔒 کارمزد فروش",
-                id6Desc: "50% → 0% (پله‌ای)",
+                id5Title: "🔒 کارمزد فروش",
+                id5Desc: "50% → 0% (پله‌ای)",
                 roadmapTitle: "نقشه راه استراتژیک",
                 rm1Title: "🔹 فاز ۱",
                 rm1Desc: "فونداسیون، امنیت مطلق و راه‌اندازی",
@@ -2382,13 +2451,8 @@ Blame
                 whitepaperTitle: "وایت‌پیپر فیکسر کوین",
                 wpTitle: "📄 خلاصه مدیریتی",
                 wpDesc: "در فضای به شدت در حال تغییر امور مالی غیرمتمرکز (DeFi)، نوسانات شدید بازار، تخلیه ناگهانی توکن‌ها توسط ربات‌های معامله‌گر و نگاه‌های کوتاه‌مدت نوسان‌گیران، همواره تهدیدهایی حیاتی برای توکن‌های تازه‌راه‌اندازی شده به شمار می‌روند. فیکسر کوین (FIXER) با معرفی یک مکانیزم هوشمند، تغییر بزرگی در قوانین توکنومیکس ایجاد کرده است: سیستم کارمزد پله‌ای پویای مبتنی بر قرارداد هوشمند غیرقابل‌تغییر.",
-                presaleSectionTitle: "پیش‌فروش عمومی",
                 footerText: "© 2026 فیکسر کوین. تمامی حقوق محفوظ است.",
                 alertCopy: "آدرس قرارداد فیکسر کوین کپی شد!",
-                alertRefCopy: "لینک معرف شما کپی شد!",
-                alertWalletSuccess: "کیف پول با موفقیت متصل شد:\n",
-                alertWalletCancel: "اتصال به کیف پول لغو شد.",
-                alertNoWallet: "کیف پول هوشمندی روی مرورگر شما یافت نشد.",
                 idSpecTitle: "مشخصات عمومی و هویت فنی",
                 idNameLabel: "نام ارز",
                 idNameValue: "فیکسر (Fixer)",
@@ -2406,12 +2470,9 @@ Blame
                 idWallet1Label: "ولت ۱ (مالک)",
                 idWallet1Value: "7B توکن",
                 idWallet1Percent: "70%",
-                idWallet2Label: "ولت ۲ (پیش‌فروش)",
+                idWallet2Label: "ولت ۲ (توسعه)",
                 idWallet2Value: "3B توکن",
                 idWallet2Percent: "30%",
-                idWallet3Label: "ولت ۳ (AutoSwap)",
-                idWallet3Value: "کارمزدها",
-                idWallet3Percent: "35%",
                 idTaxTitle: "مکانیزم کارمزد پله‌ای",
                 idTax50: "50% - $0.00000125",
                 idTax40: "40% - $0.00025675",
@@ -2534,35 +2595,16 @@ Blame
                 <b>Phase three</b> targets a price explosion through viral marketing, massive manual burns, and whale attraction.
                 <br>
                 <b>Phase four</b> marks ecosystem maturity when fees reach zero, enabling tier one exchange listings and commercial utility launch.`,
-                walletBtn: "Connect Wallet",
                 heroTitle: "Smart & Financial Ecosystem <br><span>Fixer Coin (FIXER)</span>",
                 heroDesc: "An innovative project built on the secure and fast Base network (Base USDT) with an Anti-Dump tokenomics structure and optimized dynamic transaction fees.",
                 copyBtn: "Copy Contract Address",
-                panelTitle: "Public Presale Panel",
-                presaleTag: "Fixed Price: 0.0000015 USDT (Base) | Supply: 2B FIXER",
-                labelPay: "Pay with (USDT - Base Network)",
-                labelReceived: "Receive Token (FIXER)",
-                buyBtn: "Buy Fixer Token",
-                dbTitle: "📊 Your Account Dashboard",
-                dbPurchasedLbl: "Purchased FIXER",
-                dbRefsLbl: "Total Referrals",
-                dbBonusLbl: "Referral Bonus Collected",
-                refTitle: "🔗 Invite & Earn 5% Bonus",
-                refCopyBtn: "Copy Link",
-                refNoWallet: "Please connect your wallet first...",
-                guideTitle: "🚨 CRITICAL BUYING GUIDE",
-                guideLi1: "Ensure your **USDT (Tether) is strictly on the Base Network**. Sending USDT from other networks (like TRC20, ERC20, or BSC) will result in irreversible loss of funds.",
-                guideLi2: "Set your Web3 Wallet (MetaMask / Trust Wallet) **network selection to Base Network** before confirming the transaction.",
-                guideLi3: "Need help adding Base Network to your wallet? You can add it securely via Chainlist (Powered by Chainlink): <br><a href='https://chainlist.org/chain/8453' target='_blank' class='chainlist-link'>👉 Click here to add Base Network via Chainlist</a>",
-                guideLi4: "**Gas Fee Requirement:** All transactions require ETH (Base) for gas fees. Make sure you have enough ETH in your wallet to cover transaction costs.",
-                guideLi5: "**Token Delivery Policy:** Your purchased FIXER tokens and referral bonuses are securely tracked on-chain and will become claimable immediately after the public presale round officially concludes.",
-                guideLi6: "**Participation Limits:** Minimum and maximum participation in the presale for each wallet is 10 million to 200 million Fixer Coin tokens (15 USDT to 300 USDT).",
-                guideLi7: "**Automatic Calculation:** Enter USDT amount and the system will automatically calculate your Fixer Coin tokens based on the fixed price of 0.0000015 USDT per token.",
+                videoIntroTitle: "FIXER COIN INTRODUCTION",
+                videoIntroText: "💎🚀 This is the power of the Fixer Community! 🔥",
                 featuresTitle: "Core Whitepaper Features",
                 f1Title: "🔒 Anti-Dump Mechanism",
                 f1Desc: "Imposing smart trading limits on exchanges (Min 10M and Max 200M tokens) to prevent price manipulation by whales.",
-                f2Title: "📊 Tokenomics & Presale Allocation",
-                f2Desc: "Exclusive allocation of 2,000,000,000 Fixer tokens at a fixed initial price of 0.0000015 USDT to build foundational liquidity pools.",
+                f2Title: "📊 Tokenomics & Development Allocation",
+                f2Desc: "Strategic allocation of 2,000,000,000 Fixer tokens for development and building foundational liquidity pools.",
                 f3Title: "🔵 Base Network Framework",
                 f3Desc: "Benefiting from the superior security of Ethereum Layer 1 combined with the extremely low transaction fees of the Base network.",
                 docsSectionTitle: "Official Token Documentation",
@@ -2589,10 +2631,8 @@ Blame
                 id3Desc: "Base Network (L2)",
                 id4Title: "📋 Standard",
                 id4Desc: "ERC-20",
-                id5Title: "💰 Presale Price",
-                id5Desc: "0.0000015 USDT",
-                id6Title: "🔒 Sell Tax",
-                id6Desc: "50% → 0% (Tiered)",
+                id5Title: "🔒 Sell Tax",
+                id5Desc: "50% → 0% (Tiered)",
                 roadmapTitle: "Strategic Roadmap",
                 rm1Title: "🔹 Phase 1",
                 rm1Desc: "Foundation, Absolute Security, and Launch",
@@ -2605,13 +2645,8 @@ Blame
                 whitepaperTitle: "Fixer Coin Whitepaper",
                 wpTitle: "📄 Executive Summary",
                 wpDesc: "In the rapidly shifting landscape of Decentralized Finance (DeFi), extreme market volatility, sudden token dumps by algorithmic trading bots, and short-sighted speculation pose existential threats to newly launched projects. FixerCoin (FIXER) introduces a paradigm shift in tokenomics through an innovative mechanism: an immutable, smart contract-driven dynamic tiered fee system.",
-                presaleSectionTitle: "Public Presale",
                 footerText: "© 2026 Fixer Coin. All Rights Reserved.",
                 alertCopy: "Fixer Coin contract address copied!",
-                alertRefCopy: "Your referral link copied!",
-                alertWalletSuccess: "Wallet connected successfully:\n",
-                alertWalletCancel: "Wallet connection canceled.",
-                alertNoWallet: "No smart wallet found on your browser.",
                 idSpecTitle: "General Specifications & Technical Identity",
                 idNameLabel: "Token Name",
                 idNameValue: "Fixer (FIXER)",
@@ -2629,12 +2664,9 @@ Blame
                 idWallet1Label: "Wallet 1 (Owner)",
                 idWallet1Value: "7B Tokens",
                 idWallet1Percent: "70%",
-                idWallet2Label: "Wallet 2 (Presale)",
+                idWallet2Label: "Wallet 2 (Development)",
                 idWallet2Value: "3B Tokens",
                 idWallet2Percent: "30%",
-                idWallet3Label: "Wallet 3 (AutoSwap)",
-                idWallet3Value: "Fees",
-                idWallet3Percent: "35%",
                 idTaxTitle: "Tiered Tax Mechanism",
                 idTax50: "50% - $0.00000125",
                 idTax40: "40% - $0.00025675",
@@ -2771,6 +2803,10 @@ Blame
             document.getElementById('lang-btn').textContent = langData.langBtn;
             document.getElementById('video-transcript-title').textContent = langData.videoTranscriptTitle;
             document.getElementById('video-transcript-text').innerHTML = langData.videoTranscriptText;
+            document.getElementById('video-transcript-container').style.direction = langData.dir;
+            document.getElementById('video-transcript-container').style.textAlign = currentLang === 'fa' ? 'right' : 'left';
+            document.getElementById('video-intro-title').textContent = langData.videoIntroTitle;
+            document.getElementById('video-intro-text').textContent = langData.videoIntroText;
             document.getElementById('hero-title').innerHTML = langData.heroTitle;
             document.getElementById('hero-desc').textContent = langData.heroDesc;
             document.getElementById('copy-btn').textContent = langData.copyBtn;
