@@ -1514,6 +1514,7 @@ Blame
             <a href="#identity" id="nav-identity">Identity</a>
             <a href="#roadmap" id="nav-roadmap">Roadmap</a>
             <a href="#whitepaper" id="nav-whitepaper">Whitepaper</a>
+            <a href="#home" id="nav-presale">Presale</a>
         </nav>
 
         <!-- Mobile Navigation -->
@@ -1522,11 +1523,11 @@ Blame
             <a href="#identity" onclick="toggleMobileMenu()">Identity</a>
             <a href="#roadmap" onclick="toggleMobileMenu()">Roadmap</a>
             <a href="#whitepaper" onclick="toggleMobileMenu()">Whitepaper</a>
+            <a href="#home" onclick="toggleMobileMenu()">Presale</a>
         </div>
         <div class="header-actions">
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" id="mobile-menu-btn">☰</button>
             <button class="btn-lang" onclick="toggleLanguage()" id="lang-btn">فارسی</button>
-            <button class="btn-connect" onclick="connectWallet()" id="wallet-btn">Connect Wallet</button>
         </div>
     </header>
  
@@ -1590,8 +1591,8 @@ Blame
 
     <!-- کدی که باید اضافه می‌کردید دقیقاً در اینستا قرار گرفت -->
     <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.07); border-radius: 12px; padding: 20px; margin-top: 25px; text-align: left; direction: ltr; box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
-        <h4 style="color: #ffcc00; font-family: 'Segoe UI', Inter, sans-serif; font-size: 16px; margin: 0 0 12px 0; font-weight: bold; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); padding-bottom: 6px;">📝 Fixer Video Transcript:</h4>
-        <p style="color: #cccccc; font-family: 'Segoe UI', Inter, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0; text-align: justify; font-weight: 400;">
+        <h4 id="video-transcript-title" style="color: #ffcc00; font-family: 'Segoe UI', Inter, sans-serif; font-size: 16px; margin: 0 0 12px 0; font-weight: bold; border-bottom: 1px dashed rgba(255, 255, 255, 0.1); padding-bottom: 6px;">📝 Fixer Video Transcript:</h4>
+        <p id="video-transcript-text" style="color: #cccccc; font-family: 'Segoe UI', Inter, sans-serif; font-size: 13.5px; line-height: 1.7; margin: 0; text-align: justify; font-weight: 400;">
             Fixer Coin is a fixed supply cryptocurrency with a total of 10 billion tokens and no re-minting capability. The token is deployed on the Base layer two network built on Ethereum and follows OpenZeppelin security standards. Initial supply of 3 billion tokens includes 2 billion allocated for the presale and 1 billion supplied on the Aerodrome exchange.
             <br><br>
             A dynamic market release adds 5 billion tokens gradually as price rises from 0.00000125 to 0.00128. At this stage, total circulating supply reaches 8 billion tokens. Two billion tokens are reserved for future development and strategic burns.
@@ -2154,6 +2155,40 @@ Blame
                         <li><b>لیست سیاه دفاعی (Blacklist):</b> قابلیت مسدودسازی آدرس ربات‌های ساندویچی مخرب و مهاجم (MEV Bots) بدون ایجاد اختلال در تراکنش کاربران عادی.</li>
                     </ul>`
                 },
+                tech: {
+                    title: "مشخصات فنی و توکنومیکس",
+                    body: `<h4>۱. شناسنامه فنی</h4>
+                    <ul>
+                        <li><b>نام توکن:</b> Fixer</li>
+                        <li><b>نماد:</b> FIXER</li>
+                        <li><b>تعداد کل:</b> ۱۰,۰۰۰,۰۰۰,۰۰۰ (۱۰ میلیارد توکن، عرضه ثابت، غیرقابل ضرب)</li>
+                        <li><b>بلاک‌چین:</b> شبکه بیس (Base L2)</li>
+                        <li><b>استاندارد:</b> ERC-20 (ساخته شده با فریمورک‌های امنیتی OpenZeppelin)</li>
+                    </ul>
+                    <h4>۲. تخصیص توکن (توکنومیک)</h4>
+                    <p>عرضه ثابت ۱۰ میلیارد توکن در سه ماژول عملیاتی استراتژیک توزیع شده است:</p>
+                    <ul>
+                        <li><b>ولت #۱ (مالک):</b> ذخایر تزریق پویا و توسعه اکوسیستم</li>
+                        <li><b>ولت #۲:</b> تخصیص اختصاصی پیش‌فروش و تأمین نقدینگی استخر</li>
+                        <li><b>ولت #۳:</b> انباشت و تبدیل کارمزدهای AutoSwap</li>
+                    </ul>
+                    <h4>۳. سیستم کارمزد پله‌ای پویا</h4>
+                    <p><b>منطق کارمزد:</b> از قیمت کف پایه $0.00000125 تا سقف هدف نهایی $0.00128000، کارمزد فروش به صورت خطی از ۵۰٪ تا دقیقاً ۰٪ کاهش می‌یابد.</p>
+                    <p><b>بازگشت‌پذیری پویا:</b> فرمول کاملاً دوطرفه است؛ اگر شرایط بازار باعث کاهش قیمت شود، قرارداد به طور خودکار پله کارمزد بالاتر متناسب را اعمال می‌کند تا از تخلیه نقدینگی فاجعه‌بار جلوگیری کند.</p>
+                    <h4>۴. حسابداری غیرمتمرکز (منطق مبتنی بر حد نصاب)</h4>
+                    <p>برای بهینه‌سازی کارمزد گاز شبکه و اطمینان از امنیت استخر، تمام کارمزدهای تراکنش به طور خودکار هدایت می‌شوند:</p>
+                    <ul>
+                        <li><b>فاز انباشت:</b> کارمزدها ابتدا به عنوان توکن‌های بومی در خزانه امن قرارداد جمع می‌شوند.</li>
+                        <li><b>حد نصاب اجرا:</b> وقتی خزانه به حد نصاب <b>۲,۰۰۰,۰۰۰ توکن فیکسر</b> رسید، تراکنش فروش بعدی به طور خودکار الگوریتم تفکیک را فعال می‌کند:</li>
+                        <li><b>۳۵٪ سهم نقدینگی و بازاریابی:</b> به طور خودکار به ETH تبدیل شده و به ولت #۳ هدایت می‌شود.</li>
+                        <li><b>۶۵٪ سهم اکوسیستم:</b> مستقیماً به عنوان توکن خام به ولت #۱ منتقل می‌شود تا فشار فروش استخر خارجی را از بین ببرد.</li>
+                    </ul>
+                    <h4>۵. امنیت هوشمند و کنترل دسترسی</h4>
+                    <ul>
+                        <li><b>محافظت‌های ضد نهنگ:</b> محدودیت‌های سخت‌گیرانه برای حداقل مبالغ تراکنش (۱۰ میلیون توکن) و حداکثر اندازه (۲۰۰ میلیون توکن) برای مسدود کردن دستکاری قیمت مخرب.</li>
+                        <li><b>دفاع لیست سیاه:</b> توانایی مستقیم برای قرنطینه کردن ربات‌های ساندویچی MEV شناسایی شده بدون تأثیر بر معامله‌گران خرده‌فروشی واقعی.</li>
+                    </ul>`
+                },
                 roadmap: {
                     title: "نقشه راه استراتژیک پروژه فیکسر کوین",
                     body: `<h4>🔹 فاز ۱: فونداسیون، امنیت مطلق و راه‌اندازی</h4>
@@ -2261,6 +2296,22 @@ Blame
                 navDocs: "مستندات",
                 navPresale: "پیش‌فروش",
                 langBtn: "English",
+                videoTranscriptTitle: "📝 متن ویدئو فیکسر:",
+                videoTranscriptText: `فیکسر کوین یک ارز دیجیتال با عرضه ثابت است که مجموعاً ۱۰ میلیارد توکن دارد و قابلیت ضرب مجدد ندارد. این توکن روی شبکه لایه دوم بیس (Base) که بر بستر اتریوم ساخته شده، استقرار یافته و از استانداردهای امنیتی OpenZeppelin پیروی می‌کند. عرضه اولیه ۳ میلیارد توکن شامل ۲ میلیارد تخصیص یافته برای پیش‌فروش و ۱ میلیارد عرضه شده در صرافی Aerodrome است.
+                <br><br>
+                یک انتشار پویای بازار ۵ میلیارد توکن را به تدریج با افزایش قیمت از ۰.۰۰۰۰۰۱۲۵ تا ۰.۰۰۱۲۸ اضافه می‌کند. در این مرحله، عرضه در گردش کل به ۸ میلیارد توکن می‌رسد. دو میلیارد توکن برای توسعه آینده و سوزش‌های استراتژیک ذخیره شده‌اند.
+                <br><br>
+                سیستم دارای مدل تزریق پویا است که در آن کارمزدهای تراکنش در قیمت کف از ۵۰ درصد شروع می‌شوند. سوزش‌های همزمان و عظیم توکن از کارمزدهای انباشته شده برای کاهش عرضه کل به سمت یک میلیارد توکن استفاده خواهند کرد. وقتی کارمزدها به صفر برسند، لیست شدن در صرافی‌های متمرکز اصلی بلافاصله آغاز می‌شود. قرارداد هوشمند شامل مدیریت قیمت پله‌ای برای کاهش فشار فروش و حمایت از رشد ثابت قیمت است.
+                <br><br>
+                کنترل ضد نهنگ محدودیت‌های تراکنش را بین ۱۰ میلیون تا ۲۰۰ میلیون توکن اعمال می‌کند. این قانون ضد نهنگ حتی در مرحله پیش‌فروش نیز اجرا می‌شود. تابع برداشت اضطراری به کاربران اجازه می‌دهد توکن‌ها یا اتریوم ارسال شده به قرارداد را به اشتباه بازیابی کنند. لایه دفاعی لیست سیاه ربات‌های مخرب را از تعامل با اکوسیستم توکن ایزوله و مسدود می‌کند.
+                <br><br>
+                <b>فاز اول</b> بر استقرار قرارداد هوشمند نهایی، تأمین نقدینگی در Aerodrome و راه‌اندازی پیش‌فروش تمرکز دارد.
+                <br>
+                <b>فاز دوم</b> از توکن‌های باقی‌مانده از تخصیص برای راه‌اندازی لیست شدن در صرافی‌های متمرکز جهانی اصلی استفاده می‌کند.
+                <br>
+                <b>فاز سوم</b> هدف انفجار قیمت از طریق بازاریابی ویروسی، سوزش‌های دستی عظیم و جذب نهنگ‌ها است.
+                <br>
+                <b>فاز چهارم</b> بلوغ اکوسیستم را زمانی که کارمزدها به صفر می‌رسند، نشان می‌دهد که لیست شدن در صرافی‌های ردیف اول و راه‌اندازی کاربرد تجاری را امکان‌پذیر می‌کند.`,
                 walletBtn: "اتصال کیف پول",
                 heroTitle: "اکوسیستم هوشمند و مالی <br><span>فیکسر کوین (FIXER)</span>",
                 heroDesc: "پروژه‌ای نوین بر بستر شبکه امن و سریع بیس (Base USDT) با ساختار توکنومیک ضدِ نوسان شدید (Anti-Dump) و کارمزد معاملات پله‌ای بهینه.",
@@ -2467,6 +2518,22 @@ Blame
                 navDocs: "Documents",
                 navPresale: "Presale",
                 langBtn: "فارسی",
+                videoTranscriptTitle: "📝 Fixer Video Transcript:",
+                videoTranscriptText: `Fixer Coin is a fixed supply cryptocurrency with a total of 10 billion tokens and no re-minting capability. The token is deployed on the Base layer two network built on Ethereum and follows OpenZeppelin security standards. Initial supply of 3 billion tokens includes 2 billion allocated for the presale and 1 billion supplied on the Aerodrome exchange.
+                <br><br>
+                A dynamic market release adds 5 billion tokens gradually as price rises from 0.00000125 to 0.00128. At this stage, total circulating supply reaches 8 billion tokens. Two billion tokens are reserved for future development and strategic burns.
+                <br><br>
+                The system features a dynamic injection model where transaction fees start at 50 percent at the price floor. Concurrent massive token burns will use accumulated fees to reduce total supply toward one billion tokens. When fees drop to zero, listings on major centralized exchanges will immediately begin. The smart contract includes stepwise price management to reduce selling pressure and support steady price growth.
+                <br><br>
+                An anti-whale control enforces transaction limits between 10 million and 200 million tokens. This anti-whale rule is enforced even during the presale phase. An emergency withdrawal function allows users to recover tokens or Ethereum sent to the contract by mistake. A blacklist defense layer isolates and blocks malicious bots from interacting with the token ecosystem.
+                <br><br>
+                <b>Phase one</b> focuses on deploying the final smart contract, securing liquidity on Aerodrome, and launching the presale.
+                <br>
+                <b>Phase two</b> uses remaining tokens from the allocation to trigger listings on major global centralized exchanges.
+                <br>
+                <b>Phase three</b> targets a price explosion through viral marketing, massive manual burns, and whale attraction.
+                <br>
+                <b>Phase four</b> marks ecosystem maturity when fees reach zero, enabling tier one exchange listings and commercial utility launch.`,
                 walletBtn: "Connect Wallet",
                 heroTitle: "Smart & Financial Ecosystem <br><span>Fixer Coin (FIXER)</span>",
                 heroDesc: "An innovative project built on the secure and fast Base network (Base USDT) with an Anti-Dump tokenomics structure and optimized dynamic transaction fees.",
@@ -2702,29 +2769,11 @@ Blame
             document.getElementById('nav-whitepaper').textContent = langData.navWhitepaper;
             document.getElementById('nav-presale').textContent = langData.navPresale;
             document.getElementById('lang-btn').textContent = langData.langBtn;
-            document.getElementById('wallet-btn').textContent = langData.walletBtn;
+            document.getElementById('video-transcript-title').textContent = langData.videoTranscriptTitle;
+            document.getElementById('video-transcript-text').innerHTML = langData.videoTranscriptText;
             document.getElementById('hero-title').innerHTML = langData.heroTitle;
             document.getElementById('hero-desc').textContent = langData.heroDesc;
             document.getElementById('copy-btn').textContent = langData.copyBtn;
-            document.getElementById('panel-title').textContent = langData.panelTitle;
-            document.getElementById('presale-tag').textContent = langData.presaleTag;
-            document.getElementById('label-pay').textContent = langData.labelPay;
-            document.getElementById('label-received').textContent = langData.labelReceived;
-            document.getElementById('buy-btn').textContent = langData.buyBtn;
-            document.getElementById('db-title').textContent = langData.dbTitle;
-            document.getElementById('db-purchased-lbl').textContent = langData.dbPurchasedLbl;
-            document.getElementById('db-refs-lbl').textContent = langData.dbRefsLbl;
-            document.getElementById('db-bonus-lbl').textContent = langData.dbBonusLbl;
-            document.getElementById('ref-title').textContent = langData.refTitle;
-            document.getElementById('ref-copy-btn').textContent = langData.refCopyBtn;
-            document.getElementById('guide-title').textContent = langData.guideTitle;
-            document.getElementById('guide-li1').innerHTML = langData.guideLi1;
-            document.getElementById('guide-li2').innerHTML = langData.guideLi2;
-            document.getElementById('guide-li3').innerHTML = langData.guideLi3;
-            document.getElementById('guide-li4').innerHTML = langData.guideLi4;
-            document.getElementById('guide-li5').innerHTML = langData.guideLi5;
-            document.getElementById('guide-li6').innerHTML = langData.guideLi6;
-            document.getElementById('guide-li7').innerHTML = langData.guideLi7;
             document.getElementById('identity-title').textContent = langData.identityTitle;
             document.getElementById('id1-title').textContent = langData.id1Title;
             document.getElementById('id1-desc').textContent = langData.id1Desc;
@@ -2750,15 +2799,7 @@ Blame
             document.getElementById('whitepaper-title').textContent = langData.whitepaperTitle;
             document.getElementById('wp-title').textContent = langData.wpTitle;
             document.getElementById('wp-desc').textContent = langData.wpDesc;
-            document.getElementById('presale-section-title').textContent = langData.presaleSectionTitle;
             document.getElementById('footer-text').textContent = langData.footerText;
-            document.getElementById('features-title').textContent = langData.featuresTitle;
-            document.getElementById('f1-title').textContent = langData.f1Title;
-            document.getElementById('f1-desc').textContent = langData.f1Desc;
-            document.getElementById('f2-title').textContent = langData.f2Title;
-            document.getElementById('f2-desc').textContent = langData.f2Desc;
-            document.getElementById('f3-title').textContent = langData.f3Title;
-            document.getElementById('f3-desc').textContent = langData.f3Desc;
             document.getElementById('docs-section-title').textContent = langData.docsSectionTitle;
             document.getElementById('doc1-title').textContent = langData.doc1Title;
             document.getElementById('doc1-desc').textContent = langData.doc1Desc;
@@ -2894,16 +2935,6 @@ Blame
                 document.getElementById('wp-sec2-desc').textContent = langData.wpSec2Desc;
                 document.getElementById('wp-sec3-title').textContent = langData.wpSec3Title;
                 document.getElementById('wp-sec3-desc').textContent = langData.wpSec3Desc;
-            }
-
-            // New presale elements
-            if (document.getElementById('label-referrer')) {
-                document.getElementById('label-referrer').textContent = langData.labelReferrer;
-                document.getElementById('label-usdt-balance').textContent = langData.labelUsdtBalance;
-                document.getElementById('label-reserved-balance').textContent = langData.labelReservedBalance;
-                document.getElementById('approve-btn').textContent = langData.approveBtn;
-                document.getElementById('claim-btn').textContent = langData.claimBtn;
-                document.getElementById('network-status').textContent = langData.networkStatus;
             }
 
             // Schematic elements - Identity
@@ -3141,116 +3172,12 @@ Blame
         function closeModal() {
             document.getElementById('doc-modal-overlay').classList.remove('active');
         }
-                trackReferral(referrerAddress, userWalletAddress, parseFloat(usdtAmount));
-            }
-
-            try {
-                const buyBtn = document.getElementById('buy-btn');
-                buyBtn.textContent = "Processing...";
-                buyBtn.disabled = true;
-
-                const amountInWei = ethers.utils.parseUnits(usdtAmount, 6);
-                const tx = await presaleContract.buyTokens(amountInWei, referrerAddress);
-                await tx.wait();
-
-                alert("خرید با موفقیت انجام شد!");
-                buyBtn.textContent = translations[currentLang].buyBtn;
-                buyBtn.disabled = false;
-
-                // Update balances
-                await updateBalances();
-            } catch (error) {
-                console.error('Error buying tokens:', error);
-                alert("خطا در خرید توکن: " + error.message);
-                const buyBtn = document.getElementById('buy-btn');
-                buyBtn.textContent = translations[currentLang].buyBtn;
-                buyBtn.disabled = false;
-            }
-        }
-
-        // Claim purchased tokens after presale ends
-        async function claimTokens() {
-            if (!userWalletAddress) {
-                alert("لطفاً ابتدا کیف پول خود را متصل کنید.");
-                return;
-            }
-
-            if (!await checkNetwork()) {
-                alert("لطفاً به شبکه Base تغییر دهید.");
-                await switchNetworkToBase();
-                return;
-            }
-
-            try {
-                const claimBtn = document.getElementById('claim-btn');
-                claimBtn.textContent = "Processing...";
-                claimBtn.disabled = true;
-
-                const tx = await presaleContract.claimTokens();
-                await tx.wait();
-
-                alert("توکن‌ها با موفقیت برداشت شدند!");
-                claimBtn.textContent = translations[currentLang].claimBtn;
-                claimBtn.disabled = false;
-
-                // Update balances
-                await updateBalances();
-            } catch (error) {
-                console.error('Error claiming tokens:', error);
-                alert("خطا در برداشت توکن: " + error.message);
-                const claimBtn = document.getElementById('claim-btn');
-                claimBtn.textContent = translations[currentLang].claimBtn;
-                claimBtn.disabled = false;
-            }
-        }
-
-        // Initialize contracts when wallet is connected
-        async function initializeContracts() {
-            if (!window.ethereum || !userWalletAddress) return;
-
-            try {
-                provider = new ethers.providers.Web3Provider(window.ethereum);
-                signer = provider.getSigner();
-
-                // Initialize USDT contract
-                usdtContract = new ethers.Contract(USDT_BASE_ADDRESS, usdtAbi, signer);
-
-                // Initialize Presale contract
-                presaleContract = new ethers.Contract(PRESALE_ADDRESS, presaleAbi, signer);
-
-                // Update balances
-                await updateBalances();
-            } catch (error) {
-                console.error('Error initializing contracts:', error);
-            }
-        }
-
-        // Update connectWallet function to initialize contracts
-        const originalConnectWallet = connectWallet;
-        connectWallet = async function() {
-            await originalConnectWallet();
-            if (userWalletAddress) {
-                await checkNetwork();
-                await initializeContracts();
-            }
-        };
-
-        // Add event listeners for new buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('approve-btn').addEventListener('click', approveUSDT);
-            document.getElementById('buy-btn').addEventListener('click', buyTokens);
-            document.getElementById('claim-btn').addEventListener('click', claimTokens);
-        });
 
         function closeModalOnOverlay(event) {
             if (event.target.id === 'doc-modal-overlay') {
                 closeModal();
             }
         }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            document.getElementById('wallet-btn').addEventListener('click', connectWallet);
-        });
     </script>
 </body>
 </html>
