@@ -171,6 +171,27 @@ Blame
 
         nav a:hover { color: var(--primary); }
 
+        #nav-presale {
+            font-size: 18px;
+            font-weight: bold;
+            animation: presaleBlink 1s infinite alternate;
+        }
+
+        @keyframes presaleBlink {
+            0% {
+                color: #ffcc00;
+                text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+            }
+            50% {
+                color: #ff3333;
+                text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
+            }
+            100% {
+                color: #ffcc00;
+                text-shadow: 0 0 10px #ffcc00, 0 0 20px #ff9900;
+            }
+        }
+
         /* Mobile Menu Button */
         .mobile-menu-btn {
             display: none;
@@ -1666,7 +1687,7 @@ Blame
     }
     </style>
 
-    <h3 id="video-intro-title" style="font-family: 'Segoe UI', Inter, sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFireFlash 1.2s infinite alternate; margin-top: 0;">
+    <h3 id="video-intro-title" style="font-family: 'B Nazanin', sans-serif; font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 25px; letter-spacing: 1px; animation: fixerFireFlash 1.2s infinite alternate; margin-top: 0;">
         FIXER COIN INTRODUCTION
     </h3>
     
